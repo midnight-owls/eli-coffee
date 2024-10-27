@@ -1,14 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eli Coffee</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
 
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <h2>Home Menu Events About us </h2>
-    <div><h2>Sign in Sign up</h2></div>
-</body>
+    <title>Home</title>
+
+    <style>
+      * {
+        font-family: "Noto Sans", sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      .navbar {
+        display: flex;
+        align-items: center;
+        height: 60px;
+      }
+      .coffee-bean {
+        vertical-align: middle;
+        width: 40px;
+        margin-right: 20px;
+        object-fit: cover;
+        padding: 6px 12px;
+        cursor: pointer;
+      }
+      .nav-actions {
+        color: #421f0c;
+        font-weight: 800;
+        font-size: 1em;
+        display: inline-flex;
+        gap: 30px;
+      }
+      .home,
+      .menu,
+      .events {
+        cursor: pointer;
+      }
+
+      .account-actions {
+        display: inline-flex;
+        margin-left: auto;
+        margin-right: 10px;
+      }
+      .sign-in-button {
+        padding: 8px 20px;
+        padding-right: 40px;
+        font-weight: 800;
+        font-size: 0.8em;
+        color: #421f0c;
+        border: none;
+        border-radius: 20px 0px 0px 20px;
+        cursor: pointer;
+      }
+      .sign-up-button {
+        margin-left: -30px;
+        padding: 8px 20px;
+        font-weight: 800;
+        font-size: 0.8em;
+        color: white;
+        background-color: #421f0c;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        z-index: 1;
+      }
+      .sign-up-button:hover {
+        background-color: #5c2c0d;
+      }
+      .sign-up-button:active {
+        background-color: #3d1d0a;
+      }
+
+      .home-main {
+        position: relative;
+        height: 90vh;
+        background-image: url("assets/background.png");
+        background-size: cover;
+        background-position: center 90%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .eli-coffee-logo {
+        position: absolute;
+        top: 0%;
+        width: 150px;
+        object-fit: cover;
+        z-index: 1;
+      }
+      .tagline {
+        position: absolute;
+        top: 30%;
+        font-size: 1em;
+        color: #421f0c;
+        font-weight: 800;
+        cursor: default;
+      }
+
+      .order-now-button {
+        position: fixed;
+        bottom: 30px;
+        padding: 10px 20px;
+        font-weight: 800;
+        font-size: 0.8em;
+        color: #421f0c;
+        border: 1px solid #421f0c;
+        border-radius: 20px;
+        cursor: pointer;
+        z-index: 1;
+      }
+      .about-us-button {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        padding: 0 2px;
+        font-weight: 800;
+        font-size: 0.8em;
+        color: #421f0c;
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid #421f0c;
+        cursor: pointer;
+        z-index: 1;
+      }
+      .about-us-button:hover {
+        padding-bottom: 1px;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <div>
+        <img
+          class="coffee-bean"
+          src="assets/coffee-bean-logo.png"
+          alt="Coffee Bean Logo"
+        />
+      </div>
+      <div class="nav-actions">
+        <div class="home">HOME</div>
+        <div class="menu">MENU</div>
+        <div class="events">EVENTS</div>
+      </div>
+      <div class="account-actions">
+        <button class="sign-in-button">SIGN IN</button>
+        <button class="sign-up-button">SIGN UP</button>
+      </div>
+    </div>
+
+    <main class="home-main">
+      <img
+        class="eli-coffee-logo"
+        src="assets/eli-coffee-logo.png"
+        alt="Eli Coffee Logo"
+      />
+      <p class="tagline">GROUND WITH PASSION, BREWED WITH LOVE</p>
+      <button class="order-now-button">Order Now</button>
+      <button class="about-us-button">About Us</button>
+    </main>
+  </body>
 </html>
