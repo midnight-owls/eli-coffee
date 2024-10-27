@@ -1,4 +1,4 @@
-/* Reset default styling */
+
 * {
     margin: 0;
     padding: 0;
@@ -56,7 +56,7 @@ main h2 {
   
 .cart-section {
     display: flex;
-    justify-content: center; /* Center align the cart-wrapper */
+    justify-content: center; 
     align-items: flex-start;
     gap: 10px;
     position: relative;
@@ -64,10 +64,10 @@ main h2 {
   
 .cart-wrapper {
     display: flex;
-    border: 1px solid #000; /* Border around the entire cart */
+    border: 1px solid #000; 
     padding: 10px;
     background-color: #fff;
-    width: 100%; /* Full width within cart-section */
+    width: 100%; 
 }
   
 .cart-container {
@@ -108,7 +108,7 @@ main h2 {
 }
   
 .checkout-section {
-    border-left: 1px solid #000; /* Optional: separate the checkout from items */
+    border-left: 1px solid #000; 
     padding: 10px;
     width: 150px;
 }
