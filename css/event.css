@@ -1,0 +1,121 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    border: 1px solid #000;
+    padding: 20px;
+    max-width: 800px;
+    width: 100%;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title {
+    font-family: 'Brush Script MT', cursive;
+    font-size: 24px;
+}
+
+.nav-links a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #000;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.form-section {
+    border: 1px solid #000;
+    padding: 15px;
+    width: 50%;
+}
+
+.form-section h2 {
+    text-align: center;
+    margin-top: 0;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 5px;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.scheduled-event {
+    border: 1px solid #000;
+    padding: 15px;
+    width: 30%; 
+    height: 250px; 
+    position: relative;
+    display: none; 
+    box-sizing: border-box;
+    align-self: center; 
+    text-align: center;
+    margin-left: -50px; 
+}
+
+.scheduled-event h3 {
+    margin-top: 0;
+    font-size: 18px;
+}
+
+.note {
+    color: red;
+    font-size: 12px;
+}
+
+.pin {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    font-size: 24px; 
+    color: red;
+    transform: rotate(-20deg); 
+}
+
+.exit-btn {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background-color: #f5f5f5;
+    border: 1px solid #000;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    color: #000;
+    text-align: center;
+    border-radius: 3px;
+}
+
+.exit-btn:hover {
+    background-color: #e0e0e0;
+}
