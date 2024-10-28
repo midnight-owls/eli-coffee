@@ -89,7 +89,7 @@
 .home-main-section {
   position: relative;
   height: 90vh;
-  background-image: url("assets/background.png");
+  background-image: url("../assets/background.png");
   background-size: cover;
   background-position: center 90%;
   display: flex;
