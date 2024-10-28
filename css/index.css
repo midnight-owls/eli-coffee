@@ -1,0 +1,151 @@
+* {
+  font-family: "Noto Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* navbar */
+.navbar {
+  display: flex;
+  align-items: center;
+  height: 52px;
+  border-bottom: 2px solid #421f0c;
+}
+.navbar-logo-icon {
+  vertical-align: middle;
+  width: 42px;
+  margin: 0 12px;
+  margin-right: 20px;
+  object-fit: cover;
+  cursor: pointer;
+}
+.navbar-menu-items {
+  color: #421f0c;
+  font-weight: 800;
+  font-size: 1em;
+  display: inline-flex;
+  gap: 16px;
+}
+.navbar-link-home,
+.navbar-link-menu,
+.navbar-link-events {
+  cursor: pointer;
+}
+.navbar-link-home {
+  color: black;
+  cursor: default;
+}
+.navbar-link-menu:hover,
+.navbar-link-events:hover {
+  color: black;
+}
+.navbar-separator {
+  cursor: default;
+}
+
+.navbar-account-actions {
+  display: inline-flex;
+  margin-left: auto;
+  margin-right: 20px;
+  align-items: center;
+}
+
+.btn-sign-in {
+  padding: 8px 20px;
+  font-weight: 800;
+  font-size: 0.8em;
+  color: #421f0c;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.btn-sign-in:hover {
+  color: black;
+}
+
+.user-icon-wrapper {
+  width: 30px;
+  height: 30px;
+  margin-left: 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  display: flex;
+  overflow: hidden;
+  transition: outline 0.1s;
+}
+.user-icon-wrapper:hover {
+  box-shadow: none;
+  outline: 1.5px solid #421f0c;
+}
+.user-icon {
+  width: 100%;
+  height: auto;
+  transform: translateY(6px);
+  object-fit: cover;
+  cursor: pointer;
+}
+
+/* home page */
+.home-main-section {
+  position: relative;
+  height: 90vh;
+  background-image: url("assets/background.png");
+  background-size: cover;
+  background-position: center 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-logo {
+  position: absolute;
+  top: -2px;
+  width: 150px;
+  border: 2px solid #421f0c;
+  border-top: none;
+  object-fit: cover;
+  z-index: 1;
+}
+.home-tagline {
+  position: absolute;
+  top: 30%;
+  font-size: 1em;
+  color: #421f0c;
+  font-weight: 800;
+  cursor: default;
+}
+
+.btn-order-now {
+  position: fixed;
+  bottom: 30px;
+  padding: 10px 20px;
+  font-weight: 800;
+  font-size: 0.8em;
+  color: #421f0c;
+  border: 1px solid #421f0c;
+  border-radius: 20px;
+  cursor: pointer;
+  z-index: 1;
+}
+.btn-order-now:hover {
+  color: black;
+}
+.btn-about-us {
+  position: fixed;
+  bottom: 30px;
+  right: 40px;
+  padding: 0 2px;
+  font-weight: 800;
+  font-size: 0.8em;
+  color: #421f0c;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #421f0c;
+  cursor: pointer;
+  z-index: 1;
+}
+.btn-about-us:hover {
+  color: black;
+  padding-bottom: 1px;
+  border: none;
+}
