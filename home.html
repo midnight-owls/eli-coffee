@@ -34,7 +34,7 @@
         object-fit: cover;
         cursor: pointer;
       }
-      .navbar-menu-items {
+      .navbar-items {
         color: #421f0c;
         font-weight: 800;
         font-size: 1em;
@@ -64,20 +64,16 @@
         margin-right: 20px;
         align-items: center;
       }
-
-      .btn-sign-in {
-        padding: 8px 20px;
-        font-weight: 800;
-        font-size: 0.8em;
+      .navbar-link-dashboard {
         color: #421f0c;
-        border: none;
-        border-radius: 20px;
+        font-weight: 800;
+        font-size: 1em;
+        display: inline-flex;
         cursor: pointer;
       }
-      .btn-sign-in:hover {
+      .navbar-link-dashboard:hover {
         color: black;
       }
-
       .user-icon-wrapper {
         width: 30px;
         height: 30px;
@@ -176,7 +172,7 @@
           alt="Coffee Bean Logo"
         />
       </div>
-      <div class="navbar-menu-items">
+      <div class="navbar-items">
         <div class="navbar-link-home">HOME</div>
         <div class="navbar-separator">|</div>
         <div class="navbar-link-menu">MENU</div>
@@ -185,7 +181,7 @@
         <div class="navbar-link-events">EVENTS</div>
       </div>
       <div class="navbar-account-actions">
-        <button class="btn-sign-in">Sign In</button>
+        <div class="navbar-link-dashboard">DASHBOARD</div>
         <div class="user-icon-wrapper">
           <img class="user-icon" src="assets/user.png" alt="User Icon" />
         </div>
