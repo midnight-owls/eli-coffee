@@ -7,12 +7,12 @@ body {
     align-items: center;
     min-height: 100vh;
 }
-
+/*whole events container*/
 .container {
     border: 1px solid #000;
     padding: 20px;
     max-width: 800px;
-    width: 100%;
+    width: 150%;
 }
 
 header {
@@ -23,15 +23,17 @@ header {
 
 .title {
     font-family: 'Brush Script MT', cursive;
-    font-size: 24px;
+    font-size: 50px;
 }
 
+/*dashboard|account|logout*/
 .nav-links a {
-    margin: 0 10px;
+    margin: 0 5px;
     text-decoration: none;
     color: #000;
 }
 
+/*events container*/
 .content {
     display: flex;
     justify-content: space-between;
@@ -40,7 +42,7 @@ header {
 
 .form-section {
     border: 1px solid #000;
-    padding: 15px;
+    padding: 20px;
     width: 50%;
 }
 
@@ -50,7 +52,7 @@ header {
 }
 
 .form-group {
-    margin-bottom: 10px;
+    margin-bottom: 5%;
 }
 
 .form-group label {
@@ -61,26 +63,31 @@ header {
 .form-group input,
 .form-group select,
 .form-group textarea {
-    width: 100%;
+    width: 70%;
     padding: 5px;
 }
 
 .form-buttons {
-    display: flex;
+    display: grid;
     justify-content: space-between;
+    width: 70%;
+    position: absolute;
+    margin-top: -93px;
+    margin-left: 315px;
 }
 
 .scheduled-event {
     border: 1px solid #000;
     padding: 15px;
-    width: 30%; 
+    width: 20%; 
     height: 250px; 
-    position: relative;
+    position: absolute;
     display: none; 
     box-sizing: border-box;
     align-self: center; 
     text-align: center;
-    margin-left: -50px; 
+    margin-left: 490px; 
+    margin-bottom: 5px;
 }
 
 .scheduled-event h3 {
