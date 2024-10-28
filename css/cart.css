@@ -27,12 +27,8 @@ header {
   
 header h1 {
     font-family: 'Brush Script MT', cursive;
-    font-size: 2em;
+    font-size: 50px;
     margin-right: auto;
-}
-  
-header nav {
-    font-weight: bold;
 }
   
 header nav a {
@@ -73,8 +69,9 @@ main h2 {
 .cart-container {
     max-height: 200px;
     overflow-y: auto;
-    width: 250px;
+    width: 420px;
     padding: 10px;
+    border-right: 1px solid #000;
 }
   
 .cart-item {
@@ -108,39 +105,45 @@ main h2 {
 }
   
 .checkout-section {
-    border-left: 1px solid #000; 
+    border: 1px solid #000;
     padding: 10px;
     width: 150px;
+    display: absolute;
+    margin-top: 100px;
+    margin-left: 10px;
 }
   
 .checkout-section p {
     margin-bottom: 5px;
-    font-size: 0.9em;
+    font-size: 12px;
+    text-align: left;
 }
   
 .actions {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border-top: 1px solid #000;
     margin-top: 10px;
 }
   
 .actions input[type="checkbox"] {
     margin-right: 5px;
 }
-  
+ 
 .actions label {
-    font-size: 0.9em;
+    font-size: 10px;
 }
-  
+ 
+/*checkout button font*/
 .actions button {
     padding: 5px;
     background-color: #000;
     color: #fff;
     border: none;
-    font-weight: bold;
     cursor: pointer;
-    font-size: 0.9em;
-    width: 100%;
+    font-size: 12px;
+    width: 80%;
     margin-top: 5px;
+    margin-left: 10px;
 }
