@@ -55,6 +55,43 @@
     background-color: aqua;
 }
 
+
+.log-out{
+    border-radius: 10px; 
+    width: 100px;
+    cursor: pointer;
+    background-color: white;
+    border: none;
+}
+
+.log-out:hover{
+    opacity: 0.7;
+}
+
+.content-container {
+    display: flex;
+    width: 100%; /* Make the parent container span the full width */
+    gap: 10px; /* Optional: Adds space between child elements */
+}
+
+.event-schedule{
+    border-style: solid;
+    height: 63vh;
+    width: 200px; /* Set a fixed width */
+    margin-top: 10px;
+    text-align: center;
+    font-size: 24px;
+}
+
+.sale-analytics{
+    border-style: solid;
+    height: 63vh;
+    flex-grow: 1; /* Allows it to stretch and fill the remaining space */
+    margin-top: 10px;
+    text-align: center;
+    font-size: 24px;
+}
+
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     /* Stack containers on top of each other for smaller screens */
@@ -73,16 +110,4 @@
     .admin-name h2, .admin-name h3 {
         font-size: 1.1rem; /* Adjust font size */
     }
-}
-
-.log-out{
-    border-radius: 10px; 
-    width: 100px;
-    cursor: pointer;
-    background-color: white;
-    border: none;
-}
-
-.log-out:hover{
-    opacity: 0.7;
 }
