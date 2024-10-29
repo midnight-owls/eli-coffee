@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+body {
+    background-image: url(assets/background.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #c28484;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.team, .description, .reviews {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.team {
+    grid-column: span 1;
+}
+
+.team h2 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 33.3% 33.3% 33.3%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.team-member {
+    text-align: center;
+    margin: 10px;
+}
+
+.team-photo {
+    width: 80px;
+    height: 80px;
+    background-color: antiquewhite;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+}
+
+.team-name {
+    font-size: 15px;
+    color: #2c2222;
+}
+
+.description {
+    grid-column: span 1;
+}
+
+.description p {
+    font-size: 14px;
+    font-style: normal;
+    line-height: 1.6;
+    color: #666;
+}
+
+.reviews {
+    grid-column: span 2;
+}
+
+.reviews-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: #333;
+}
+
+.review-count, .average-rating {
+    font-weight: bold;
+}
+
+.review-list {
+    max-height: 200px;
+    overflow-y: auto;
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+}
+
+.review {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.reviewer-photo {
+    background-image: url(assets/user.png);
+    width: 40px;
+    height: 40px;
+    background-color: #4a4a4a;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.review-content {
+    flex: 1;
+}
+
+.reviewer-name {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.review-rating {
+    font-size: 14px;
+    color: #ff9800;
+}
+
+.review-date {
+    font-size: 12px;
+    color: #999;
+}
