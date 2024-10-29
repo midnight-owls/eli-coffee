@@ -1,4 +1,3 @@
-/* Base Styles */
 .container {
     display: flex;
     flex-wrap: wrap; 
@@ -17,13 +16,13 @@
 } */
 
 .left-container {
-    background-color: #f8f8f8;
+    background-color: #e2dede;
     border-radius: 10px;
     padding: 20px;
 }
 
 .right-container {
-    background-color: #796868;
+    background-color: white;
     border-radius: 10px;
     flex: 1;
     box-sizing: border-box;
@@ -52,7 +51,8 @@
 }
 
 .buttons button:hover{
-    background-color: aqua;
+    background-color: #c9c9c9;
+    opacity: 0.7;
 }
 
 
@@ -68,28 +68,47 @@
     opacity: 0.7;
 }
 
-.content-container {
+.order-customer-sales-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 200px;
+    border-radius: 10px;
+    padding-left: 5px;
+    gap: 10px;
+}
+
+.order, .customer, .sales{
+    background-color: #e2dede;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.sale-event-container {
     display: flex;
-    width: 100%; /* Make the parent container span the full width */
-    gap: 10px; /* Optional: Adds space between child elements */
+    height: 75vh; /* Full viewport height */
+    gap: 10px; /* Optional: Adds space between the two columns */
+    padding: 10px;
+    box-sizing: border-box;
 }
 
-.event-schedule{
-    border-style: solid;
-    height: 63vh;
-    width: 200px; /* Set a fixed width */
-    margin-top: 10px;
+.event-schedule {
+    background-color: #e2dede;
+    width: 200px; /* Fixed width */
     text-align: center;
     font-size: 24px;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-.sale-analytics{
-    border-style: solid;
-    height: 63vh;
-    flex-grow: 1; /* Allows it to stretch and fill the remaining space */
-    margin-top: 10px;
-    text-align: center;
+/* Sale Analytics */
+.sale-analytics {
+    background-color: #e2dede;
+    flex-grow: 1; /* Expands to fill remaining horizontal space */
     font-size: 24px;
+    display: flex; /* Center content vertically and horizontally */    
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 /* Responsive Adjustments */
