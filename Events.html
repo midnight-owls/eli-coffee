@@ -1,76 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Events</title>
-    <link rel="stylesheet" href="css/event.css"> 
-</head>
-<body>
+    <link rel="stylesheet" href="css/event.css" />
+  </head>
+  <body>
     <div class="container">
-        <header>
-            <div class="title">Eli Coffee</div>
-            <div class="nav-links">
-                <a href="#">DASHBOARD</a> |
-                <a href="#">ACCOUNT</a> |
-                <a href="#">LOGOUT</a>
-            </div>
-        </header>
-
-        <div class="content">
-            <div class="form-section">
-                <h2>EVENTS</h2>
-                <form>
-                    <div class="form-group">
-                        <label for="date">DATE</label>
-                        <input type="date" id="date" name="date">
-                    </div>
-                    <div class="form-group">
-                        <label for="event-type">EVENT TYPE</label>
-                        <select id="event-type" name="event-type">
-                            <option value="">Select Event Type</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="volume">VOLUME OF GUEST</label>
-                        <select id="volume" name="volume">
-                            <option value="">Select Volume</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="comments">COMMENT/S</label>
-                        <textarea id="comments" name="comments" rows="4"></textarea>
-                    </div>
-                    <div class="form-buttons">
-                        <button type="button">CONFIRM</button>
-                        <button type="reset">CLEAR</button>
-                        <button type="button" onclick="showScheduledEvent()">VIEW</button>
-                    </div>
-                </form>
-            </div>
-
-            <div class="scheduled-event" id="scheduledEvent">
-                <div class="pin">📌</div>
-                <h3>Scheduled Event</h3>
-                <ul>
-                    <li>Event Details...</li>
-                    <li>Event Details...</li>
-                    <li>Event Details...</li>
-                </ul>
-                
-                <button class="exit-btn" onclick="hideScheduledEvent()">EXIT</button>
-            </div>
+      <header>
+        <div class="title">Eli Coffee</div>
+        <div class="nav-links">
+          <a href="home-page.html">HOME</a> | <a href="#">DASHBOARD</a> |
+          <a href="#">ACCOUNT</a> |
+          <a href="#">LOGOUT</a>
         </div>
+      </header>
+
+      <div class="content">
+        <div class="form-section">
+          <h2>EVENTS</h2>
+          <form>
+            <div class="form-group">
+              <label for="date">DATE</label>
+              <input type="date" id="date" name="date" />
+            </div>
+            <div class="form-group">
+              <label for="event-type">EVENT TYPE</label>
+              <select id="event-type" name="event-type">
+                <option value="">Select Event Type</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="volume">VOLUME OF GUEST</label>
+              <select id="volume" name="volume">
+                <option value="">Select Volume</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="comments">COMMENT/S</label>
+              <textarea id="comments" name="comments" rows="4"></textarea>
+            </div>
+            <div class="form-buttons">
+              <button type="button">CONFIRM</button>
+              <button type="reset">CLEAR</button>
+              <button type="button" onclick="showScheduledEvent()">VIEW</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="scheduled-event" id="scheduledEvent">
+          <div class="pin">📌</div>
+          <h3>Scheduled Event</h3>
+          <ul>
+            <li>Event Details...</li>
+            <li>Event Details...</li>
+            <li>Event Details...</li>
+          </ul>
+
+          <button class="exit-btn" onclick="hideScheduledEvent()">EXIT</button>
+        </div>
+      </div>
     </div>
 
     <script>
-        function showScheduledEvent() {
-            document.getElementById('scheduledEvent').style.display = 'block';
-        }
+      function showScheduledEvent() {
+        document.getElementById("scheduledEvent").style.display = "block";
+      }
 
-        function hideScheduledEvent() {
-            document.getElementById('scheduledEvent').style.display = 'none';
-        }
+      function hideScheduledEvent() {
+        document.getElementById("scheduledEvent").style.display = "none";
+      }
     </script>
-</body>
+  </body>
 </html>
