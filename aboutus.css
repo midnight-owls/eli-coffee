@@ -4,9 +4,6 @@
     box-sizing: border-box;
     font-family: Arial, Impact, 'Arial Narrow Bold', sans-serif;
 }
-header{
-
-}
 
 body {
     background-image: url(assets/background.png);
@@ -28,7 +25,6 @@ body {
     box-shadow: 0 2px 8px rgb(15, 15, 15);
     margin-left: 40px;
     margin-right: 40px;
-
 }
 
 h1 {
@@ -43,6 +39,7 @@ h1 {
     grid-template-columns: 1fr 1fr;
     gap: 20px;
 }
+
 .team-grid {
     margin-bottom: 20px;
     display: grid;
@@ -104,7 +101,6 @@ h1 {
     font-size: 18px;
     color: #302424;
 }
-
 
 .description {
     margin-bottom: 10px;
@@ -179,3 +175,24 @@ h1 {
     font-size: 12px;
     color: #999;
 }
+
+.form_close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    color: #421f0c;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.form_close:hover {
+    color: #65301a;
+    transform: scale(1.2);
+}
+
+.form_close:active {
+    color: #2e1206;
+    transform: scale(1);
+}
+
