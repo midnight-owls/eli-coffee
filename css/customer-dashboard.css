@@ -1,0 +1,209 @@
+* {
+    font-family: "Noto Sans", sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* navbar */
+  .navbar {
+    display: flex;
+    align-items: center;
+    height: 52px;
+    border-bottom: 2px solid #421f0c;
+  }
+  .navbar-logo-icon {
+    vertical-align: middle;
+    width: 42px;
+    margin: 0 12px;
+    margin-right: 20px;
+    object-fit: cover;
+    cursor: pointer;
+  }
+  .navbar-items {
+    color: #421f0c;
+    font-weight: 800;
+    font-size: 1em;
+    display: inline-flex;
+    gap: 16px;
+  }
+  .navbar-link-home,
+  .navbar-link-menu,
+  .navbar-link-events {
+    cursor: pointer;
+    color: #421f0c;
+    text-decoration: none;
+  }
+
+  .navbar-link-menu:hover,
+  .navbar-link-events:hover, 
+  .navbar-link-home:hover{
+    color: black;
+  }
+  .navbar-separator {
+    cursor: default;
+  }
+  
+  .navbar-account-actions {
+    display: inline-flex;
+    margin-left: auto;
+    margin-right: 20px;
+    align-items: center;
+  }
+  .navbar-link-dashboard {
+    color: black;
+    cursor: default;
+    font-weight: 800;
+    font-size: 1em;
+    display: inline-flex;
+    cursor: default;
+  }
+  .navbar-link-dashboard:hover {
+    color: black;
+    cursor: pointer;
+  }
+  .user-icon-wrapper {
+    width: 30px;
+    height: 30px;
+    margin-left: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    display: flex;
+    overflow: hidden;
+    transition: outline 0.1s;
+  }
+  .user-icon-wrapper:hover {
+    box-shadow: none;
+    outline: 1.5px solid #421f0c;
+  }
+  .user-icon {
+    width: 100%;
+    height: auto;
+    transform: translateY(6px);
+    object-fit: cover;
+    cursor: pointer;
+  }
+  
+  /* home page */
+  .home-main-section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* This ensures any overflow is hidden */
+    }
+
+    .home-main-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("../assets/background.png");
+        background-size: cover;
+        background-position: center 90%;
+        opacity: 0.5; /* Adjust this value to control opacity */
+        z-index: -1; /* Places the background behind other content */
+    }
+
+  .home-tagline {
+    position: absolute;
+    top: 30%;
+    font-size: 1em;
+    color: #421f0c;
+    font-weight: 800;
+    cursor: default;
+  }
+
+.dashboard-content {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(450px, 1fr)); /* Minimum width of 300px, flexible beyond that */
+    gap: 100px;
+    height: 80vh;
+    text-align: center;
+}
+
+  .order-status {
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 50px;
+    padding-top: 30px;
+    padding: 10%;
+  }
+
+  .to-receive, .rider-details, .payment-method, .amount {
+    margin: 50px;
+    font-size: 21px;
+  }
+
+  .amount {
+    margin-bottom: 0px;
+  }
+
+  .customer-profile{
+    padding-top: 5px;
+    margin-bottom: 125px;
+  }
+
+  .customer-picture{
+    border-style: solid;
+    width: 200px;
+    height: 200px;
+    border-radius: 12px;
+    border-width: 6px;
+  }
+
+  .user-info{
+    margin-top: 50px;
+    margin-bottom: 30px;
+  }
+
+  .order-status h3 {
+    color: #6a6565;
+  }
+
+  .order-event-history {
+    display: grid;
+    grid-template-rows: (2, 1fr);
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 50px;
+    padding-top: 30px;
+  }
+  
+  .btn-order-now {
+    position: fixed;
+    bottom: 30px;
+    padding: 10px 20px;
+    font-weight: 800;
+    font-size: 0.8em;
+    color: #421f0c;
+    border: 1px solid #421f0c;
+    border-radius: 20px;
+    cursor: pointer;
+    z-index: 1;
+  }
+  .btn-order-now:hover {
+    color: black;
+  }
+  .btn-about-us {
+    position: fixed;
+    bottom: 30px;
+    right: 40px;
+    padding: 0 2px;
+    font-weight: 800;
+    font-size: 0.8em;
+    color: #421f0c;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #421f0c;
+    cursor: pointer;
+    z-index: 1;
+  }
+  .btn-about-us:hover {
+    color: black;
+    padding-bottom: 1px;
+    border: none;
+  }
+  
