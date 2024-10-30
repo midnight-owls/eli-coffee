@@ -1,0 +1,104 @@
+* {
+  font-family: "Noto Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* navbar */
+.navbar {
+  display: flex;
+  align-items: center;
+  height: 52px;
+  border-bottom: 2px solid #421f0c;
+}
+.navbar-logo-icon {
+  vertical-align: middle;
+  width: 42px;
+  margin: 0 12px;
+  margin-right: 20px;
+  object-fit: cover;
+  cursor: pointer;
+}
+.navbar-items {
+  color: #421f0c;
+  font-weight: 800;
+  font-size: 1em;
+  display: inline-flex;
+  gap: 16px;
+}
+.navbar-link-home,
+.navbar-link-menu,
+.navbar-link-events {
+  cursor: pointer;
+}
+.navbar-link-menu:hover,
+.navbar-link-events:hover {
+  color: black;
+}
+.navbar-separator {
+  cursor: default;
+}
+
+.navbar-account-actions {
+  display: inline-flex;
+  margin-left: auto;
+  margin-right: 20px;
+  align-items: center;
+}
+.navbar-link-dashboard {
+  color: black;
+  font-weight: 800;
+  font-size: 1em;
+  display: inline-flex;
+  cursor: pointer;
+}
+
+.user-icon-wrapper {
+  width: 30px;
+  height: 30px;
+  margin-left: 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  display: flex;
+  overflow: hidden;
+  transition: outline 0.1s;
+}
+.user-icon-wrapper:hover {
+  box-shadow: none;
+  outline: 1.5px solid #421f0c;
+}
+.user-icon {
+  width: 100%;
+  height: auto;
+  transform: translateY(6px);
+  object-fit: cover;
+  cursor: pointer;
+}
+
+/* Dashboard Layout */
+.dashboard-main-section {
+  display: flex;
+  height: calc(100vh - 52px);
+}
+
+.dashboard-content {
+  flex: 1;
+  padding: 20px;
+  background-color: #f8f8f8;
+}
+
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 2em;
+}
+
+.dashboard-card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  cursor: default;
+}
