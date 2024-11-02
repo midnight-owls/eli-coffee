@@ -6,7 +6,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-image: url("../assets/background.png");
+    background-image: url("../assets/homepage-background.png");
     background-size: cover;
     background-position: center 90%;
 }
