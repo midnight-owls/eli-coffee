@@ -9,7 +9,7 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/home-page.css" />
+    <link rel="stylesheet" href="css/home.css" />
     <title>Home</title>
   </head>
   <body>
@@ -25,15 +25,20 @@
       <div class="navbar-items">
         <div class="navbar-link-home">HOME</div>
         <div class="navbar-separator">|</div>
-        <div class="navbar-link-menu">MENU</div>
+        <a href="menu.html" style="text-decoration: none; color: #421f0c">
+          <div class="navbar-link-menu">MENU</div>
+        </a>
         <div class="navbar-separator">|</div>
-
-        <div class="navbar-link-events">EVENTS</div>
+        <a href="events.html" style="text-decoration: none; color: #421f0c">
+          <div class="navbar-link-events">EVENTS</div>
+        </a>
       </div>
       <div class="navbar-account-actions">
-        <div class="navbar-link-dashboard">DASHBOARD</div>
+        <a href="user-dashboard.html">
+          <div class="navbar-link-dashboard">DASHBOARD</div>
+        </a>
         <div class="user-icon-wrapper">
-          <img class="user-icon" src="assets/user.png" alt="User Icon" />
+          <img class="user-icon" src="assets/user-avatar-default.png" alt="User Icon" />
         </div>
       </div>
     </div>
@@ -46,8 +51,12 @@
         alt="Eli Coffee Logo"
       />
       <p class="home-tagline">GROUND WITH PASSION, BREWED WITH LOVE</p>
-      <button class="btn-order-now">Order Now</button>
-      <button class="btn-about-us">About Us</button>
+      <a href="cart.html">
+        <button class="btn-order-now">Order Now</button>
+      </a>
+      <a href="about.html">
+        <button class="btn-about-us">About Us</button>
+      </a>
     </main>
   </body>
 </html>

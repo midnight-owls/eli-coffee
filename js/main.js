@@ -73,7 +73,7 @@ loginSubmitButton.addEventListener("click", (e) => {
 
   // Check if entered credentials match stored credentials
   if (email === storedEmail && password === storedPassword) {
-    window.location.href = "home-page.html"; // Redirect to home-page.html
+    window.location.href = "home.html"; // Redirect to home.html
   } else {
     alert("Incorrect email or password. Please try again or sign up.");
   }
