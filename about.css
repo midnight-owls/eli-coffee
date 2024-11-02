@@ -6,7 +6,7 @@
 }
 
 body {
-    background-image: url(assets/background.png);
+    background-image: url(assets/homepage-background.png);
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
@@ -84,7 +84,7 @@ h1 {
 }
 
 .team-photo {
-    background-image: url(assets/user.png);
+    background-image: url(assets/user-avatar-default.png);
     background-position: center;
     background-size: 65px;
     background-repeat: no-repeat;
@@ -146,7 +146,7 @@ h1 {
 }
 
 .reviewer-photo {
-    background-image: url(assets/user.png);
+    background-image: url(assets/user-avatar-default.png);
     background-position: center;
     background-size: 35px;
     background-repeat: no-repeat;
