@@ -167,7 +167,7 @@ a.sidebar-link:hover{
 
 .sale-event-container {
     display: flex;
-    height: 60vh; /* Full viewport height */
+    height: 70vh; /* Full viewport height */
     gap: 20px; /* Optional: Adds space between the two columns */
     box-sizing: border-box;
     padding-top: 10px;
