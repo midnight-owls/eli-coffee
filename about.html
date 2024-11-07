@@ -4,39 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
-    <link rel="stylesheet" href="aboutus.css">
+    <link rel="stylesheet" href="/css/about.css">
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
+    />
 </head>
 <body>
     <div class="container">
         <h1>About Us</h1>
+        <i class="uil uil-times form_close" onclick="goHome()"></i>
+
+    <section>
         <div class="content">
             <!-- Meet the Team Section -->
             <div class="team">
                 <h2>Meet the Team</h2>
                 <div class="team-grid">
                     <div class="team-member">
-                        <div class="team-photo"><img src="assets/user.png"></div>
+                        <div class="team-photo"></div>
                         <p class="team-name">Kobe</p>
                     </div>
                     <div class="team-member">
-                        <div class="team-photo"><img src="assets/user.png"></div>
+                        <div class="team-photo"></div>
                         <p class="team-name">Jesse</p>
                     </div>
                     <div class="team-member">
-                        <div class="team-photo"><img src="assets/user.png"></div>
+                        <div class="team-photo"></div>
                         <p class="team-name">Raven</p>
                     </div>
                     <div class="team-member">
-                        <div class="team-photo"><img src="assets/user.png"></div>
+                        <div class="team-photo"></div>
                         <p class="team-name">Von</p>
                     </div>
                     <div class="team-member">
-                        <div class="team-photo"><img src="assets/user.png"></div>
+                        <div class="team-photo"></div>
                         <p class="team-name">CD</p>
                     </div>
                 </div>
             </div>
-
+        </aside>
+        <main>
             <!-- Description Section -->
             <div class="description">
                 <h4>Description</h4>
@@ -46,12 +54,12 @@
             <!-- Reviews Section -->
             <div class="reviews">
                 <div class="reviews-header">
-                    <span class="review-count">100 Reviews</span>
+                    <span class="review-count">99 Reviews</span>
                     <span class="average-rating">4.8 ★★★★☆</span>
                 </div>
                 <div class="review-list">
                     <div class="review">
-                        <div class="reviewer-photo"><img src="assets/user.png"></div>
+                        <div class="reviewer-photo"></div>
                         <div class="review-content">
                             <p class="reviewer-name">Cr** ****el</p>
                             <p class="review-rating">★★★★☆</p>
@@ -59,7 +67,7 @@
                         </div>
                     </div>
                     <div class="review">
-                        <div class="reviewer-photo"><img src="assets/user.png"></div>
+                        <div class="reviewer-photo"></div>
                         <div class="review-content">
                             <p class="reviewer-name">Ke**** ****ne</p>
                             <p class="review-rating">★★★★★</p>
@@ -71,5 +79,12 @@
             </div>
         </div>
     </div>
+</main>
+
+<script>
+    function goHome() {
+        window.history.back();
+    }
+</script>
 </body>
 </html>

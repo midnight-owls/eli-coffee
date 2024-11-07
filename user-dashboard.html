@@ -9,8 +9,8 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/home-page.css" />
-    <title>Home</title>
+    <link rel="stylesheet" href="css/user-dashboard.css" />
+    <title>Dashboard</title>
   </head>
   <body>
     <!-- navbar -->
@@ -18,36 +18,50 @@
       <div>
         <img
           class="navbar-logo-icon"
-          src="assets/coffee-bean-logo.png"
-          alt="Coffee Bean Logo"
+          src="assets/eli-coffee-icon.png"
+          alt="Coffeeean Logo"
         />
       </div>
       <div class="navbar-items">
-        <div class="navbar-link-home">HOME</div>
+        <a href="index.html" style="text-decoration: none; color: #421f0c">
+          <div class="navbar-link-home">HOME</div>
+        </a>
         <div class="navbar-separator">|</div>
         <div class="navbar-link-menu">MENU</div>
         <div class="navbar-separator">|</div>
-
         <div class="navbar-link-events">EVENTS</div>
       </div>
       <div class="navbar-account-actions">
         <a href="customer-dashboard.html"><div class="navbar-link-dashboard">DASHBOARD</div></a>
         <div class="user-icon-wrapper">
-          <img class="user-icon" src="assets/user.png" alt="User Icon" />
+          <img
+            class="user-icon"
+            src="assets/user-default-icon.png"
+            alt="User Icon"
+          />
         </div>
       </div>
     </div>
 
-    <!-- home apge -->
-    <main class="home-main-section">
-      <img
-        class="home-logo"
-        src="assets/eli-coffee-logo.png"
-        alt="Eli Coffee Logo"
-      />
-      <p class="home-tagline">GROUND WITH PASSION, BREWED WITH LOVE</p>
-      <button class="btn-order-now">Order Now</button>
-      <button class="btn-about-us">About Us</button>
-    </main>
+    <!-- Dashboard -->
+    <div class="dashboard-main-section">
+      <main class="dashboard-content">
+        <h1 style="cursor: default">DASHBOARD</h1>
+        <div class="dashboard-cards">
+          <div class="dashboard-card">
+            <h3>ORDER STATUS</h3>
+            <p>150</p>
+          </div>
+          <div class="dashboard-card">
+            <h3>ORDER HISTORY</h3>
+            <p>3</p>
+          </div>
+          <div class="dashboard-card">
+            <h3>EVENTS HISTORY</h3>
+            <p>25</p>
+          </div>
+        </div>
+      </main>
+    </div>
   </body>
 </html>
