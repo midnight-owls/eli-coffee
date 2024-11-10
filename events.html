@@ -4,73 +4,258 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Events</title>
-    <link rel="stylesheet" href="css/events.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/index.css" />
   </head>
   <body>
-    <div class="container">
-      <header>
-        <div class="title">Eli Coffee</div>
-        <div class="nav-links">
-          <a href="index.html">HOME</a> | <a href="#">DASHBOARD</a> |
-          <a href="#">ACCOUNT</a> |
-          <a href="#">LOGOUT</a>
-        </div>
-      </header>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md bg-white border-bottom">
+      <div class="container-fluid d-flex align-items-center">
+        <!-- Toggler -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-      <div class="content">
-        <div class="form-section">
-          <h2>EVENTS</h2>
-          <form>
-            <div class="form-group">
-              <label for="date">DATE</label>
-              <input type="date" id="date" name="date" />
-            </div>
-            <div class="form-group">
-              <label for="event-type">EVENT TYPE</label>
-              <select id="event-type" name="event-type">
-                <option value="">Select Event Type</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="volume">VOLUME OF GUEST</label>
-              <select id="volume" name="volume">
-                <option value="">Select Volume</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="comments">COMMENT/S</label>
-              <textarea id="comments" name="comments" rows="4"></textarea>
-            </div>
-            <div class="form-buttons">
-              <button type="button">CONFIRM</button>
-              <button type="reset">CLEAR</button>
-              <button type="button" onclick="showScheduledEvent()">VIEW</button>
-            </div>
-          </form>
-        </div>
+        <!-- Navbar brand -->
+        <a class="navbar-brand mx-auto" href="#">
+          <img
+            src="assets/eli-coffee-icon.png"
+            width="30"
+            class="d-inline-block d-xxl-none navbar-icon"
+          />
+          <span class="d-none d-md-inline">ELI Coffee</span>
+        </a>
 
-        <div class="scheduled-event" id="scheduledEvent">
-          <div class="pin">📌</div>
-          <h3>Scheduled Event</h3>
-          <ul>
-            <li>Event Details...</li>
-            <li>Event Details...</li>
-            <li>Event Details...</li>
+        <!-- Collapsible content -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul
+            class="navbar-nav mx-auto justify-content-center align-items-start"
+          >
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+              >
+                Menu
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="bi bi-chevron-down"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
+                  />
+                </svg>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Coffee</a></li>
+                <li><a class="dropdown-item" href="#">Tea</a></li>
+                <li><a class="dropdown-item" href="#">Frappe</a></li>
+                <li><a class="dropdown-item" href="#">Sparkle series</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="#">Add-ons</a>
+                  <a class="dropdown-item" href="#">Food</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="events.html">Events</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About Us</a>
+            </li>
           </ul>
+        </div>
 
-          <button class="exit-btn" onclick="hideScheduledEvent()">EXIT</button>
+        <div class="navbar-right ms-auto d-flex align-items-center">
+          <a href="user-dashboard.html">
+            <button
+              type="button"
+              class="btn btn-outline-secondary d-inline-block"
+            >
+              Dashboard
+            </button>
+          </a>
+          <a
+            href="#"
+            class="nav-link d-inline-block"
+            role="button"
+            data-bs-toggle="dropdown"
+          >
+            <img
+              class="user-icon"
+              src="assets/user-default-icon.png"
+              width="30"
+            />
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="#">Edit profile</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" href="home.html">Sign out</a></li>
+          </ul>
         </div>
       </div>
+    </nav>
+
+
+<!-- Event Content -->
+<div class="container my-5">
+  <h2 class="text-center mb-4">Schedule an Event</h2>
+  <div class="container px-5 py-4 border" style="max-width: 800px;">
+    <form id="eventForm" onsubmit="return false;">
+      <div class="row mb-3">
+        <div class="col">
+          <label for="date" class="form-label">Date</label>
+          <input type="date" id="date" name="date" class="form-control" style="border: 1px solid #000;" required/>
+        </div>
+        <div class="col">
+          <label for="start" class="form-label">Start</label>
+          <input type="time" id="start" name="start" class="form-control" style="border: 1px solid #000;" required/>
+          <label for="end" class="form-label mt-2">End</label>
+          <input type="time" id="end" name="end" class="form-control" style="border: 1px solid #000;" required/>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="event-type" class="form-label">Event Type</label>
+        <input type="text" id="event-type" name="event-type" class="form-control" style="border: 1px solid #000;" required/>
+      </div>
+      <div class="mb-3">
+        <label for="volume" class="form-label">Volume of Guests</label>
+        <input type="text" id="volume" name="volume" class="form-control" style="border: 1px solid #000;" required/>
+      </div>
+      <div class="mb-3">
+        <label for="event-location" class="form-label">Event Location</label>
+        <input type="text" id="event-location" name="event-location" class="form-control" style="border: 1px solid #000;" required/>
+      </div>
+      <div class="row mb-3">
+        <div class="col-10">
+          <label for="comments" class="form-label">Comments</label>
+          <textarea id="comments" rows="5" class="form-control" style="resize: none; border: 1px solid #000;"></textarea>
+        </div>
+        <div class="col-2 d-flex align-items-center justify-content-end">
+          <div style="margin-right: 30px;"> <!-- Moves buttons slightly to the left -->
+            <div class="row mb-2">
+              <button type="button" class="btn btn-outline-secondary w-100" onclick="saveEventDetails()" id="confirmButton" disabled>Confirm</button>
+            </div>
+            <div class="row mb-2">
+              <button type="reset" class="btn btn-outline-secondary w-100">Clear</button>
+            </div>
+            <div class="row">
+              <button type="button" class="btn btn-outline-secondary w-100" onclick="showScheduledEvent()">View</button>
+            </div>
+          </div>
+        </div>
+      </div>     
+    </form>
+  </div>
+
+  <!-- Scheduled Event Section -->
+  <div class="container mt-5" id="scheduledEvent" style="display: none; max-width: 400px; max-height: 400px; overflow-y: auto; border: 1px solid #000; padding: 20px; position: relative;">
+    <div class="pin" style="position: absolute; top: 10px; right: 10px; font-size: 24px;">📌</div>
+    <h3>Scheduled Event</h3>
+    <ul id="eventDetailsList"></ul>
+    <div class="d-flex justify-content-end">
+      <button type="button" class="btn btn-danger btn-sm w-100" onclick="deleteScheduledEvent()">Delete</button>
+      <button type="button" class="btn btn-secondary btn-sm w-100" onclick="hideScheduledEvent()">Exit</button>
     </div>
+  </div>
+</div>
 
-    <script>
-      function showScheduledEvent() {
-        document.getElementById("scheduledEvent").style.display = "block";
-      }
+<script>
+  // Enable Confirm button if all required inputs are filled
+  const requiredInputs = document.querySelectorAll('#eventForm input[required]');
+  requiredInputs.forEach(input => {
+    input.addEventListener('input', toggleConfirmButton);
+  });
 
-      function hideScheduledEvent() {
-        document.getElementById("scheduledEvent").style.display = "none";
-      }
-    </script>
+  function toggleConfirmButton() {
+    const allFilled = Array.from(requiredInputs).every(input => input.value);
+    document.getElementById('confirmButton').disabled = !allFilled;
+  }
+
+  function formatTimeTo12Hour(time) {
+    const [hours, minutes] = time.split(":");
+    const period = hours >= 12 ? "PM" : "AM";
+    const formattedHours = (hours % 12) || 12; // Convert 0 or 12-hour format
+    return `${formattedHours}:${minutes} ${period}`;
+  }
+
+  // Function to save event details
+  function saveEventDetails() {
+    const date = document.getElementById("date").value;
+    const start = document.getElementById("start").value;
+    const end = document.getElementById("end").value;
+    const eventType = document.getElementById("event-type").value;
+    const volume = document.getElementById("volume").value;
+    const location = document.getElementById("event-location").value;
+    const comments = document.getElementById("comments").value;
+
+    // Convert start and end times to 12-hour format
+    const formattedStart = formatTimeTo12Hour(start);
+    const formattedEnd = formatTimeTo12Hour(end);
+
+    // Save details in local storage (or variables)
+    localStorage.setItem("eventDetails", JSON.stringify({
+      date,
+      start: formattedStart,
+      end: formattedEnd,
+      eventType,
+      volume,
+      location,
+      comments
+    }));
+
+    alert("Event details have been saved!");
+  }
+
+  // Function to show scheduled event details
+  function showScheduledEvent() {
+    const eventDetails = JSON.parse(localStorage.getItem("eventDetails"));
+
+    if (eventDetails) {
+      const eventDetailsList = document.getElementById("eventDetailsList");
+      eventDetailsList.innerHTML = `
+        <li><strong>Date:</strong> ${eventDetails.date}</li>
+        <li><strong>Start Time:</strong> ${eventDetails.start}</li>
+        <li><strong>End Time:</strong> ${eventDetails.end}</li>
+        <li><strong>Event Type:</strong> ${eventDetails.eventType}</li>
+        <li><strong>Volume of Guests:</strong> ${eventDetails.volume}</li>
+        <li><strong>Location:</strong> ${eventDetails.location}</li>
+        <li><strong>Comments:</strong> ${eventDetails.comments}</li>
+      `;
+      document.getElementById("scheduledEvent").style.display = "block";
+    } else {
+      alert("No event scheduled. Fill up the event form first.");
+    }
+  }
+
+  // Function to hide scheduled event details
+  function hideScheduledEvent() {
+    document.getElementById("scheduledEvent").style.display = "none";
+  }
+
+  // Function to delete scheduled event details
+  function deleteScheduledEvent() {
+    localStorage.removeItem("eventDetails");
+    document.getElementById("scheduledEvent").style.display = "none";
+    alert("Scheduled event has been deleted.");
+  }
+</script>
   </body>
 </html>
