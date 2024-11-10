@@ -46,7 +46,7 @@ pwHideIcons.forEach(icon => {
 
 // Store user details on signup
 signupSubmitButton.addEventListener("click", (e) => {
-  e.preventDefault(); // Prevent form submission
+  e.preventDefault();
   const email = signupForm.querySelector("input[type='email']").value;
   const password = signupForm.querySelector("input[type='password']").value;
 
@@ -63,17 +63,15 @@ signupSubmitButton.addEventListener("click", (e) => {
 
 // Verify user details on login
 loginSubmitButton.addEventListener("click", (e) => {
-  e.preventDefault(); // Prevent form submission
+  e.preventDefault();
   const email = signinForm.querySelector("input[type='email']").value;
   const password = signinForm.querySelector("input[type='password']").value;
 
-  // Get stored user credentials
   const storedEmail = localStorage.getItem("userEmail");
   const storedPassword = localStorage.getItem("userPassword");
 
-  // Check if entered credentials match stored credentials
   if (email === storedEmail && password === storedPassword) {
-    window.location.href = "home.html"; // Redirect to home.html
+    window.location.href = "index.html"; // Redirect to index.html on success
   } else {
     alert("Incorrect email or password. Please try again or sign up.");
   }
