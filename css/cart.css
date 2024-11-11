@@ -187,3 +187,8 @@ main {
     font-size: 14px;
     margin-left: 130px;
 }
+/* Style for the indeterminate state of the Select All checkbox */
+#select-all:indeterminate {
+    background-color: #ff9900; /* Change to your preferred color for indeterminate state */
+  }
+  
