@@ -2,6 +2,7 @@
   font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
+  user-select: none;
 }
 
 .navbar-brand {
@@ -41,7 +42,6 @@
 .btn-outline-secondary {
   color: rgb(68, 32, 18);
   border-color: rgb(68, 32, 18);
-  margin: auto;
   padding: 0 10px;
   height: 28px;
 }
@@ -64,11 +64,10 @@
 
 .user-icon {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  border: none;
   border-radius: 50%;
   object-fit: cover;
   object-position: 0 2px;
-  margin: 0 0 0 10px;
+  margin-left: 10px;
   transition: box-shadow 0.1s ease;
 }
 .user-icon:hover {
@@ -94,5 +93,100 @@
   }
   .align-items-start {
     padding: 0 0.9rem;
+  }
+}
+
+.top-half {
+  border-bottom: 1px solid gray;
+}
+.bottom-half {
+  border-top: 1px solid gray;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: rgb(68, 32, 18);
+  cursor: default;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: rgb(68, 32, 18);
+  cursor: default;
+}
+
+.btn-primary {
+  color: black;
+  background-color: transparent;
+  border-color: black;
+  padding: 5px 15px;
+  font-size: 12px;
+  font-weight: 600;
+  width: 100px;
+  transition: background-color 0.3s ease;
+}
+.btn-primary:hover {
+  background-color: #cdcdcd;
+  color: black;
+  border-color: black;
+}
+.btn-primary:active {
+  color: black !important;
+  background-color: #a1a1a1 !important;
+  border-color: black !important;
+}
+
+img.img-fluid.me-3 {
+  max-width: 150px;
+  height: auto;
+  border-radius: 6px;
+}
+
+.btn-download:hover {
+  background-color: #cdcdcd;
+  transition: background-color 0.3s ease;
+}
+.btn-download:active {
+  background-color: #a1a1a1;
+}
+
+.preview-1 {
+  max-width: 510px;
+  width: 100%;
+  height: auto;
+}
+.preview-2 {
+  max-width: 480px;
+  width: 100%;
+  height: auto;
+}
+
+.vh-100 {
+  height: calc(100vh - 65px) !important;
+}
+
+@media (max-width: 767.98px) {
+  .col-md-6 {
+    margin-bottom: 1.5rem;
+  }
+  .col-md-6.text-center {
+    text-align: center;
+  }
+  .text-start {
+    text-align: left;
+  }
+  h1 {
+    font-size: 1.6rem;
+  }
+  h2 {
+    font-size: 1.2rem;
+  }
+  .preview-1,
+  .preview-2 {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
   }
 }
