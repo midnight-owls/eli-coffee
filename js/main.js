@@ -71,7 +71,7 @@ loginSubmitButton.addEventListener("click", (e) => {
   const storedPassword = localStorage.getItem("userPassword");
 
   if (email === storedEmail && password === storedPassword) {
-    window.location.href = "index.html"; // Redirect to index.html on success
+    window.location.href = "home.php"; // Redirect to home.php on success
   } else {
     alert("Incorrect email or password. Please try again or sign up.");
   }
