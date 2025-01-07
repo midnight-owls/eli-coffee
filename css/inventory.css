@@ -1,0 +1,31 @@
+
+/* Menu and inventory css */
+.placeholder {
+    display: flex; /* Ensures the content inside is aligned */
+    align-items: center;
+    justify-content: center;
+    height: 225px;
+    overflow: hidden; /* Ensures the image stays within bounds */
+    opacity: 1;
+    cursor: pointer;
+}
+
+.placeholder:hover{
+    box-shadow: 5%;
+    opacity: .5;
+}
+
+.placeholder img {
+   object-fit: cover; /* Ensures the image fills the space without distortion */
+}
+
+.coffee-products {
+    padding: 10px 20px;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.card{
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.216);
+}
