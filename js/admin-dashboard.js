@@ -1,5 +1,5 @@
-const hamburger = document.querySelector("#toggle-btn");
+const menu = document.querySelector("#toggle-btn");
 
-hamburger.addEventListener("click", function(){
+menu.addEventListener("click", function(){
     document.querySelector("#sidebar").classList.toggle("expand");
 });
