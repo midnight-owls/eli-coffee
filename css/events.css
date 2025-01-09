@@ -1,4 +1,4 @@
-body {
+/* body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
@@ -11,7 +11,7 @@ body {
     background-position: center 90%;
 }
 
-/* Navbar */
+ Navbar 
 .navbar {
     display: flex;
     align-items: center;
@@ -27,7 +27,7 @@ body {
     align-items: center;
 }
 
-/* Container for overall layout */
+ Container for overall layout 
 .container {
     max-width: 1500px;
     max-height: 2500px;
@@ -45,7 +45,7 @@ header {
     font-size: 50px;
 }
 
-/* Dashboard, account, and logout */
+ Dashboard, account, and logout 
 .nav-links a {
     margin: 5px;
     margin-top: 0%;
@@ -53,7 +53,7 @@ header {
     color: #000;
 }
 
-/* Events container */
+ Events container 
 .content {
     display: flex;
     justify-content: space-between;
@@ -98,7 +98,7 @@ header {
     margin-left: 500px;
 }
 
-/* Scheduled Event container */
+ Scheduled Event container 
 .scheduled-event {
     border: 1px solid #000;
     background-color: rgba(255, 255, 255, 0.8);
@@ -150,8 +150,8 @@ header {
 .exit-btn:hover {
     background-color: #e0e0e0;
 }
-
-.calendar{
+ */
+/* .calendar{
   width: 380px;
   height: auto;
   display: flex;
@@ -223,7 +223,7 @@ header {
   width: 40px;
   height: 40px;
   transition: 0.2s;
-}
+}*/
 
 .date:hover, .date.active{
   background-color: #ff5869;
@@ -236,6 +236,30 @@ header {
 
 .date.inactive:hover{
   color: #fff;
+} 
+
+.calendar {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  min-height: 300px;
 }
+
+.calendar .days,
+.calendar .dates {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.day, .date {
+  width: calc(100% / 7);
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.txt-area{
+  width: 425px;
+}
+
 
 
