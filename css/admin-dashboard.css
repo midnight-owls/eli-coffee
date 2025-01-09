@@ -34,14 +34,15 @@ body {
     display: flex;
 }
 
-.main{
+.main {
     min-height: 100vh;
     width: 100%;
     padding-top: 10px;
-    overflow: hidden;
     transition: all 0.35s ease-in-out;
     background-color: rgb(224, 224, 224);
+    /* overflow: hidden; */
 }
+
 
 #sidebar{
     width: 70px;
@@ -178,4 +179,8 @@ a.sidebar-link:hover{
     display: flex;    
     justify-content: center;
     box-sizing: border-box;
+}
+
+.sidebar{
+    display: none;
 }
