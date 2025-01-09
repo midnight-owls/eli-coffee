@@ -70,14 +70,13 @@
                             </div>
                             <div class="card-body">
                                 <p class="card-text" id="coffee-1">Mocha</p>
-                                <button class="btn btn-primary">View</button>
-                                <button class="ediButton btn btn-secondary" id="edit-btn">Edit</button>
+                                <button class="btn btn-primary" id="view-btn-coffee-1">View</button>
+                                <button class="ediButton btn btn-secondary" id="edit-btn-coffee-1">Edit</button>
                             </div>
                         </div>
                     </div>
                     
-<!--     
-                     Coffee 2
+                   <!--   Coffee 2 -->
                     <div class="col">
                         <div class="card">
                             <div class="placeholder">
@@ -91,7 +90,7 @@
                         </div>
                     </div>
     
-                     Coffee 3
+                     <!-- Coffee 3 -->
                     <div class="col">
                         <div class="card">
                             <div class="placeholder">
@@ -105,7 +104,7 @@
                         </div>
                     </div>
     
-                    Coffee 4
+                    <!-- Coffee 4 -->
                     <div class="col">
                         <div class="card">
                             <div class="placeholder">
@@ -119,7 +118,7 @@
                         </div>
                     </div>
     
-                    Coffee 5
+                    <!-- Coffee 5 -->
                     <div class="col">
                         <div class="card">
                             <div class="placeholder">
@@ -131,7 +130,50 @@
                                 <a href="#" class="btn btn-secondary">Edit</a>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
+                    <!-- add button -->
+                    <div class="add-menu-container">
+                        <div>
+                            <img src="assets/add-square-removebg-preview.png" alt="" class="img-fluid add-menu" id="add-menu"> 
+                            <div class="card-body"><p class="card-text">Add Coffee</p></div>
+                        </div>
+                       
+                    </div>
+                    <div id="popup-modal-add-coffee" class="modal-add-coffee">
+                        <div class="modal-content">
+                            <span class="close-button">&times;</span>
+                            <form>
+                                <div class="coffee-information">
+                                    <label for="coffee-name">Name of Coffee</label>
+                                    <input type="text" name="coffee-name" id="coffee-name">
+                                </div>
+                                <br>
+                                <div class="ingredients-container">
+                                    <label>Ingredients needed: </label> <br> <!-- checkboxes -->
+                                    <input type="checkbox" id="coffee">
+                                    <label for="coffee">Coffee</label>
+                                    <input type="checkbox" id="sugar">
+                                    <label for="sugar">sugar</label>
+                                    <input type="checkbox" id="creamer">
+                                    <label for="creamer">creamer</label>
+                                </div>
+                                
+                                <label></label>
+                                <label></label>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- view button -->
+                    <div id="popup-form" class="popup-form">
+                        <div class="popup-content">
+                            <span class="x-btn-view">&times;</span>
+                            <div class="details">
+                                <h3>View Coffee Details</h3>
+                                <div class="picture-container"><img src="assets/coffee1.png" alt="Mocha"></div>
+                                <p id="coffee-details"></p>
+                            </div>                       
+                        </div>
+                    </div>                  
             </div>
             </div>
         </div>
