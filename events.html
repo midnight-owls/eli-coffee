@@ -105,7 +105,7 @@
     <div class="row g-4 w-100">
       <div class="col-lg-6 mx-auto">
         <div class="px-5 py-4 border">
-          <form id="eventForm" onsubmit="return false;">
+          <form id="eventForm" action="#" method="" onsubmit="return false;">
             <div class="row mb-3">
               <div class="col">
                 <label for="date" class="form-label">Date</label>
@@ -138,13 +138,13 @@
               <div class="col-2 d-flex align-items-center justify-content-end">
                 <div style="margin-right: 30px;">
                   <div class="row mb-2">
-                    <button type="button" class="btn btn-outline-secondary w-100" onclick="saveEventDetails()" id="confirmButton" disabled>Confirm</button>
+                    <button type="submit" name="confirm_event" class="btn btn-outline-secondary w-100" onclick="saveEventDetails()" id="confirmButton" disabled>Confirm</button>
                   </div>
                   <div class="row mb-2">
-                    <button type="reset" class="btn btn-outline-secondary w-100">Clear</button>
+                    <button type="reset" name="clear_event" class="btn btn-outline-secondary w-100">Clear</button>
                   </div>
                   <div class="row">
-                    <button type="button" class="btn btn-outline-secondary w-100" onclick="showScheduledEvent()">View</button>
+                    <button type="button" name="view_event" class="btn btn-outline-secondary w-100" onclick="showScheduledEvent()">View</button>
                   </div>
                 </div>
               </div>
