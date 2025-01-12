@@ -34,13 +34,15 @@ body {
     display: flex;
 }
 
-.main{
+.main {
     min-height: 100vh;
     width: 100%;
-    overflow: hidden;
+    padding-top: 10px;
     transition: all 0.35s ease-in-out;
-    background-color: lightblue;
+    background-color: rgb(224, 224, 224);
+    /* overflow: hidden; */
 }
+
 
 #sidebar{
     width: 70px;
@@ -49,7 +51,7 @@ body {
     transition: all .25s ease-in-out;
     display: flex;
     flex-direction: column;
-    background-color: azure;
+    background-color: rgb(248, 248, 248);
 }
 
 .navbar{
@@ -128,7 +130,6 @@ body {
 .sidebar-nav{
     padding: 2rem 0;
     flex: 1 auto;
-    /* justify-content: center; */
 }
 
 a.sidebar-link{
@@ -146,31 +147,19 @@ a.sidebar-link{
 }
 
 a.sidebar-link:hover{
-    background-color: blue;
-    border-left: 3px solid red;
-}
-
-.order-customer-sales-container{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    height: 200px;
-    border-radius: 10px;
-    gap: 10px;
-    margin-top: 30px;
-}
-
-.order, .customer, .sales{
-    border-style: solid;
-    text-align: center;
-    border-width: 2px;
+    background-color: rgb(168, 168, 168);
+    border-left: 3px solid rgb(100, 100, 100);
 }
 
 .sale-event-container {
     display: flex;
-    height: 70vh; /* Full viewport height */
-    gap: 20px; /* Optional: Adds space between the two columns */
-    box-sizing: border-box;
+    flex-wrap: wrap;
+    gap: 20px; /* Adds space between items */
     padding-top: 10px;
+}
+
+.ingredients {
+    flex-basis: 100%; /* Makes it take up the full width of the row */
 }
 
 .event-schedule {
@@ -190,4 +179,8 @@ a.sidebar-link:hover{
     display: flex;    
     justify-content: center;
     box-sizing: border-box;
+}
+
+.sidebar{
+    display: none;
 }

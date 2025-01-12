@@ -1,0 +1,162 @@
+
+/* Menu and inventory css */
+.placeholder {
+    width: 100%; /* Ensures the image container takes full width of its parent */
+    height: auto; /* Adjusts height proportionally */
+    display: flex; /* Centers the image inside if it doesn't fill the space */
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Prevents content from overflowing the container */
+    opacity: 1;
+    cursor: pointer;
+}
+
+img.img-fluid {
+    max-width: 100%; /* Ensures the image never exceeds its container's width */
+    height: auto; /* Maintains aspect ratio */
+    object-fit: contain; /* Scales the image to fit inside the container */
+}
+
+
+.placeholder:hover{
+    box-shadow: 5%;
+    opacity: .5;
+}
+
+.placeholder img {
+   object-fit: cover; /* Ensures the image fills the space without distortion */
+}
+
+.coffee-products {
+    padding: 10px 20px;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.card{
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.216);
+}
+
+.add-menu {
+    display: flex; /* Turns the container into a Flexbox */
+    justify-content: center; /* Centers the image horizontally */
+    align-items: center; /* Centers the image vertically */
+    text-align: center; /* Ensures text (if any) is centered */
+    background: none;
+    animation: rotating 0.5s ease 0s 1 normal forwards;
+}
+
+#add-menu:hover{
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.512);
+}
+
+#add-menu {
+    width: 120px;
+    height: 120px;
+    cursor: pointer;
+  }
+  
+  @keyframes rotating {
+    0% {
+      transform: rotate(0);
+    }
+  
+    100% {
+      transform: rotate(-90deg);
+    }
+  }
+
+.add-menu-container{
+    display: flex; /* Turns the container into a Flexbox */
+    justify-content: center; /* Centers the image horizontally */
+    align-items: center; /* Centers the image vertically */
+    text-align: center; /* Ensures text (if any) is centered */
+    background: none;
+}
+
+.modal-add-coffee {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Transparent background */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    text-align: center;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.coffee-information{
+    padding-top: 20px;
+}
+
+/* view button */
+
+.popup-form {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Background overlay */
+    display: flex; /* Flex container for centering */
+    justify-content: center;
+    align-items: center;
+    overflow: auto; /* Ensures scrollability if content is too large */
+}
+
+.popup-content {
+    position: relative;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 50%;
+    max-width: 600px; /* Optional: limit max width */
+    text-align: center;
+    overflow: hidden; /* Prevent content from spilling outside */
+}
+
+.x-btn-view {
+    position: absolute;
+    cursor: pointer;
+    top: 10px;
+    right: 20px;
+    font-size: 20px;
+    color: #333;
+}
+
+.picture-container img {
+    height: auto;
+    width: 100%; /* Stretch to fit container width */
+    max-width: 300px; /* Optional: limit maximum width of the image */
+    margin: 0 auto;
+    display: block;
+}
+
+.details {
+    padding-top: 25px;
+    word-wrap: break-word; /* Prevent text from overflowing */
+}
+
+
+
+
