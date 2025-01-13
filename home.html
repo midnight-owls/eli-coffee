@@ -33,16 +33,16 @@
           <img
             src="assets/eli-coffee-icon.png"
             width="30"
-            class="d-inline-block d-xxl-none navbar-icon"
+            class="d-inline-block navbar-icon"
           />
           <span class="d-none d-md-inline">ELI Coffee</span>
         </a>
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav mx-auto justify-content-center">
+          <ul class="navbar-nav ms-auto me-4">
             <li class="nav-item dropdown">
               <a
-                class="nav-link"
-                href="#"
+                class="nav-link link-dark"
+                href="menu.html"
                 role="button"
                 data-bs-toggle="dropdown"
               >
@@ -59,14 +59,27 @@
                 </svg>
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Coffee</a></li>
-                <li><a class="dropdown-item" href="#">Tea</a></li>
-                <li><a class="dropdown-item" href="#">Frappe</a></li>
-                <li><a class="dropdown-item" href="#">Sparkle series</a></li>
+                <li>
+                  <a class="dropdown-item" href="menu.html#coffee-section"
+                    >Coffee</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="menu.html#tea-section">Tea</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="menu.html#frappe-section"
+                    >Frappe</a
+                  >
+                </li>
                 <li><hr class="dropdown-divider" /></li>
                 <li>
-                  <a class="dropdown-item" href="#">Add-ons</a>
-                  <a class="dropdown-item" href="#">Food</a>
+                  <a class="dropdown-item" href="menu.html#add-ons-section"
+                    >Add-ons</a
+                  >
+                  <a class="dropdown-item" href="menu.html#food-section"
+                    >Food</a
+                  >
                 </li>
               </ul>
             </li>
@@ -179,11 +192,11 @@
     </div>
 
     <!-- Body Content -->
-    <div class="front-page1">
+    <div class="front-page1 d-flex">
       <img src="assets/guest/guest1.jpg" alt="background-coffee" class="img" />
-      <div class="content">
+      <div class="content ms-5">
         <h2>“Brewed Perfection, Served with Passion.”</h2>
-        <button>Order Now</button>
+        <button class="ms-1">Order Now</button>
       </div>
     </div>
 
@@ -232,6 +245,11 @@
       </div>
     </footer>
 
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
     <script src="js/main.js"></script>
   </body>
 </html>
