@@ -143,6 +143,10 @@ img.img-fluid.me-3 {
   height: auto;
   border-radius: 6px;
 }
+#app-app,
+#app-app1 {
+  max-width: 400px;
+}
 
 .btn-download:hover {
   background-color: #cdcdcd;
@@ -190,5 +194,3 @@ img.img-fluid.me-3 {
     height: auto;
   }
 }
-
-
