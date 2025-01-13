@@ -27,7 +27,7 @@
         data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand mx-auto" href="#">
+      <a class="navbar-brand mx-auto" href="home.php">
         <img
           src="assets/eli-coffee-icon.png"
           width="30"
@@ -67,7 +67,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Events</a>
+            <a class="nav-link" href="guest-events.html">Events</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="about.html">About Us</a>
