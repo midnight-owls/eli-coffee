@@ -29,20 +29,20 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand mx-auto" href="#">
+        <a class="navbar-brand mx-auto">
           <img
             src="assets/eli-coffee-icon.png"
             width="30"
-            class="d-inline-block d-xxl-none navbar-icon"
+            class="d-inline-block navbar-icon"
           />
           <span class="d-none d-md-inline">ELI Coffee</span>
         </a>
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav mx-auto justify-content-center">
+          <ul class="navbar-nav ms-auto me-4">
             <li class="nav-item dropdown">
               <a
-                class="nav-link"
-                href="#"
+                class="nav-link link-dark"
+                href="menu.html"
                 role="button"
                 data-bs-toggle="dropdown"
               >
@@ -59,69 +59,40 @@
                 </svg>
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Coffee</a></li>
-                <li><a class="dropdown-item" href="#">Tea</a></li>
-                <li><a class="dropdown-item" href="#">Frappe</a></li>
-                <li><a class="dropdown-item" href="#">Sparkle series</a></li>
-                <li><hr class="dropdown-divider" /></li>
                 <li>
-                  <a class="dropdown-item" href="#">Add-ons</a>
-                  <a class="dropdown-item" href="#">Food</a>
+                  <a class="dropdown-item" href="guest-menu.html#coffee-section"
+                    >Coffee</a
+                  >
                 </li>
-              </ul>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-              >
-                Events
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="bi bi-chevron-down"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
-                  />
-                </svg>
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Pending requests</a></li>
+                <li>
+                  <a class="dropdown-item" href="guest-menu.html#tea-section">Tea</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="guest-menu.html#frappe-section"
+                    >Frappe</a
+                  >
+                </li>
                 <li><hr class="dropdown-divider" /></li>
                 <li>
-                  <a class="dropdown-item" href="events.html"
-                    >Schedule an event</a
+                  <a class="dropdown-item" href="guest-menu.html#add-ons-section"
+                    >Add-ons</a
+                  >
+                  <a class="dropdown-item" href="guest-menu.html#food-section"
+                    >Food</a
                   >
                 </li>
               </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="guest_events.html" role="button"> Events </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="about.html">About Us</a>
             </li>
           </ul>
         </div>
-        <div class="navbar-right ms-auto d-flex align-items-center">
-          <a href="user-dashboard.html">
-            <button type="button" class="btn btn-outline-secondary">
-              Dashboard
-            </button>
-          </a>
-          <a href="#" class="nav-link" role="button" data-bs-toggle="dropdown">
-            <img
-              class="user-icon"
-              src="assets/user-default-icon.png"
-              width="30"
-            />
-          </a>
-          <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item" href="#">Edit profile</a></li>
-            <li><hr class="dropdown-divider" /></li>
-            <li><a class="dropdown-item" href="home.html">Sign out</a></li>
-          </ul>
+        <div class="navbar-right d-flex align-items-center me-2">
+          <button type="button" class="btn btn-primary">SIGN IN</button>
         </div>
       </div>
     </nav>
@@ -139,7 +110,7 @@
             Ground with passion,<br />brewed with love
           </h1>
           <a
-            href="#"
+            href="menu.html"
             class="btn btn-primary rounded-pill mt-4 order-now align-self-center"
             >Order Now</a
           >
@@ -147,9 +118,10 @@
 
         <div class="col-md-6 d-flex justify-content-center align-items-center">
           <img
-            src="assets/window.png"
+            src="assets/three-cups.jpg"
             class="img-fluid rounded mx-auto d-block preview-1"
             alt="Coffee"
+            id="app-app"
           />
         </div>
       </div>
@@ -181,8 +153,9 @@
         </div>
         <div class="col-md-6 d-flex justify-content-center align-items-center">
           <img
-            src="assets/preview.jpg"
+            src="assets/app.jpg"
             class="img-fluid rounded mx-auto d-block my-2 preview-2"
+            id="app-app1"
             alt="Coffee"
           />
         </div>
