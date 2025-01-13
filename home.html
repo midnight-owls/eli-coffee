@@ -29,7 +29,7 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand mx-auto" href="home.html">
+        <a class="navbar-brand mx-auto">
           <img
             src="assets/eli-coffee-icon.png"
             width="30"
@@ -84,30 +84,27 @@
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="guest_events.html">Events</a>
+              <a class="nav-link" href="events.html" role="button"> Events </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="about.html">About Us</a>
             </li>
           </ul>
         </div>
-        <div class="navbar-right ms-auto d-flex align-items-center">
-          <a href="#">
-            <button
-              type="button"
-              class="btn btn-outline-secondary rounded-pill me-2 btn-sign-in"
-            >
-              Sign In
-            </button>
+        <div class="navbar-right d-flex align-items-center me-2">
+          <a href="#" class="nav-link" role="button" data-bs-toggle="dropdown">
+            <img
+              class="user-icon"
+              src="assets/user-default-icon.png"
+              width="30"
+            />
           </a>
-          <a href="#">
-            <button
-              type="button"
-              class="btn btn-outline-secondary rounded-pill me-2 btn-sign-in"
-            >
-              Admin
-            </button>
-          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="#">Order status</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" href="#">Edit profile</a></li>
+            <li><a class="dropdown-item" href="home.html">Sign out</a></li>
+          </ul>
         </div>
       </div>
     </nav>
