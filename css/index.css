@@ -194,3 +194,124 @@ img.img-fluid.me-3 {
     height: auto;
   }
 }
+
+/* Updated Form Container Styles */
+.form_container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 360px;
+  z-index: 10;
+  display: none;
+}
+
+.form_container.active {
+  display: block;
+}
+
+.form_close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 1.2em;
+  color: #421f0c;
+  cursor: pointer;
+}
+
+.form_container h2 {
+  font-size: 1.5em;
+  color: #421f0c;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.input_box {
+  position: relative;
+  width: 85%;
+  margin: 12px 0;
+}
+
+.input_box input {
+  width: 100%;
+  padding: 10px 40px 10px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+.input_box i {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  color: #ccc;
+}
+
+.option_field {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.option_field .checkbox input {
+  margin-right: 5px;
+}
+
+.forgot_pw {
+  color: #421f0c;
+  font-size: 0.9em;
+  text-align: right;
+  display: block;
+  margin-top: 5px;
+}
+
+.forgot_pw:hover {
+  text-decoration: underline;
+}
+
+.button {
+  width: 100%;
+  padding: 10px;
+  font-weight: 700;
+  font-size: 1em;
+  color: #fff;
+  background-color: #421f0c;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.button:hover {
+  background-color: #36230a;
+}
+
+.signup {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.signup a {
+  color: #421f0c;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.signup a:hover {
+  text-decoration: underline;
+}
+
+.pw_hide {
+  cursor: pointer;
+  color: #bbb;
+}
+
+.pw_hide:hover {
+  color: #421f0c;
+}
