@@ -73,7 +73,7 @@
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="events.html">Events</a>
+              <a class="nav-link" href="events.php">Events</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="about.html">About Us</a>
