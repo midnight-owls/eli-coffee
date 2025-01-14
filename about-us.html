@@ -4,6 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About Us - Eli Coffee</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/about-us.css" />
     <style>
       /* General Stylingg */
       body {
@@ -62,7 +73,7 @@
 
       /* Hero Section */
       .hero {
-        background-image: url("aboutus/aboutus_herobg.png");
+        background-image: url("assets/about-us/aboutus_herobg.png");
         background-size: cover;
         background-position: center;
         height: 300px;
@@ -174,22 +185,95 @@
     </style>
   </head>
   <body>
-    <header>
-      <a href="/index.html">
-        <div class="logo">Eli Coffee</div>
-      </a>
-      <nav>
-        <ul>
-          <li><a href="#menu">Menu</a></li>
-          <li><a href="#events">Events</a></li>
-          <li><a href="#about">About Us</a></li>
-        </ul>
-      </nav>
-      <div class="auth-buttons">
-        <button>Sign In</button>
-        <button>Sign Up</button>
+    <nav class="navbar navbar-expand-md bg-white border-bottom">
+      <div class="container-fluid d-flex align-items-center">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand mx-auto">
+          <img
+            src="assets/eli-coffee-icon.png"
+            width="30"
+            class="d-inline-block navbar-icon"
+          />
+          <span class="d-none d-md-inline">ELI Coffee</span>
+        </a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto me-4">
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link link-dark"
+                href="menu.html"
+                role="button"
+                data-bs-toggle="dropdown"
+              >
+                Menu
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="bi bi-chevron-down"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
+                  />
+                </svg>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="menu.html#coffee-section"
+                    >Coffee</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="menu.html#tea-section">Tea</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="menu.html#frappe-section"
+                    >Frappe</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="menu.html#add-ons-section"
+                    >Add-ons</a
+                  >
+                  <a class="dropdown-item" href="menu.html#food-section"
+                    >Food</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="events.html" role="button"> Events </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about-us.html">About Us</a>
+            </li>
+          </ul>
+        </div>
+        <div class="navbar-right d-flex align-items-center me-2">
+          <a href="#" class="nav-link" role="button" data-bs-toggle="dropdown">
+            <img
+              class="user-icon"
+              src="assets/user-default-icon.png"
+              width="30"
+            />
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="#">Order status</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" href="#">Edit profile</a></li>
+            <li><a class="dropdown-item" href="home.html">Sign out</a></li>
+          </ul>
+        </div>
       </div>
-    </header>
+    </nav>
 
     <section class="hero">About Eli Coffee</section>
 
@@ -208,10 +292,10 @@
         Qui officiis cupiditate ut veritatis pariatur et quasi provident.
       </p>
       <div class="gallery">
-        <img src="aboutus/gallery1.jpg" alt="Gallery Image 1" />
-        <img src="aboutus/gallery2.jpg" alt="Gallery Image 2" />
-        <img src="aboutus/gallery3.jpg" alt="Gallery Image 3" />
-        <img src="aboutus/gallery4.jpg" alt="Gallery Image 4" />
+        <img src="assets/about-us/gallery1.jpg" alt="Gallery Image 1" />
+        <img src="assets/about-us/gallery2.jpg" alt="Gallery Image 2" />
+        <img src="assets/about-us/gallery3.jpg" alt="Gallery Image 3" />
+        <img src="assets/about-us/gallery4.jpg" alt="Gallery Image 4" />
       </div>
     </section>
 
@@ -219,27 +303,27 @@
       <h2>Meet the Team</h2>
       <div class="avatars">
         <div class="avatar">
-          <img src="aboutus/avatar1.png" alt="Kobe" />
+          <img src="assets/about-us/avatar1.png" alt="Kobe" />
           <div class="name">Kobe</div>
           <div class="role">Project Lead</div>
         </div>
         <div class="avatar">
-          <img src="aboutus/avatar2.png" alt="Jesse" />
+          <img src="assets/about-us/avatar2.png" alt="Jesse" />
           <div class="name">Jesse</div>
           <div class="role">Design Lead</div>
         </div>
         <div class="avatar">
-          <img src="aboutus/avatar3.png" alt="Raven" />
+          <img src="assets/about-us/avatar3.png" alt="Raven" />
           <div class="name">Raven</div>
           <div class="role">Quality Lead</div>
         </div>
         <div class="avatar">
-          <img src="aboutus/avatar4.png" alt="Von" />
+          <img src="assets/about-us/avatar4.png" alt="Von" />
           <div class="name">Von</div>
           <div class="role">Development Lead</div>
         </div>
         <div class="avatar">
-          <img src="aboutus/avatar5.png" alt="CD" />
+          <img src="assets/about-us/avatar5.png" alt="CD" />
           <div class="name">CD</div>
           <div class="role">Business Analyst</div>
         </div>
@@ -247,7 +331,7 @@
     </section>
 
     <section class="location">
-      <img src="aboutus/map.jpg" alt="Map" />
+      <img src="assets/about-us/map.jpg" alt="Map" />
       <div class="details">
         <h2>Location</h2>
         <p>Eli Coffee</p>
@@ -257,5 +341,11 @@
         </p>
       </div>
     </section>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/main.js"></script>
   </body>
 </html>
