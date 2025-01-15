@@ -73,7 +73,7 @@
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="events.html">Events</a>
+              <a class="nav-link" href="events.php">Events</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="js/aboutus.html">About Us</a>
@@ -92,7 +92,7 @@
             <li><a class="dropdown-item" href="#">Order status</a></li>
             <li><hr class="dropdown-divider" /></li>
             <li><a class="dropdown-item" href="#">Edit profile</a></li>
-            <li><a class="dropdown-item" href="home.html">Sign out</a></li>
+            <li><a class="dropdown-item" href="home.php">Sign out</a></li>
           </ul>
         </div>
       </div>
@@ -105,7 +105,7 @@
     <div class="row g-4 w-100">
       <div class="col-lg-6 mx-auto">
         <div class="px-5 py-4 border">
-          <form id="eventForm" action="#" method="" onsubmit="return false;">
+          <form id="eventForm" action="php/schedule_Events.php" method="post" onsubmit="return false;">
             <div class="row mb-3">
               <div class="col">
                 <label for="date" class="form-label">Date</label>
