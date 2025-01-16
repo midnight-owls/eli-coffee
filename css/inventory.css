@@ -1,258 +1,275 @@
 * {
-    font-family: "Poppins", sans-serif;
-    margin: 0;
-    padding: 0;
-    user-select: none;
-  }
-  
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  color: rgb(68, 32, 18);
+}
+
+.navbar-icon {
+  margin-right: 6px;
+}
+
+.nav-link {
+  color: rgb(68, 32, 18);
+  font-size: 16px;
+  font-weight: 600;
+}
+.nav-link:hover,
+.nav-link.active {
+  color: black;
+}
+
+.bi-chevron-down {
+  fill: currentColor;
+  width: 12px;
+  margin-bottom: 3px;
+  transition: transform 0.3s ease;
+}
+.nav-item:hover .bi-chevron-down {
+  fill: black;
+  transform: translateY(2px);
+}
+
+.dropdown-item:active {
+  background-color: rgb(68, 32, 18);
+}
+
+.btn-outline-secondary {
+  color: rgb(68, 32, 18);
+  border-color: rgb(68, 32, 18);
+  padding: 0 20px;
+  height: 28px;
+}
+.btn-outline-secondary:hover {
+  background-color: rgb(134, 98, 85);
+  border-color: rgb(134, 98, 85);
+}
+.btn-outline-secondary:active {
+  background-color: rgb(68, 32, 18) !important;
+  border-color: rgb(68, 32, 18) !important;
+}
+
+.navbar-toggler {
+  border: none;
+}
+.navbar-toggler:focus {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.user-icon {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 0 2px;
+  margin-left: 10px;
+  transition: box-shadow 0.1s ease;
+}
+.user-icon:hover {
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+}
+.user-icon:active {
+  box-shadow: none;
+  outline: 1.5px solid rgb(68, 32, 18);
+}
+
+@media (max-width: 767.98px) {
   .navbar-brand {
-    font-weight: bold;
-    color: rgb(68, 32, 18);
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
   }
-  
-  .navbar-icon {
-    margin-right: 6px;
+  .navbar-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0.65rem 1rem;
   }
-  
-  .nav-link {
-    color: rgb(68, 32, 18);
-    font-size: 16px;
-    font-weight: 600;
+  .align-items-start {
+    padding: 0 0.9rem;
   }
-  .nav-link:hover,
-  .nav-link.active {
-    color: black;
-  }
-  
-  .bi-chevron-down {
-    fill: currentColor;
-    width: 12px;
-    margin-bottom: 3px;
-    transition: transform 0.3s ease;
-  }
-  .nav-item:hover .bi-chevron-down {
-    fill: black;
-    transform: translateY(2px);
-  }
-  
-  .dropdown-item:active {
-    background-color: rgb(68, 32, 18);
-  }
-  
-  .btn-outline-secondary {
-    color: rgb(68, 32, 18);
-    border-color: rgb(68, 32, 18);
-    padding: 0 10px;
-    height: 28px;
-  }
-  .btn-outline-secondary:hover {
-    background-color: rgb(134, 98, 85);
-    border-color: rgb(134, 98, 85);
-  }
-  .btn-outline-secondary:active {
-    background-color: rgb(68, 32, 18) !important;
-    border-color: rgb(68, 32, 18) !important;
-  }
-  
-  .navbar-toggler {
-    border: none;
-  }
-  .navbar-toggler:focus {
-    border-radius: 0;
-    box-shadow: none;
-  }
-  
-  .user-icon {
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: 0 2px;
-    margin-left: 10px;
-    transition: box-shadow 0.1s ease;
-  }
-  .user-icon:hover {
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
-  }
-  .user-icon:active {
-    box-shadow: none;
-    outline: 1.5px solid rgb(68, 32, 18);
-  }
-  
-  @media (max-width: 767.98px) {
-    .navbar-brand {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-    .navbar-right {
-      position: absolute;
-      top: 0;
-      right: 0;
-      margin: 0.65rem 1rem;
-    }
-    .align-items-start {
-      padding: 0 0.9rem;
-    }
-  }
+}
+
 /* Menu and inventory css */
 .placeholder {
-    width: 100%; /* Ensures the image container takes full width of its parent */
-    height: auto; /* Adjusts height proportionally */
-    display: flex; /* Centers the image inside if it doesn't fill the space */
-    justify-content: center;
-    align-items: center;
-    overflow: hidden; /* Prevents content from overflowing the container */
-    opacity: 1;
-    cursor: pointer;
+  width: 100%; /* Ensures the image container takes full width of its parent */
+  height: auto; /* Adjusts height proportionally */
+  display: flex; /* Centers the image inside if it doesn't fill the space */
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Prevents content from overflowing the container */
+  opacity: 1;
+  cursor: pointer;
 }
 
 img.img-fluid {
-    max-width: 100%; /* Ensures the image never exceeds its container's width */
-    height: auto; /* Maintains aspect ratio */
-    object-fit: contain; /* Scales the image to fit inside the container */
+  max-width: 100%; /* Ensures the image never exceeds its container's width */
+  height: auto; /* Maintains aspect ratio */
+  object-fit: contain; /* Scales the image to fit inside the container */
 }
 
-
-.placeholder:hover{
-    box-shadow: 5%;
-    opacity: .5;
+.placeholder:hover {
+  box-shadow: 5%;
+  opacity: 0.5;
 }
 
 .placeholder img {
-   object-fit: cover; /* Ensures the image fills the space without distortion */
+  object-fit: cover; /* Ensures the image fills the space without distortion */
 }
 
 .coffee-products {
-    padding: 10px 20px;
-    display: grid;
-    gap: 20px;
-    grid-template-columns: repeat(4, 1fr);
+  padding: 10px 20px;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
 }
 
-.card{
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.216);
+.card {
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.216);
 }
 
 .add-menu {
-    display: flex; /* Turns the container into a Flexbox */
-    justify-content: center; /* Centers the image horizontally */
-    align-items: center; /* Centers the image vertically */
-    text-align: center; /* Ensures text (if any) is centered */
-    background: none;
-    animation: rotating 0.5s ease 0s 1 normal forwards;
+  display: flex; /* Turns the container into a Flexbox */
+  justify-content: center; /* Centers the image horizontally */
+  align-items: center; /* Centers the image vertically */
+  text-align: center; /* Ensures text (if any) is centered */
+  background: none;
+  animation: rotating 0.5s ease 0s 1 normal forwards;
 }
 
-#add-menu:hover{
-    box-shadow: 0 0 50px rgba(0, 0, 0, 0.512);
+#add-menu:hover {
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.512);
 }
 
 #add-menu {
-    width: 120px;
-    height: 120px;
-    cursor: pointer;
-  }
-  
-  @keyframes rotating {
-    0% {
-      transform: rotate(0);
-    }
-  
-    100% {
-      transform: rotate(-90deg);
-    }
+  width: 120px;
+  height: 120px;
+  cursor: pointer;
+}
+
+@keyframes rotating {
+  0% {
+    transform: rotate(0);
   }
 
-.add-menu-container{
-    display: flex; /* Turns the container into a Flexbox */
-    justify-content: center; /* Centers the image horizontally */
-    align-items: center; /* Centers the image vertically */
-    text-align: center; /* Ensures text (if any) is centered */
-    background: none;
+  100% {
+    transform: rotate(-90deg);
+  }
+}
+
+.add-menu-container {
+  display: flex; /* Turns the container into a Flexbox */
+  justify-content: center; /* Centers the image horizontally */
+  align-items: center; /* Centers the image vertically */
+  text-align: center; /* Ensures text (if any) is centered */
+  background: none;
 }
 
 .modal-add-coffee {
-    display: none; /* Hidden by default */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Transparent background */
-    justify-content: center;
-    align-items: center;
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Transparent background */
+  justify-content: center;
+  align-items: center;
 }
 
 .modal-content {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    width: 400px;
-    text-align: center;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  text-align: center;
 }
 
 .close-button {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 20px;
-    cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 20px;
+  cursor: pointer;
 }
 
-.coffee-information{
-    padding-top: 20px;
+.coffee-information {
+  padding-top: 20px;
 }
 
 /* view button */
 
 .popup-form {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Background overlay */
-    display: flex; /* Flex container for centering */
-    justify-content: center;
-    align-items: center;
-    overflow: auto; /* Ensures scrollability if content is too large */
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Background overlay */
+  display: flex; /* Flex container for centering */
+  justify-content: center;
+  align-items: center;
+  overflow: auto; /* Ensures scrollability if content is too large */
 }
 
 .popup-content {
-    position: relative;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 50%;
-    max-width: 600px; /* Optional: limit max width */
-    text-align: center;
-    overflow: hidden; /* Prevent content from spilling outside */
+  position: relative;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 50%;
+  max-width: 600px; /* Optional: limit max width */
+  text-align: center;
+  overflow: hidden; /* Prevent content from spilling outside */
 }
 
 .x-btn-view {
-    position: absolute;
-    cursor: pointer;
-    top: 10px;
-    right: 20px;
-    font-size: 20px;
-    color: #333;
+  position: absolute;
+  cursor: pointer;
+  top: 10px;
+  right: 20px;
+  font-size: 20px;
+  color: #333;
 }
 
 .picture-container img {
-    height: auto;
-    width: 100%; /* Stretch to fit container width */
-    max-width: 300px; /* Optional: limit maximum width of the image */
-    margin: 0 auto;
-    display: block;
+  height: auto;
+  width: 100%; /* Stretch to fit container width */
+  max-width: 300px; /* Optional: limit maximum width of the image */
+  margin: 0 auto;
+  display: block;
 }
 
 .details {
-    padding-top: 25px;
-    word-wrap: break-word; /* Prevent text from overflowing */
+  padding-top: 25px;
+  word-wrap: break-word; /* Prevent text from overflowing */
 }
 
-
-
-
+.btn-primary {
+  color: black;
+  background-color: transparent;
+  border-color: black;
+  padding: 5px 15px;
+  font-size: 12px;
+  font-weight: 600;
+  width: 100px;
+  transition: background-color 0.3s ease;
+}
+.btn-primary:hover {
+  background-color: #cdcdcd;
+  color: black;
+  border-color: black;
+}
+.btn-primary:active {
+  color: black !important;
+  background-color: #a1a1a1 !important;
+  border-color: black !important;
+}
