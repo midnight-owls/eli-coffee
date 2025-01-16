@@ -55,7 +55,7 @@ signupSubmitButton.addEventListener("click", (e) => {
   if (email && password) {
     localStorage.setItem("userEmail", email);
     localStorage.setItem("userPassword", password);
-    alert("Account created! You can now log in.");
+    alert("Account created! You can now sign in.");
     signinForm.style.display = "block";
     signupForm.style.display = "none";
   } else {
@@ -73,7 +73,7 @@ loginSubmitButton.addEventListener("click", (e) => {
   const storedPassword = localStorage.getItem("userPassword");
 
   if (email === storedEmail && password === storedPassword) {
-    window.location.href = "home.html"; // Redirect to index.html on success
+    window.location.href = "home.php"; // Redirect to index.php on success
   } else {
     alert("Incorrect email or password. Please try again or sign up.");
   }
