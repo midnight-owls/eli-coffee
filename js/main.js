@@ -9,7 +9,7 @@ const pwHideIcons = document.querySelectorAll(".pw_hide");
 const loginSubmitButton = signinForm.querySelector(".button"); // "Login Now" button
 const signupSubmitButton = signupForm.querySelector(".button"); // "Signup Now" button
 
-// Show login form when "Log In" button is clicked
+// Show login form when "SIGN IN" button is clicked
 loginButton.addEventListener("click", () => {
   formContainer.classList.add("active");
   signinForm.style.display = "block";
@@ -71,7 +71,7 @@ loginSubmitButton.addEventListener("click", (e) => {
   const storedPassword = localStorage.getItem("userPassword");
 
   if (email === storedEmail && password === storedPassword) {
-    window.location.href = "index.html"; // Redirect to index.html on success
+    window.location.href = "home.html"; // Redirect to index.html on success
   } else {
     alert("Incorrect email or password. Please try again or sign up.");
   }
