@@ -1,78 +1,34 @@
-// Get elements
-const loginButton = document.querySelector(".btn-sign-in");
-const formContainer = document.querySelector(".form_container");
-const signinForm = document.querySelector(".signin_form");
-const signupForm = document.querySelector(".signup_form");
-const closeButton = document.querySelector(".form_close");
-const toggleSignupLinks = document.querySelectorAll(".toggle-signup");
-const pwHideIcons = document.querySelectorAll(".pw_hide");
-const loginSubmitButton = signinForm.querySelector(".button"); // "Login Now" button
-const signupSubmitButton = signupForm.querySelector(".button"); // "Signup Now" button
+document.addEventListener("DOMContentLoaded", function () {
+  // Get elements
+  const btnSignUp = document.querySelector(".btn-sign-up"); // Sign Up button
+  const btnSignIn = document.querySelector(".btn-sign-in"); // Log In button
+  const loginForm = document.querySelector("form:nth-of-type(2)"); // Log In form
+  const registerForm = document.querySelector("form:nth-of-type(1)"); // Sign Up form
 
-// Show login form when "SIGN IN" button is clicked
-loginButton.addEventListener("click", () => {
-  formContainer.classList.add("active");
-  signinForm.style.display = "block";
-  signupForm.style.display = "none";
-});
+  // Initially hide both forms
+  loginForm.style.display = "none";
+  registerForm.style.display = "none";
 
-// Close form when close button is clicked
-closeButton.addEventListener("click", () => {
-  formContainer.classList.remove("active");
-});
-
-// Toggle between signin and signup forms
-toggleSignupLinks.forEach(link => {
-  link.addEventListener("click", (e) => {
-    e.preventDefault();
-    signinForm.style.display = signinForm.style.display === "none" ? "block" : "none";
-    signupForm.style.display = signupForm.style.display === "none" ? "block" : "none";
+  // Sign Up Button Click Event
+  btnSignUp.addEventListener("click", function (event) {
+    event.preventDefault(); // Prevent default link behavior
+    registerForm.style.display = "block"; // Show the Sign Up form
+    loginForm.style.display = "none"; // Hide the Log In form
   });
-});
 
-// Toggle password visibility
-pwHideIcons.forEach(icon => {
-  icon.addEventListener("click", () => {
-    const passwordField = icon.previousElementSibling;
-    if (passwordField.type === "password") {
-      passwordField.type = "text";
-      icon.classList.replace("uil-eye-slash", "uil-eye");
-    } else {
-      passwordField.type = "password";
-      icon.classList.replace("uil-eye", "uil-eye-slash");
-    }
+  // Log In Button Click Event
+  btnSignIn.addEventListener("click", function (event) {
+    event.preventDefault(); // Prevent default link behavior
+    loginForm.style.display = "block"; // Show the Log In form
+    registerForm.style.display = "none"; // Hide the Sign Up form
   });
-});
 
-// Store user details on signup
-signupSubmitButton.addEventListener("click", (e) => {
-  e.preventDefault();
-  const email = signupForm.querySelector("input[type='email']").value;
-  const password = signupForm.querySelector("input[type='password']").value;
-
-  if (email && password) {
-    localStorage.setItem("userEmail", email);
-    localStorage.setItem("userPassword", password);
-    alert("Account created! You can now log in.");
-    signinForm.style.display = "block";
-    signupForm.style.display = "none";
-  } else {
-    alert("Please fill in both fields to sign up.");
-  }
-});
-
-// Verify user details on login
-loginSubmitButton.addEventListener("click", (e) => {
-  e.preventDefault();
-  const email = signinForm.querySelector("input[type='email']").value;
-  const password = signinForm.querySelector("input[type='password']").value;
-
-  const storedEmail = localStorage.getItem("userEmail");
-  const storedPassword = localStorage.getItem("userPassword");
-
-  if (email === storedEmail && password === storedPassword) {
-    window.location.href = "home.html"; // Redirect to index.html on success
-  } else {
-    alert("Incorrect email or password. Please try again or sign up.");
-  }
+  // Optional: Add functionality to close forms (if needed)
+  const closeButtons = document.querySelectorAll(".form_close"); // If you have close buttons
+  closeButtons.forEach((closeButton) => {
+    closeButton.addEventListener("click", function () {
+      loginForm.style.display = "none"; // Hide Log In form
+      registerForm.style.display = "none"; // Hide Sign Up form
+    });
+  });
 });

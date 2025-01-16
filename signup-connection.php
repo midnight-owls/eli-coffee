@@ -1,7 +1,8 @@
 <?php
 $conn = mysqli_connect("localhost", "root", "", "eli_coffeedb");
 
+// Check connection
 if (!$conn) {
-    die("Database connection failed: " . mysqli_connect_error());
+    die("Connection failed: " . mysqli_connect_error());
 }
 ?>
