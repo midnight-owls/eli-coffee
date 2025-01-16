@@ -1,3 +1,21 @@
+<?php
+require 'php/database.php';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["confirm_event"])) {
+  $event_date = $_POST["date"];
+  $start_time = $_POST["start"];
+  $end_time = $_POST["end"];
+  $event_type = $_POST["event-type"];
+  $guest_volume = $_POST["volume"];
+  $event_location = $_POST["event-location"];
+  $comments = $_POST["comments"];
+
+  $query = "INSERT INTO `schedule_booking` (`customer_Id`, `date`, `start`, `end`, `event_Type`, `guest_Count`, `event_Location`) VALUES ('1','$event_date', '$start_time', '$end_time', '$event_type', '$guest_volume', '$event_location')";
+
+  mysqli_query($conn, $query);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -105,7 +123,7 @@
     <div class="row g-4 w-100">
       <div class="col-lg-6 mx-auto">
         <div class="px-5 py-4 border">
-          <form id="eventForm" action="php/schedule_Events.php" method="post" onsubmit="return false;">
+          <form id="eventForm" action="events.php" method="post" onsubmit="return false;">
             <div class="row mb-3">
               <div class="col">
                 <label for="date" class="form-label">Date</label>
