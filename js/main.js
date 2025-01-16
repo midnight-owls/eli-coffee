@@ -22,24 +22,26 @@ closeButton.addEventListener("click", () => {
 });
 
 // Toggle between signin and signup forms
-toggleSignupLinks.forEach(link => {
+toggleSignupLinks.forEach((link) => {
   link.addEventListener("click", (e) => {
     e.preventDefault();
-    signinForm.style.display = signinForm.style.display === "none" ? "block" : "none";
-    signupForm.style.display = signupForm.style.display === "none" ? "block" : "none";
+    signinForm.style.display =
+      signinForm.style.display === "none" ? "block" : "none";
+    signupForm.style.display =
+      signupForm.style.display === "none" ? "block" : "none";
   });
 });
 
-// Toggle password visibility
-pwHideIcons.forEach(icon => {
+// font awesome eye icon
+pwHideIcons.forEach((icon) => {
   icon.addEventListener("click", () => {
     const passwordField = icon.previousElementSibling;
     if (passwordField.type === "password") {
       passwordField.type = "text";
-      icon.classList.replace("uil-eye-slash", "uil-eye");
+      icon.classList.replace("fa-eye-slash", "fa-eye");
     } else {
       passwordField.type = "password";
-      icon.classList.replace("uil-eye", "uil-eye-slash");
+      icon.classList.replace("fa-eye", "fa-eye-slash");
     }
   });
 });
@@ -74,5 +76,12 @@ loginSubmitButton.addEventListener("click", (e) => {
     window.location.href = "home.html"; // Redirect to index.html on success
   } else {
     alert("Incorrect email or password. Please try again or sign up.");
+  }
+});
+
+// close by esc
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    formContainer.classList.remove("active");
   }
 });
