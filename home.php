@@ -1,3 +1,20 @@
+<?php
+require 'php/database.php';
+
+if (isset($_POST['signup'])) {
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $password = $_POST['password'];
+    $confirm_password = $_POST['confirm_password'];
+
+    if ($password === $confirm_password) {
+        $hashed_password = password_hash($password, PASSWORD_BCRYPT);
+
+        $query = "INSERT INTO users (email, password) VALUES ('$email', '$hashed_password')";
+    }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -129,7 +146,7 @@
 
     <!-- Signup Form Customer -->
     <div class="signup_form">
-      <form action="php/signup.php" method="post">
+      <form action="home.php" method="post">
         <h2>Signup</h2>
         <div class="input_box">
           <input
