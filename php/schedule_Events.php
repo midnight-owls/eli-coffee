@@ -1,37 +1,26 @@
-<?php
-// Database connection
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "eli_coffee";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+    <?php
+    require "php/database.php";
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Check if form data is submitted
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $eventDate = $_POST["date"];
-    $startTime = $_POST["start"];
-    $endTime = $_POST["end"];
-    $eventType = $_POST["event-type"];
-    $volumeOfGuests = $_POST["volume"];
-    $eventLocation = $_POST["event-location"];
-
-    // Prepare and execute the SQL statement
-    $stmt = $conn->prepare("INSERT INTO events (event_date, start_time, end_time, event_type, volume_of_guests, event_location) VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssssss", $eventDate, $startTime, $endTime, $eventType, $volumeOfGuests, $eventLocation);
-
-    if ($stmt->execute()) {
-        echo json_encode(["success" => true, "message" => "Event scheduled successfully!"]);
-    } else {
-        echo json_encode(["success" => false, "message" => "Failed to schedule the event."]);
+    if (isset($_POST["confirm_event"])) {
+        $event_date = $_POST["date"];
+        $start_time = $_POST["start"];
+        $end_time = $_POST["end"];
+        $event_type = $_POST["event-type"];
+        $guest_volume = $_POST["volume"];
+        $event_location = $_POST["event-location"];
+        $comments = $_POST["comments"];
+      
+        $query = "INSERT INTO eli_coffeedb (event_date, start_time, end_time, event_type, guest_volume, event_location)
+                  VALUES ('$event_date', '$start_time', '$end_time', '$event_type', '$guest_volume', '$event_location')";
+        mysqli_query($conn, $query);
     }
+      
+        /* if (mysqli_query($conn, $query)) {
+          echo "<script>alert('Event Successfully Scheduled'); window.location.href = '../view_events.php';</script>";
+        } else {
+          echo "<script>alert('Failed to Schedule Event'); window.history.back();</script>";
+        } */
 
-    $stmt->close();
-}
 
-$conn->close();
-?>
+    ?>
