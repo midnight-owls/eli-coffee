@@ -107,6 +107,10 @@
         <label for="">Confirm Password:</label><br>
         <input type="password" name="confirm_password"><br>
         <input type="submit" name="submit" id="" value="Register">
+        <div class="signup">
+        Already have an account?
+        <a href="javascript:void(0)" onclick="toggleForm(false)" style="text-decoration: none">Login</a>
+      </div>
     </form>
 
     
@@ -116,7 +120,14 @@
         <input type="email" name="log_email"><br>
         <label for="">Password:</label><br>
         <input type="password" name="log_password"><br>
+          <a href="#" class="forgot_pw" style="text-decoration: none">
+            Forgot password</a
+          >
         <input type="submit" name="submit" id="" value="Log In">
+        <div class="signup">
+        Don't have an account?
+        <a href="javascript:void(0)" onclick="toggleForm(true)" style="text-decoration: none">Signup</a>
+      </div>
     </form>
 
   <!-- Body Content -->
@@ -180,6 +191,7 @@
 
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
     // Sanitize inputs
     $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
     $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -208,7 +220,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // Execute the query
             if (mysqli_stmt_execute($stmt)) {
-                echo "<script>alert('You are now registered!');</script>";
+                echo "<script>alert('You are now registered!'); window.location.href='login.php';</script>";
             } else {
                 echo "<script>alert('Error: Could not execute the query.');</script>";
             }
@@ -219,8 +231,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "<script>alert('Error: Could not prepare the SQL query.');</script>";
         }
     }
-}
 
-// Close the database connection
-mysqli_close($conn);
+    // Close the database connection
+    mysqli_close($conn);
+}
 ?>

@@ -10,17 +10,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Validate inputs
     if (empty($log_email) || empty($log_password)) {
-        echo "<script>alert('Email and Password are required.'); window.location.href='home.php';</script>";
+        echo "<script>alert('Email and Password are required.'); window.location.href='admin-signup.php';</script>";
         exit();
     }
 
     if (!filter_var($log_email, FILTER_VALIDATE_EMAIL)) {
-        echo "<script>alert('Invalid email format.'); window.location.href='home.php';</script>";
+        echo "<script>alert('Invalid email format.'); window.location.href='admin-signup.php';</script>";
         exit();
     }
 
     // Query the database to check if the email exists
-    $query = "SELECT password FROM users WHERE email = ?";
+    $query = "SELECT password FROM admin WHERE email = ?";
     $stmt = mysqli_prepare($conn, $query);
 
     if ($stmt) {
@@ -40,20 +40,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['user_email'] = $log_email;
 
                 // Redirect to index.html
-                header("Location: index.html");
+                header("Location: admin-dashboard.html");
                 exit();
             } else {
-                echo "<script>alert('Incorrect password.'); window.location.href='home.php';</script>";
+                echo "<script>alert('Incorrect password.'); window.location.href='admin-signup';</script>";
                 exit();
             }
         } else {
-            echo "<script>alert('No account found with that email.'); window.location.href='home.php';</script>";
+            echo "<script>alert('No account found with that email.'); window.location.href='admin-signup.php';</script>";
             exit();
         }
 
         mysqli_stmt_close($stmt);
     } else {
-        echo "<script>alert('Database error.'); window.location.href='home.php';</script>";
+        echo "<script>alert('Database error.'); window.location.href='admin-signup.php';</script>";
         exit();
     }
 }
