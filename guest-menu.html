@@ -42,7 +42,7 @@
             <li class="nav-item dropdown">
               <a
                 class="nav-link link-dark"
-                href="#"
+                href="menu.html"
                 role="button"
                 data-bs-toggle="dropdown"
               >
@@ -59,38 +59,42 @@
                 </svg>
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Coffee</a></li>
-                <li><a class="dropdown-item" href="#">Tea</a></li>
-                <li><a class="dropdown-item" href="#">Frappe</a></li>
+                <li>
+                  <a class="dropdown-item" href="menu.html#coffee-section"
+                    >Coffee</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="menu.html#tea-section">Tea</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="menu.html#frappe-section"
+                    >Frappe</a
+                  >
+                </li>
                 <li><hr class="dropdown-divider" /></li>
                 <li>
-                  <a class="dropdown-item" href="#">Add-ons</a>
-                  <a class="dropdown-item" href="#">Food</a>
+                  <a class="dropdown-item" href="menu.html#add-ons-section"
+                    >Add-ons</a
+                  >
+                  <a class="dropdown-item" href="menu.html#food-section"
+                    >Food</a
+                  >
                 </li>
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="events.php" role="button"> Events </a>
+              <a class="nav-link" href="guest_events.html" role="button">
+                Events
+              </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about.html">About Us</a>
+              <a class="nav-link" href="/js/aboutus.html">About Us</a>
             </li>
           </ul>
         </div>
         <div class="navbar-right d-flex align-items-center me-2">
-          <a href="#" class="nav-link" role="button" data-bs-toggle="dropdown">
-            <img
-              class="user-icon"
-              src="assets/user-default-icon.png"
-              width="30"
-            />
-          </a>
-          <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item" href="#">Order status</a></li>
-            <li><hr class="dropdown-divider" /></li>
-            <li><a class="dropdown-item" href="#">Edit profile</a></li>
-            <li><a class="dropdown-item" href="home.php">Sign out</a></li>
-          </ul>
+          <button type="button" class="btn btn-primary">SIGN IN</button>
         </div>
       </div>
     </nav>
@@ -140,33 +144,17 @@
               <div class="col">
                 <div class="card shadow-sm">
                   <img
-                    src="assets/coffee/coffee-1.png"
+                    src="/assets/coffee/coffee-1.png"
                     class="bd-placeholder-img card-img-top"
                     width="100%"
                     height="225"
                     alt="Coffee 1"
                   />
-                  <div class="card-body">
-                    <p class="card-text">Americano</p>
-                    <div
-                      class="d-flex justify-content-between align-items-center"
-                    >
-                      <div class="btn-group">
-                        <button
-                          type="button"
-                          class="btn btn-sm btn-outline-secondary"
-                        >
-                          &plus;
-                        </button>
-                        <button
-                          type="button"
-                          class="btn btn-sm btn-outline-secondary btn-minus"
-                        >
-                          &minus;
-                        </button>
-                      </div>
-                      <small class="text-muted">&#8369; 190.40</small>
-                    </div>
+                  <div
+                    class="card-body d-flex justify-content-between align-items-center"
+                  >
+                    <span class="card-text">Americano</span>
+                    <small class="text-muted">&#8369; 190.40</small>
                   </div>
                 </div>
               </div>
@@ -174,31 +162,17 @@
               <div class="col">
                 <div class="card shadow-sm">
                   <img
-                    src="assets/coffee/coffee-2.png"
+                    src="/assets/coffee/coffee-2.png"
                     class="bd-placeholder-img card-img-top"
                     width="100%"
                     height="225"
                     alt="Coffee 2"
                   />
                   <div class="card-body">
-                    <p class="card-text">Mocha</p>
                     <div
                       class="d-flex justify-content-between align-items-center"
                     >
-                      <div class="btn-group">
-                        <button
-                          type="button"
-                          class="btn btn-sm btn-outline-secondary"
-                        >
-                          &plus;
-                        </button>
-                        <button
-                          type="button"
-                          class="btn btn-sm btn-outline-secondary btn-minus"
-                        >
-                          &minus;
-                        </button>
-                      </div>
+                      <span class="card-text">Mocha</span>
                       <small class="text-muted">&#8369; 203.20</small>
                     </div>
                   </div>
@@ -208,31 +182,17 @@
               <div class="col">
                 <div class="card shadow-sm">
                   <img
-                    src="assets/coffee/coffee-3.png"
+                    src="/assets/coffee/coffee-3.png"
                     class="bd-placeholder-img card-img-top"
                     width="100%"
                     height="225"
                     alt="Coffee 3"
                   />
                   <div class="card-body">
-                    <p class="card-text">Espresso</p>
                     <div
                       class="d-flex justify-content-between align-items-center"
                     >
-                      <div class="btn-group">
-                        <button
-                          type="button"
-                          class="btn btn-sm btn-outline-secondary"
-                        >
-                          &plus;
-                        </button>
-                        <button
-                          type="button"
-                          class="btn btn-sm btn-outline-secondary btn-minus"
-                        >
-                          &minus;
-                        </button>
-                      </div>
+                      <span class="card-text">Espresso</span>
                       <small class="text-muted">&#8369; 177.60</small>
                     </div>
                   </div>
@@ -242,31 +202,17 @@
               <div class="col">
                 <div class="card shadow-sm">
                   <img
-                    src="assets/coffee/coffee-4.png"
+                    src="/assets/coffee/coffee-4.png"
                     class="bd-placeholder-img card-img-top"
                     width="100%"
                     height="225"
                     alt="Coffee 4"
                   />
                   <div class="card-body">
-                    <p class="card-text">Cappuccino</p>
                     <div
                       class="d-flex justify-content-between align-items-center"
                     >
-                      <div class="btn-group">
-                        <button
-                          type="button"
-                          class="btn btn-sm btn-outline-secondary"
-                        >
-                          &plus;
-                        </button>
-                        <button
-                          type="button"
-                          class="btn btn-sm btn-outline-secondary btn-minus"
-                        >
-                          &minus;
-                        </button>
-                      </div>
+                      <span class="card-text">Cappuccino</span>
                       <small class="text-muted">&#8369; 142.40</small>
                     </div>
                   </div>
@@ -284,31 +230,17 @@
               <div class="col">
                 <div class="card shadow-sm">
                   <img
-                    src="assets/tea/tea-1.png"
+                    src="/assets/tea/tea-1.png"
                     class="bd-placeholder-img card-img-top"
                     width="100%"
                     height="225"
                     alt="Coffee 1"
                   />
                   <div class="card-body">
-                    <p class="card-text">Iced Milk Coffee</p>
                     <div
                       class="d-flex justify-content-between align-items-center"
                     >
-                      <div class="btn-group">
-                        <button
-                          type="button"
-                          class="btn btn-sm btn-outline-secondary"
-                        >
-                          &plus;
-                        </button>
-                        <button
-                          type="button"
-                          class="btn btn-sm btn-outline-secondary btn-minus"
-                        >
-                          &minus;
-                        </button>
-                      </div>
+                      <span class="card-text">Iced Milk Coffee</span>
                       <small class="text-muted">&#8369; 190.40</small>
                     </div>
                   </div>
@@ -318,31 +250,17 @@
               <div class="col">
                 <div class="card shadow-sm">
                   <img
-                    src="assets/tea/tea-2.png"
+                    src="/assets/tea/tea-2.png"
                     class="bd-placeholder-img card-img-top"
                     width="100%"
                     height="225"
                     alt="Coffee 2"
                   />
                   <div class="card-body">
-                    <p class="card-text">Iced Milk Boba</p>
                     <div
                       class="d-flex justify-content-between align-items-center"
                     >
-                      <div class="btn-group">
-                        <button
-                          type="button"
-                          class="btn btn-sm btn-outline-secondary"
-                        >
-                          &plus;
-                        </button>
-                        <button
-                          type="button"
-                          class="btn btn-sm btn-outline-secondary btn-minus"
-                        >
-                          &minus;
-                        </button>
-                      </div>
+                      <span class="card-text">Iced Milk Boba</span>
                       <small class="text-muted">&#8369; 203.20</small>
                     </div>
                   </div>
@@ -352,31 +270,17 @@
               <div class="col">
                 <div class="card shadow-sm">
                   <img
-                    src="assets/tea/tea-3.png"
+                    src="/assets/tea/tea-3.png"
                     class="bd-placeholder-img card-img-top"
                     width="100%"
                     height="225"
                     alt="Coffee 3"
                   />
                   <div class="card-body">
-                    <p class="card-text">Iced Milk Chocolate</p>
                     <div
                       class="d-flex justify-content-between align-items-center"
                     >
-                      <div class="btn-group">
-                        <button
-                          type="button"
-                          class="btn btn-sm btn-outline-secondary"
-                        >
-                          &plus;
-                        </button>
-                        <button
-                          type="button"
-                          class="btn btn-sm btn-outline-secondary btn-minus"
-                        >
-                          &minus;
-                        </button>
-                      </div>
+                      <span class="card-text">Iced Milk Chocolate</span>
                       <small class="text-muted">&#8369; 177.60</small>
                     </div>
                   </div>
@@ -386,31 +290,17 @@
               <div class="col">
                 <div class="card shadow-sm">
                   <img
-                    src="assets/tea/tea-4.png"
+                    src="/assets/tea/tea-4.png"
                     class="bd-placeholder-img card-img-top"
                     width="100%"
                     height="225"
                     alt="Coffee 4"
                   />
                   <div class="card-body">
-                    <p class="card-text">Iced Milk Matcha</p>
                     <div
                       class="d-flex justify-content-between align-items-center"
                     >
-                      <div class="btn-group">
-                        <button
-                          type="button"
-                          class="btn btn-sm btn-outline-secondary"
-                        >
-                          &plus;
-                        </button>
-                        <button
-                          type="button"
-                          class="btn btn-sm btn-outline-secondary btn-minus"
-                        >
-                          &minus;
-                        </button>
-                      </div>
+                      <span class="card-text">Iced Milk Matcha</span>
                       <small class="text-muted">&#8369; 142.40</small>
                     </div>
                   </div>
@@ -428,31 +318,17 @@
               <div class="col">
                 <div class="card shadow-sm">
                   <img
-                    src="assets/frappe/frappe-1.png"
+                    src="/assets/frappe/frappe-1.png"
                     class="bd-placeholder-img card-img-top"
                     width="100%"
                     height="225"
                     alt="Coffee 1"
                   />
                   <div class="card-body">
-                    <p class="card-text">Coffee Frappe</p>
                     <div
                       class="d-flex justify-content-between align-items-center"
                     >
-                      <div class="btn-group">
-                        <button
-                          type="button"
-                          class="btn btn-sm btn-outline-secondary"
-                        >
-                          &plus;
-                        </button>
-                        <button
-                          type="button"
-                          class="btn btn-sm btn-outline-secondary btn-minus"
-                        >
-                          &minus;
-                        </button>
-                      </div>
+                      <span class="card-text">Coffee Frappe</span>
                       <small class="text-muted">&#8369; 190.40</small>
                     </div>
                   </div>
@@ -462,31 +338,17 @@
               <div class="col">
                 <div class="card shadow-sm">
                   <img
-                    src="assets/frappe/frappe-2.png"
+                    src="/assets/frappe/frappe-2.png"
                     class="bd-placeholder-img card-img-top"
                     width="100%"
                     height="225"
                     alt="Coffee 2"
                   />
                   <div class="card-body">
-                    <p class="card-text">Caramel Frappe</p>
                     <div
                       class="d-flex justify-content-between align-items-center"
                     >
-                      <div class="btn-group">
-                        <button
-                          type="button"
-                          class="btn btn-sm btn-outline-secondary"
-                        >
-                          &plus;
-                        </button>
-                        <button
-                          type="button"
-                          class="btn btn-sm btn-outline-secondary btn-minus"
-                        >
-                          &minus;
-                        </button>
-                      </div>
+                      <span class="card-text">Caramel Frappe</span>
                       <small class="text-muted">&#8369; 203.20</small>
                     </div>
                   </div>
@@ -496,31 +358,17 @@
               <div class="col">
                 <div class="card shadow-sm">
                   <img
-                    src="assets/frappe/frappe-3.png"
+                    src="/assets/frappe/frappe-3.png"
                     class="bd-placeholder-img card-img-top"
                     width="100%"
                     height="225"
                     alt="Coffee 3"
                   />
                   <div class="card-body">
-                    <p class="card-text">Vanilla Frappe</p>
                     <div
                       class="d-flex justify-content-between align-items-center"
                     >
-                      <div class="btn-group">
-                        <button
-                          type="button"
-                          class="btn btn-sm btn-outline-secondary"
-                        >
-                          &plus;
-                        </button>
-                        <button
-                          type="button"
-                          class="btn btn-sm btn-outline-secondary btn-minus"
-                        >
-                          &minus;
-                        </button>
-                      </div>
+                      <span class="card-text">Vanilla Frappe</span>
                       <small class="text-muted">&#8369; 177.60</small>
                     </div>
                   </div>
@@ -530,31 +378,17 @@
               <div class="col">
                 <div class="card shadow-sm">
                   <img
-                    src="assets/frappe/frappe-4.png"
+                    src="/assets/frappe/frappe-4.png"
                     class="bd-placeholder-img card-img-top"
                     width="100%"
                     height="225"
                     alt="Coffee 4"
                   />
                   <div class="card-body">
-                    <p class="card-text">Chocolate Frappe</p>
                     <div
                       class="d-flex justify-content-between align-items-center"
                     >
-                      <div class="btn-group">
-                        <button
-                          type="button"
-                          class="btn btn-sm btn-outline-secondary"
-                        >
-                          &plus;
-                        </button>
-                        <button
-                          type="button"
-                          class="btn btn-sm btn-outline-secondary btn-minus"
-                        >
-                          &minus;
-                        </button>
-                      </div>
+                      <span class="card-text">Chocolate Frappe</span>
                       <small class="text-muted">&#8369; 142.40</small>
                     </div>
                   </div>
@@ -572,31 +406,17 @@
               <div class="col">
                 <div class="card shadow-sm">
                   <img
-                    src="assets/add-ons/add-ons-1.png"
+                    src="/assets/add-ons/add-ons-1.png"
                     class="bd-placeholder-img card-img-top"
                     width="100%"
                     height="225"
                     alt="Coffee 1"
                   />
                   <div class="card-body">
-                    <p class="card-text">Ice Cream</p>
                     <div
                       class="d-flex justify-content-between align-items-center"
                     >
-                      <div class="btn-group">
-                        <button
-                          type="button"
-                          class="btn btn-sm btn-outline-secondary"
-                        >
-                          &plus;
-                        </button>
-                        <button
-                          type="button"
-                          class="btn btn-sm btn-outline-secondary btn-minus"
-                        >
-                          &minus;
-                        </button>
-                      </div>
+                      <span class="card-text">Ice Cream</span>
                       <small class="text-muted">&#8369; 99.99</small>
                     </div>
                   </div>
@@ -606,31 +426,17 @@
               <div class="col">
                 <div class="card shadow-sm">
                   <img
-                    src="assets/add-ons/add-ons-2.png"
+                    src="/assets/add-ons/add-ons-2.png"
                     class="bd-placeholder-img card-img-top"
                     width="100%"
                     height="225"
                     alt="Coffee 2"
                   />
                   <div class="card-body">
-                    <p class="card-text">Tapioca Pearls</p>
                     <div
                       class="d-flex justify-content-between align-items-center"
                     >
-                      <div class="btn-group">
-                        <button
-                          type="button"
-                          class="btn btn-sm btn-outline-secondary"
-                        >
-                          &plus;
-                        </button>
-                        <button
-                          type="button"
-                          class="btn btn-sm btn-outline-secondary btn-minus"
-                        >
-                          &minus;
-                        </button>
-                      </div>
+                      <span class="card-text">Tapioca Pearls</span>
                       <small class="text-muted">&#8369; 15.15</small>
                     </div>
                   </div>
@@ -640,31 +446,17 @@
               <div class="col">
                 <div class="card shadow-sm">
                   <img
-                    src="assets/add-ons/add-ons-3.png"
+                    src="/assets/add-ons/add-ons-3.png"
                     class="bd-placeholder-img card-img-top"
                     width="100%"
                     height="225"
                     alt="Coffee 3"
                   />
                   <div class="card-body">
-                    <p class="card-text">Syrup</p>
                     <div
                       class="d-flex justify-content-between align-items-center"
                     >
-                      <div class="btn-group">
-                        <button
-                          type="button"
-                          class="btn btn-sm btn-outline-secondary"
-                        >
-                          &plus;
-                        </button>
-                        <button
-                          type="button"
-                          class="btn btn-sm btn-outline-secondary btn-minus"
-                        >
-                          &minus;
-                        </button>
-                      </div>
+                      <span class="card-text">Syrup</span>
                       <small class="text-muted">&#8369; 25.20</small>
                     </div>
                   </div>
@@ -674,31 +466,17 @@
               <div class="col">
                 <div class="card shadow-sm">
                   <img
-                    src="assets/add-ons/add-ons-4.png"
+                    src="/assets/add-ons/add-ons-4.png"
                     class="bd-placeholder-img card-img-top"
                     width="100%"
                     height="225"
                     alt="Coffee 4"
                   />
                   <div class="card-body">
-                    <p class="card-text">Ice</p>
                     <div
                       class="d-flex justify-content-between align-items-center"
                     >
-                      <div class="btn-group">
-                        <button
-                          type="button"
-                          class="btn btn-sm btn-outline-secondary"
-                        >
-                          &plus;
-                        </button>
-                        <button
-                          type="button"
-                          class="btn btn-sm btn-outline-secondary btn-minus"
-                        >
-                          &minus;
-                        </button>
-                      </div>
+                      <span class="card-text">Ice</span>
                       <small class="text-muted">&#8369; 5.10</small>
                     </div>
                   </div>
@@ -716,31 +494,17 @@
               <div class="col">
                 <div class="card shadow-sm">
                   <img
-                    src="assets/food/pinagong.jpg"
+                    src="/assets/food/pinagong.jpg"
                     class="bd-placeholder-img card-img-top"
                     width="100%"
                     height="225"
                     alt="Coffee 1"
                   />
                   <div class="card-body">
-                    <p class="card-text">Pinagong</p>
                     <div
                       class="d-flex justify-content-between align-items-center"
                     >
-                      <div class="btn-group">
-                        <button
-                          type="button"
-                          class="btn btn-sm btn-outline-secondary"
-                        >
-                          &plus;
-                        </button>
-                        <button
-                          type="button"
-                          class="btn btn-sm btn-outline-secondary btn-minus"
-                        >
-                          &minus;
-                        </button>
-                      </div>
+                      <span class="card-text">Pinagong</span>
                       <small class="text-muted">&#8369; 35.40</small>
                     </div>
                   </div>
@@ -750,31 +514,17 @@
               <div class="col">
                 <div class="card shadow-sm">
                   <img
-                    src="assets/food/pinoy-bread-biscocho.jpg"
+                    src="/assets/food/pinoy-bread-biscocho.jpg"
                     class="bd-placeholder-img card-img-top"
                     width="100%"
                     height="225"
                     alt="Coffee 2"
                   />
                   <div class="card-body">
-                    <p class="card-text">Biscocho</p>
                     <div
                       class="d-flex justify-content-between align-items-center"
                     >
-                      <div class="btn-group">
-                        <button
-                          type="button"
-                          class="btn btn-sm btn-outline-secondary"
-                        >
-                          &plus;
-                        </button>
-                        <button
-                          type="button"
-                          class="btn btn-sm btn-outline-secondary btn-minus"
-                        >
-                          &minus;
-                        </button>
-                      </div>
+                      <span class="card-text">Biscocho</span>
                       <small class="text-muted">&#8369; 20.20</small>
                     </div>
                   </div>
@@ -784,31 +534,17 @@
               <div class="col">
                 <div class="card shadow-sm">
                   <img
-                    src="assets/food/pinoy-bread-ensaymada.jpg"
+                    src="/assets/food/pinoy-bread-ensaymada.jpg"
                     class="bd-placeholder-img card-img-top"
                     width="100%"
                     height="225"
                     alt="Coffee 3"
                   />
                   <div class="card-body">
-                    <p class="card-text">Ensaymada</p>
                     <div
                       class="d-flex justify-content-between align-items-center"
                     >
-                      <div class="btn-group">
-                        <button
-                          type="button"
-                          class="btn btn-sm btn-outline-secondary"
-                        >
-                          &plus;
-                        </button>
-                        <button
-                          type="button"
-                          class="btn btn-sm btn-outline-secondary btn-minus"
-                        >
-                          &minus;
-                        </button>
-                      </div>
+                      <span class="card-text">Ensaymada</span>
                       <small class="text-muted">&#8369; 50.60</small>
                     </div>
                   </div>
@@ -818,42 +554,22 @@
               <div class="col">
                 <div class="card shadow-sm">
                   <img
-                    src="assets/food/pinoy-bread-pan-de-coco.jpg"
+                    src="/assets/food/pinoy-bread-pan-de-coco.jpg"
                     class="bd-placeholder-img card-img-top"
                     width="100%"
                     height="225"
                     alt="Coffee 4"
                   />
                   <div class="card-body">
-                    <p class="card-text">Pan de Coco</p>
                     <div
                       class="d-flex justify-content-between align-items-center"
                     >
-                      <div class="btn-group">
-                        <button
-                          type="button"
-                          class="btn btn-sm btn-outline-secondary"
-                        >
-                          &plus;
-                        </button>
-                        <button
-                          type="button"
-                          class="btn btn-sm btn-outline-secondary btn-minus"
-                        >
-                          &minus;
-                        </button>
-                      </div>
+                      <span class="card-text">Pan de Coco</span>
                       <small class="text-muted">&#8369; 12.40</small>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-
-            <div class="cart-icon">
-              <a href="cart.html">
-                <img src="assets/cart.png" alt="cart" width="20px" />
-              </a>
             </div>
           </div>
         </div>
