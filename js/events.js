@@ -110,5 +110,36 @@ function setupDateSelection() {
 	});
 }
 
+let gapiLoaded = false;
+
+async function loadGapiClient() {
+    return new Promise((resolve, reject) => {
+        gapi.load('client:auth2', async () => {
+            gapiLoaded = true;
+            try {
+                await gapi.client.init({
+                    apiKey: 'YOUR_API_KEY', // Replace with your API Key
+                    clientId: 'YOUR_CLIENT_ID', // Replace with your Client ID
+                    discoveryDocs: ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"],
+                    scope: "https://www.googleapis.com/auth/calendar.events"
+                });
+                resolve();
+            } catch (error) {
+                reject(error);
+            }
+        });
+    });
+}
+
+async function authenticate() {
+    if (!gapiLoaded) await loadGapiClient();
+    try {
+        await gapi.auth2.getAuthInstance().signIn();
+    } catch (error) {
+        console.error("Authentication failed", error);
+    }
+}
+
+
 updateCalendar();
 setupDateSelection();
