@@ -40,95 +40,96 @@ foreach ($rows as $row) {
     <link href="https://cdn.lineicons.com/5.0/lineicons.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="/admin-events/admin-dashboard.css">
-
+    <link rel="stylesheet" href="css/admin-dashboard.css" />
+    <link rel="stylesheet" href="css/index.css" />
     <style>
-        #calendar {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-    </style>
+    /* Adjust the calendar's overall appearance */
+    #calendar {
+        max-width: 900px;
+        margin: 30px auto;
+        background-color: #ffffff; /* Background color for better contrast */
+        border: 1px solid #ddd; /* Add a subtle border */
+        border-radius: 8px; /* Rounded corners for a softer look */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Slight shadow for depth */
+        padding: 20px; /* Add padding around the calendar */
+    }
 
-<!--     <link rel="stylesheet" href="css/events.css">
-    <link rel="stylesheet" href="css/index.css" /> -->
+    /* Style event blocks */
+    .fc-event {
+        background-color: #5cb85c !important; /* Green background for events */
+        border: none !important; /* Remove default border */
+        color: #fff !important; /* White text for better readability */
+        font-size: 14px; /* Increase text size */
+        padding: 5px; /* Add padding to the event block */
+        border-radius: 4px; /* Rounded corners for events */
+    }
+
+    /* Hover effect for events */
+    .fc-event:hover {
+        background-color: #4cae4c !important; /* Slightly darker green on hover */
+        cursor: pointer;
+    }
+
+    /* Header styles */
+    .fc-toolbar {
+        background-color: #f8f9fa; /* Light gray background */
+        border-bottom: 1px solid #ddd; /* Subtle border at the bottom */
+        padding: 10px; /* Add padding to the toolbar */
+        border-radius: 8px 8px 0 0; /* Rounded corners for the top */
+    }
+
+    /* Button styles */
+    .fc-toolbar button {
+        background-color: #007bff; /* Blue background */
+        color: #fff; /* White text */
+        border: none; /* Remove border */
+        border-radius: 4px; /* Rounded corners */
+        padding: 5px 10px; /* Adjust padding */
+        margin: 0 5px; /* Add spacing between buttons */
+    }
+
+    .fc-toolbar button:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+    }
+
+    /* Table cells for dates */
+    .fc-day {
+        height: 100px; /* Ensure consistent height for cells */
+        vertical-align: top; /* Align content to the top */
+    }
+
+    /* Today's date highlight */
+    .fc-today {
+        background-color:rgb(185, 220, 15) !important; /* Light gray background */
+        border: 1px solid #adb5bd !important; /* Subtle border */
+    }
+
+    /* Weekend styling */
+    .fc-sun, .fc-sat {
+        background-color: #f8f9fa !important; /* Light gray background */
+    }
+    </style>
 </head>
 <body>
     <!-- navbar -->
     <nav class="navbar navbar-expand-md bg-white border-bottom">
-        <div class="container-fluid d-flex align-items-center">
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <a class="navbar-brand mx-auto" href="#">
-            <img
-              src="assets/eli-coffee-icon.png"
-              width="30"
-              class="d-inline-block navbar-icon"
-            />
-            <span class="d-none d-md-inline">ELI Coffee</span>
-          </a>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto me-4">
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link link-dark"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                >
-                  Menu
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="bi bi-chevron-down"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
-                    />
-                  </svg>
+    <div class="container-fluid d-flex align-items-center">
+        <a class="navbar-brand d-flex align-items-center me-auto" href="#">
+            <img src="assets/eli-coffee-icon.png" width="30" class="d-inline-block navbar-icon" />
+            <span class="d-none d-md-inline ms-2">ELI Coffee</span>
+        </a>
+            <div class="dashboard">Dashboard</div>
+            <div class="navbar-right d-flex align-items-center me-2">
+                <a href="#" class="nav-link" role="button" data-bs-toggle="dropdown">
+                    <img class="user-icon" src="assets/user-default-icon.png" width="30" />
                 </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Coffee</a></li>
-                  <li><a class="dropdown-item" href="#">Tea</a></li>
-                  <li><a class="dropdown-item" href="#">Frappe</a></li>
-                  <li><hr class="dropdown-divider" /></li>
-                  <li>
-                    <a class="dropdown-item" href="#">Add-ons</a>
-                    <a class="dropdown-item" href="#">Food</a>
-                  </li>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="#">Edit profile</a></li>
+                    <li><a class="dropdown-item" href="home.html">Sign out</a></li>
                 </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="events.html">Events</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="about.html">About Us</a>
-              </li>
-            </ul>
-          </div>
-          <div class="navbar-right d-flex align-items-center me-2">
-            <a href="#" class="nav-link" role="button" data-bs-toggle="dropdown">
-              <img
-                class="user-icon"
-                src="assets/user-default-icon.png"
-                width="30"
-              />
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end">
-              <li><a class="dropdown-item" href="#">Order status</a></li>
-              <li><hr class="dropdown-divider" /></li>
-              <li><a class="dropdown-item" href="#">Edit profile</a></li>
-              <li><a class="dropdown-item" href="home.html">Sign out</a></li>
-            </ul>
-          </div>
+            </div>
         </div>
-      </nav>
+    </nav>
 
       <!-- content of the page -->
     <div class="wrapper">
@@ -148,7 +149,7 @@ foreach ($rows as $row) {
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="inventory.html" class="sidebar-link">
+                    <a href="inventory.php" class="sidebar-link">
                         <i class="lni lni-menu-hamburger-1"></i>
                         <span>Menu and Inventory</span>
                     </a>
