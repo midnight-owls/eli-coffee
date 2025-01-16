@@ -20,6 +20,13 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
       rel="stylesheet"
     />
+    <style>
+        .back-button {
+            position: absolute;
+            top: 120px;
+            right: 20px;
+        }
+    </style>
   </head>
 
   <body>
@@ -119,11 +126,12 @@
       class="container my-3 d-flex justify-content-center align-items-center flex-column"
       style="min-height: 80vh"
     >
+    <a href="http://localhost/eli-coffee/events/data.php" class="btn btn-primary back-button">View Calendar Schedules</a>
       <h2 class="text-center mb-3">Schedule an Event</h2>
       <div class="row g-4 w-100">
         <div class="col-lg-6 mx-auto">
           <div class="px-4 py-3 border">
-            <form id="eventForm" action="process_event.php" method="POST" onsubmit="return false;">
+            <form id="eventForm" method="POST">
               <div class="row mb-3">
                 <div class="col">
                   <label for="date" class="form-label">Date</label>
@@ -200,6 +208,7 @@
                   <label for="comments" class="form-label">Comments</label>
                   <textarea
                     id="comments"
+                    name="comments"
                     rows="4"
                     class="form-control txt-area"
                     style="resize: none; border: 1px solid #000; width: 95%"
@@ -229,62 +238,10 @@
                         Clear
                       </button>
                     </div>
-                    <div class="row">
-                      <button
-                        type="button"
-                        name="view_event"
-                        class="btn btn-outline-secondary w-100"
-                        onclick="showScheduledEvent()"
-                      >
-                        View
-                      </button>
-                    </div>
                   </div>
                 </div>
               </div>
             </form>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Modal for Scheduled Event -->
-    <div
-      class="modal fade"
-      id="scheduledEventModal"
-      tabindex="-1"
-      aria-labelledby="scheduledEventModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <i
-              class="fas fa-thumbtack"
-              style="color: red; font-size: 30px; margin-right: 10px"
-            ></i>
-            <h5 class="modal-title" id="scheduledEventModalLabel">
-              Scheduled Event
-            </h5>
-          </div>
-          <div class="modal-body">
-            <ul id="eventDetailsList"></ul>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-danger"
-              onclick="deleteScheduledEvent()"
-            >
-              Delete
-            </button>
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Exit
-            </button>
           </div>
         </div>
       </div>
@@ -313,103 +270,6 @@
         return `${formattedHours}:${minutes} ${period}`;
       }
 
-      // Function to save event details
-      function saveEventDetails() {
-        const date = document.getElementById("date").value;
-        const start = document.getElementById("start").value;
-        const end = document.getElementById("end").value;
-        const eventType = document.getElementById("event-type").value;
-        const volume = document.getElementById("volume").value;
-        const location = document.getElementById("event-location").value;
-        const comments = document.getElementById("comments").value;
-
-        // Convert start and end times to 12-hour format
-        const formattedStart = formatTimeTo12Hour(start);
-        const formattedEnd = formatTimeTo12Hour(end);
-
-        // Retrieve existing events from localStorage or initialize an empty array
-        const existingEvents = JSON.parse(localStorage.getItem("events")) || [];
-
-        // Add the new event to the array
-        existingEvents.push({
-          date,
-          start: formattedStart,
-          end: formattedEnd,
-          eventType,
-          volume,
-          location,
-          comments,
-        });
-
-        // Save the updated array back to localStorage
-        localStorage.setItem("events", JSON.stringify(existingEvents));
-
-        alert("Event details have been saved!");
-      }
-
-      // Function to show scheduled events details in the modal
-      function showScheduledEvent() {
-        const events = JSON.parse(localStorage.getItem("events"));
-
-        if (events && events.length > 0) {
-          const eventDetailsList = document.getElementById("eventDetailsList");
-          eventDetailsList.innerHTML = ""; // Clear previous event details
-
-          // Loop through each event and display them
-          events.forEach((event) => {
-            const listItem = document.createElement("li");
-            listItem.innerHTML = `
-              <strong>Date:</strong> ${event.date}<br>
-              <strong>Start Time:</strong> ${event.start}<br>
-              <strong>End Time:</strong> ${event.end}<br>
-              <strong>Event Type:</strong> ${event.eventType}<br>
-              <strong>Volume of Guests:</strong> ${event.volume}<br>
-              <strong>Location:</strong> ${event.location}<br>
-              <strong>Comments:</strong> ${event.comments}<br><br>
-            `;
-            eventDetailsList.appendChild(listItem);
-          });
-
-          // Show the modal
-          const myModal = new bootstrap.Modal(
-            document.getElementById("scheduledEventModal")
-          );
-          myModal.show();
-        } else {
-          alert("No events scheduled. Fill up the event form first.");
-        }
-      }
-
-      // Function to delete the most recent scheduled event
-      function deleteScheduledEvent() {
-        const events = JSON.parse(localStorage.getItem("events"));
-
-        if (events && events.length > 0) {
-          // Show a confirmation popup before deleting
-          const confirmDelete = confirm(
-            "Are you sure you want to delete the most recent event?"
-          );
-          if (confirmDelete) {
-            // Remove the most recent event (last item in the array)
-            events.pop();
-
-            // Save the updated events array back to localStorage
-            localStorage.setItem("events", JSON.stringify(events));
-
-            // Hide the modal after deletion
-            const myModal = bootstrap.Modal.getInstance(
-              document.getElementById("scheduledEventModal")
-            );
-            myModal.hide();
-
-            alert("Most recent event has been deleted.");
-          } else {
-            alert("Event deletion cancelled.");
-          }
-        } else {
-          alert("No events to delete.");
-        }
-      }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
@@ -417,36 +277,50 @@
 
 
 <?php
-// Database connection
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "events";
+require 'connection.php';
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+if (isset($_POST["confirm_event"])) {
+    $event_date = $_POST['date'];
+    $start_time = $_POST['start'];
+    $end_time = $_POST['end'];
+    $event_type = $_POST['event-type'];
+    $guest_volume = $_POST['volume'];
+    $location = $_POST['event-location'];
+    $comments = $_POST['comments'];
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    // Check if the date already exists in the database
+    $check_query = "SELECT * FROM calendar_events WHERE event_date = '$event_date'";
+    $result = mysqli_query($conn, $check_query);
+
+    if (mysqli_num_rows($result) > 0) {
+        echo "
+        <script>
+            alert('This date is already scheduled. Please choose another date.');
+        </script>
+        ";
+    } else {
+        // Insert the data into the database
+        $query = "INSERT INTO calendar_events (event_date, start_time, end_time, event_type, guest_volume, location, comments) 
+                  VALUES ('$event_date', '$start_time', '$end_time', '$event_type', '$guest_volume', '$location', '$comments')";
+
+        if (mysqli_query($conn, $query)) {
+            echo "
+            <script>
+                alert('Event added successfully!'); 
+                document.location.href = 'data.php';
+            </script>
+            ";
+        } else {
+            echo "
+            <script>
+                alert('Error adding event: " . mysqli_error($conn) . "');
+            </script>
+            ";
+        }
+    }
 }
 
-// Retrieve form data
-$event_date = $_POST['date'];
-$start_time = $_POST['start'];
-$end_time = $_POST['end'];
-$event_type = $_POST['event-type'];
-$guest_volume = $_POST['volume'];
-$location = $_POST['event-location'];
-$comments = $_POST['comments'];
-
-// Insert data into table
-$sql = "INSERT INTO event_metadata (event_date, start_time, end_time, event_type, guest_volume, location, comments) 
-        VALUES ('$event_date', '$start_time', '$end_time', '$event_type', $guest_volume, '$location', '$comments')";
-
-if ($conn->query($sql) === TRUE) {
-    echo "New event scheduled successfully!";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-}
-
-$conn->close();
 ?>
+
+
+
