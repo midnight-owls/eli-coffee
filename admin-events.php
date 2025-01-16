@@ -142,7 +142,7 @@ foreach ($rows as $row) {
             </div>
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
-                    <a href="admin-dashboard.html" class="sidebar-link">
+                    <a href="admin-dashboard.php" class="sidebar-link">
                         <i class="lni lni-home-2"></i>
                         <span>Home</span>
                     </a>
@@ -154,7 +154,7 @@ foreach ($rows as $row) {
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="admin-events.html" class="sidebar-link">
+                    <a href="admin-events.php" class="sidebar-link">
                         <i class="lni lni-calendar-days"></i>
                         <span>Events</span>
                     </a>
