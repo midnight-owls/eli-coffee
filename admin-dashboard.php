@@ -58,13 +58,13 @@ $result = $conn->query($sql);
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="inventory.php" class="sidebar-link">
+                    <a href="admin-events/admin-inventory.php" class="sidebar-link">
                         <i class="lni lni-menu-hamburger-1"></i>
                         <span>Menu and Inventory</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="admin-events.php" class="sidebar-link">
+                    <a href="admin-events/admin-events.php" class="sidebar-link">
                         <i class="lni lni-calendar-days"></i>
                         <span>Events</span>
                     </a>
