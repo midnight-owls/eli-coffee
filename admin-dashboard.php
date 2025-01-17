@@ -33,7 +33,7 @@ $result = $conn->query($sql);
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
                     <li><a class="dropdown-item" href="#">Edit profile</a></li>
-                    <li><a class="dropdown-item" href="home.html">Sign out</a></li>
+                    <li><a class="dropdown-item" href="home.php">Sign out</a></li>
                 </ul>
             </div>
         </div>
@@ -70,12 +70,6 @@ $result = $conn->query($sql);
                     </a>
                 </li>
             </ul>
-            <div class="sidebar-footer">
-                <a href="home.php" class="sidebar-link">
-                    <i class="lni lni-exit"></i>
-                    <span>Logout</span>
-                </a>
-            </div>
         </aside>
 
         <div class="main p-3">

@@ -42,7 +42,7 @@
           <li class="nav-item dropdown">
             <a
               class="nav-link"
-              href="guest-menu.html"
+              href="guest-menu.php"
               role="button"
               data-bs-toggle="dropdown">
               Menu

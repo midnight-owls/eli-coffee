@@ -48,7 +48,7 @@ foreach ($rows as $row) {
 </head>
 <body>
     <div id="calendar"></div>
-    <a href="http://localhost/eli-coffee/events/events-index.php" class="btn btn-primary back-button">Back</a>
+    <a href="http://localhost/eli-coffee/events.php" class="btn btn-primary back-button">Back</a>
 
     <!-- Modal for Event Details -->
     <div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="eventModalLabel" aria-hidden="true">

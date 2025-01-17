@@ -14,83 +14,25 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md bg-white border-bottom">
-        <div class="container-fluid d-flex align-items-center">
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <a class="navbar-brand mx-auto" href="#">
-            <img
-              src="../assets/eli-coffee-icon.png"
-              width="30"
-              class="d-inline-block navbar-icon"
-            />
-            <span class="d-none d-md-inline">ELI Coffee</span>
-          </a>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto me-4">
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link link-dark"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                >
-                  Menu
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="bi bi-chevron-down"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
-                    />
-                  </svg>
+<nav class="navbar navbar-expand-md bg-white border-bottom">
+    <div class="container-fluid d-flex align-items-center">
+        <a class="navbar-brand d-flex align-items-center me-auto" href="#">
+            <img src="../assets/eli-coffee-icon.png" width="30" class="d-inline-block navbar-icon" />
+            <span class="d-none d-md-inline ms-2">ELI Coffee</span>
+        </a>
+            <div class="dashboard">Dashboard</div>
+            <div class="navbar-right d-flex align-items-center me-2">
+                <a href="#" class="nav-link" role="button" data-bs-toggle="dropdown">
+                    <img class="user-icon" src="../assets/user-default-icon.png" width="30" />
                 </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Coffee</a></li>
-                  <li><a class="dropdown-item" href="#">Tea</a></li>
-                  <li><a class="dropdown-item" href="#">Frappe</a></li>
-                  <li><hr class="dropdown-divider" /></li>
-                  <li>
-                    <a class="dropdown-item" href="#">Add-ons</a>
-                    <a class="dropdown-item" href="#">Food</a>
-                  </li>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="#">Edit profile</a></li>
+                    <li><a class="dropdown-item" href="../home.php">Sign out</a></li>
                 </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="events.html">Events</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="about.html">About Us</a>
-              </li>
-            </ul>
-          </div>
-          <div class="navbar-right d-flex align-items-center me-2">
-            <a href="#" class="nav-link" role="button" data-bs-toggle="dropdown">
-              <img
-                class="user-icon"
-                src="../assets/user-default-icon.png"
-                width="30"
-              />
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end">
-              <li><a class="dropdown-item" href="#">Order status</a></li>
-              <li><hr class="dropdown-divider" /></li>
-              <li><a class="dropdown-item" href="#">Edit profile</a></li>
-              <li><a class="dropdown-item" href="home.html">Sign out</a></li>
-            </ul>
-          </div>
+            </div>
         </div>
-      </nav>
-        
-    </div>
+    </nav>
+
     <div class="wrapper">
         <aside id="sidebar">
             <div class="d-flex">
@@ -102,7 +44,7 @@
             </div>
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
-                    <a href="admin-dashboard.html" class="sidebar-link">
+                    <a href="../admin-dashboard.php" class="sidebar-link">
                         <i class="lni lni-home-2"></i>
                         <span>Home</span>
                     </a>
@@ -120,12 +62,6 @@
                     </a>
                 </li>
             </ul>
-            <div class="sidebar-footer">
-                <a href="home.html" class="sidebar-link">
-                    <i class="lni lni-exit"></i>
-                    <span>Logout</span>
-                </a>
-            </div>
         </aside>
         <div class="main">
             <div class="text-center">
@@ -180,8 +116,8 @@
                     <!-- add button -->
                     <div class="add-menu-container">
                         <div>
-                            <img src="../assets/add-square-removebg-preview.png" alt="" class="img-fluid add-menu" id="add-menu" style="position: absolute; right: 10px; top:60px; height: 50px; width: 50px;"> 
-                            <p class="menu-name" style="position: absolute; top: 75px; right: 70px; font-size: 12px; color: #333;">Add Product</p>
+                            <img src="../assets/add-square-removebg-preview.png" alt="" class="img-fluid add-menu" id="add-menu" style="position: absolute; right: 10px; top:30px; height: 50px; width: 50px;"> 
+                            <p class="menu-name" style="position: absolute; top: 45px; right: 70px; font-size: 12px; color: #333;">Add Product</p>
                         </div>
                        
                     </div>
