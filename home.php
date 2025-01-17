@@ -42,7 +42,7 @@
           <li class="nav-item dropdown">
             <a
               class="nav-link"
-              href="guest-menu.php"
+              href="menu.php"
               role="button"
               data-bs-toggle="dropdown">
               Menu
@@ -70,10 +70,10 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="guest-events.html">Events</a>
+            <a class="nav-link" href="guest-events.php">Events</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="about.html">About Us</a>
+            <a class="nav-link" href="about.php">About Us</a>
           </li>
         </ul>
       </div>
