@@ -100,12 +100,9 @@
    <!-- Sign In / Sign Up -->
   <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         <h2>Sign Up!</h2>
-        <label for="">Email:</label><br>
-        <input type="email" name="email"><br>
-        <label for="">Password:</label><br>
-        <input type="password" name="password"><br>
-        <label for="">Confirm Password:</label><br>
-        <input type="password" name="confirm_password"><br>
+        <input type="email" name="email" placeholder="Enter your email"><br>
+        <input type="password" name="password" placeholder="Create your password"><br>
+        <input type="password" name="confirm_password" placeholder="Confirm your password"><br>
         <input type="submit" name="submit" id="" value="Register">
         <div class="signup">
         Already have an account?
@@ -116,10 +113,8 @@
     
   <form action="login.php" method="post">
         <h2>Welcome to Eli Coffee!</h2>
-        <label for="">Email:</label><br>
-        <input type="email" name="log_email"><br>
-        <label for="">Password:</label><br>
-        <input type="password" name="log_password"><br>
+        <input type="email" name="log_email" placeholder="Enter Your Email"><br>
+        <input type="password" name="log_password" placeholder ="Enter Your Password"><br>
           <a href="#" class="forgot_pw" style="text-decoration: none">
             Forgot password</a
           >
