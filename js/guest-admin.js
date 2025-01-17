@@ -59,7 +59,7 @@ adminLoginSubmitButton.addEventListener("click", (e) => {
 
   if (isValidAdmin) {
     alert("Welcome Admin! Redirecting to the admin dashboard...");
-    window.location.href = "admin-dashboard.html"; // Redirect to admin dashboard
+    window.location.href = "admin-dashboard.php"; // Redirect to admin dashboard
   } else {
     alert("Invalid admin credentials. Please try again.");
   }

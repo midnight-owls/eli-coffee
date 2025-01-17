@@ -1,3 +1,100 @@
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  color: rgb(68, 32, 18);
+}
+
+.navbar-icon {
+  margin-right: 6px;
+}
+
+.nav-link {
+  color: rgb(68, 32, 18);
+  font-size: 16px;
+  font-weight: 600;
+}
+.nav-link:hover,
+.nav-link.active {
+  color: black;
+}
+
+.bi-chevron-down {
+  fill: currentColor;
+  width: 12px;
+  margin-bottom: 3px;
+  transition: transform 0.3s ease;
+}
+.nav-item:hover .bi-chevron-down {
+  fill: black;
+  transform: translateY(2px);
+}
+
+.dropdown-item:active {
+  background-color: rgb(68, 32, 18);
+}
+
+.btn-outline-secondary {
+  color: rgb(68, 32, 18);
+  border-color: rgb(68, 32, 18);
+  padding: 0 20px;
+  height: 28px;
+}
+.btn-outline-secondary:hover {
+  background-color: rgb(134, 98, 85);
+  border-color: rgb(134, 98, 85);
+}
+.btn-outline-secondary:active {
+  background-color: rgb(68, 32, 18) !important;
+  border-color: rgb(68, 32, 18) !important;
+}
+
+.navbar-toggler {
+  border: none;
+}
+.navbar-toggler:focus {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.user-icon {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 0 2px;
+  margin-left: 10px;
+  transition: box-shadow 0.1s ease;
+}
+.user-icon:hover {
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+}
+.user-icon:active {
+  box-shadow: none;
+  outline: 1.5px solid rgb(68, 32, 18);
+}
+
+@media (max-width: 767.98px) {
+  .navbar-brand {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .navbar-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0.65rem 1rem;
+  }
+  .align-items-start {
+    padding: 0 0.9rem;
+  }
+}
 
 /* Menu and inventory css */
 .placeholder {
@@ -17,14 +114,13 @@ img.img-fluid {
   object-fit: contain; /* Scales the image to fit inside the container */
 }
 
-
-.placeholder:hover{
+.placeholder:hover {
   box-shadow: 5%;
-  opacity: .5;
+  opacity: 0.5;
 }
 
 .placeholder img {
- object-fit: cover; /* Ensures the image fills the space without distortion */
+  object-fit: cover; /* Ensures the image fills the space without distortion */
 }
 
 .coffee-products {
@@ -34,7 +130,7 @@ img.img-fluid {
   grid-template-columns: repeat(4, 1fr);
 }
 
-.card{
+.card {
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.216);
 }
 
@@ -47,7 +143,7 @@ img.img-fluid {
   animation: rotating 0.5s ease 0s 1 normal forwards;
 }
 
-#add-menu:hover{
+#add-menu:hover {
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.512);
 }
 
@@ -67,7 +163,7 @@ img.img-fluid {
   }
 }
 
-.add-menu-container{
+.add-menu-container {
   display: flex; /* Turns the container into a Flexbox */
   justify-content: center; /* Centers the image horizontally */
   align-items: center; /* Centers the image vertically */
@@ -103,7 +199,7 @@ img.img-fluid {
   cursor: pointer;
 }
 
-.coffee-information{
+.coffee-information {
   padding-top: 20px;
 }
 
@@ -157,5 +253,23 @@ img.img-fluid {
   word-wrap: break-word; /* Prevent text from overflowing */
 }
 
-
-
+.btn-primary {
+  color: black;
+  background-color: transparent;
+  border-color: black;
+  padding: 5px 15px;
+  font-size: 12px;
+  font-weight: 600;
+  width: 100px;
+  transition: background-color 0.3s ease;
+}
+.btn-primary:hover {
+  background-color: #cdcdcd;
+  color: black;
+  border-color: black;
+}
+.btn-primary:active {
+  color: black !important;
+  background-color: #a1a1a1 !important;
+  border-color: black !important;
+}

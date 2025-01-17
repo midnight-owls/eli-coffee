@@ -204,7 +204,7 @@ img.img-fluid.me-3 {
   background: #fff;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
   width: 100%;
   max-width: 360px;
   z-index: 10;
@@ -220,20 +220,20 @@ img.img-fluid.me-3 {
   top: 15px;
   right: 15px;
   font-size: 1.2em;
-  color: #421f0c;
+  color: rgb(68, 32, 18);
   cursor: pointer;
 }
 
 .form_container h2 {
   font-size: 1.5em;
-  color: #421f0c;
+  color: rgb(68, 32, 18);
   margin-bottom: 15px;
   text-align: center;
 }
 
 .input_box {
   position: relative;
-  width: 85%;
+  width: 100%;
   margin: 12px 0;
 }
 
@@ -262,13 +262,20 @@ img.img-fluid.me-3 {
 .option_field .checkbox input {
   margin-right: 5px;
 }
+.checkbox {
+  margin-left: 10px;
+}
+
+.forgot-container {
+  display: flex;
+  justify-content: flex-end;
+}
 
 .forgot_pw {
-  color: #421f0c;
+  color: rgb(68, 32, 18);
   font-size: 0.9em;
-  text-align: right;
-  display: block;
   margin-top: 5px;
+  text-decoration: none;
 }
 
 .forgot_pw:hover {
@@ -281,15 +288,18 @@ img.img-fluid.me-3 {
   font-weight: 700;
   font-size: 1em;
   color: #fff;
-  background-color: #421f0c;
+  background-color: rgb(68, 32, 18);
   border: none;
   border-radius: 5px;
   cursor: pointer;
   margin-top: 15px;
+  transition: background-color 0.15s ease;
 }
-
 .button:hover {
-  background-color: #36230a;
+  background-color: rgb(135, 80, 60);
+}
+.button:active {
+  background-color: rgb(68, 32, 18);
 }
 
 .signup {
@@ -298,9 +308,10 @@ img.img-fluid.me-3 {
 }
 
 .signup a {
-  color: #421f0c;
-  font-weight: 700;
+  color: rgb(68, 32, 18);
+  font-weight: 600;
   text-decoration: none;
+  margin-left: 5px;
 }
 
 .signup a:hover {
@@ -309,9 +320,8 @@ img.img-fluid.me-3 {
 
 .pw_hide {
   cursor: pointer;
-  color: #bbb;
 }
 
 .pw_hide:hover {
-  color: #421f0c;
+  color: rgb(135, 80, 60);
 }

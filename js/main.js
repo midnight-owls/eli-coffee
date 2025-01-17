@@ -22,24 +22,26 @@ closeButton.addEventListener("click", () => {
 });
 
 // Toggle between signin and signup forms
-toggleSignupLinks.forEach(link => {
+toggleSignupLinks.forEach((link) => {
   link.addEventListener("click", (e) => {
     e.preventDefault();
-    signinForm.style.display = signinForm.style.display === "none" ? "block" : "none";
-    signupForm.style.display = signupForm.style.display === "none" ? "block" : "none";
+    signinForm.style.display =
+      signinForm.style.display === "none" ? "block" : "none";
+    signupForm.style.display =
+      signupForm.style.display === "none" ? "block" : "none";
   });
 });
 
-// Toggle password visibility
-pwHideIcons.forEach(icon => {
+// font awesome eye icon
+pwHideIcons.forEach((icon) => {
   icon.addEventListener("click", () => {
     const passwordField = icon.previousElementSibling;
     if (passwordField.type === "password") {
       passwordField.type = "text";
-      icon.classList.replace("uil-eye-slash", "uil-eye");
+      icon.classList.replace("fa-eye-slash", "fa-eye");
     } else {
       passwordField.type = "password";
-      icon.classList.replace("uil-eye", "uil-eye-slash");
+      icon.classList.replace("fa-eye", "fa-eye-slash");
     }
   });
 });
@@ -53,7 +55,7 @@ signupSubmitButton.addEventListener("click", (e) => {
   if (email && password) {
     localStorage.setItem("userEmail", email);
     localStorage.setItem("userPassword", password);
-    alert("Account created! You can now log in.");
+    alert("Account created! You can now sign in.");
     signinForm.style.display = "block";
     signupForm.style.display = "none";
   } else {
@@ -71,8 +73,15 @@ loginSubmitButton.addEventListener("click", (e) => {
   const storedPassword = localStorage.getItem("userPassword");
 
   if (email === storedEmail && password === storedPassword) {
-    window.location.href = "home.html"; // Redirect to index.html on success
+    window.location.href = "home.php"; // Redirect to index.php on success
   } else {
     alert("Incorrect email or password. Please try again or sign up.");
+  }
+});
+
+// close by esc
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    formContainer.classList.remove("active");
   }
 });
