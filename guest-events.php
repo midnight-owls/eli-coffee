@@ -13,38 +13,44 @@
 <body>
 
   <main>
-    <section class="event-info">
-      <div class="event-image"></div>
-      <p>
-        Event information: What event, date &amp; time, location, and how many
-        guests attended
-      </p>
+    <section class="event-info top-half">
+      <div class="event-image d-flex justify-content-center align-items-center">
+        <img
+          src="assets/events/events-3.jpg"
+          class="img-fluid d-block my-2 preview-2 rounded-start"
+          alt="Event" />
+        <img
+          src="assets/events/events-1.jpg"
+          class="img-fluid d-block my-2 preview-2"
+          alt="Event" />
+        <img
+          src="assets/events/events-2.jpg"
+          class="img-fluid d-block my-2 preview-2 rounded-end"
+          alt="Event" />
+      </div>
+      <h6 class="text-end me-2 caption">
+        <strong>ELI Coffee:</strong> No tricks, just coffee treats for you. ☕
+      </h6>
     </section>
 
-    <section class="service-details">
-      <div class="service">
-        <div class="service-image"></div>
-        <p>
-          Description of the picture, what service is made / another details
-        </p>
+    <section class="event-info bottom-half">
+      <div class="event-image d-flex justify-content-center align-items-center">
+        <img
+          src="assets/events/events-6.jpg"
+          class="img-fluid d-block my-2 preview-2 rounded-start"
+          alt="Event" />
+        <img
+          src="assets/events/events-5.jpg"
+          class="img-fluid d-block my-2 preview-2"
+          alt="Event" />
+        <img
+          src="assets/events/events-4.jpg"
+          class="img-fluid d-block my-2 preview-2 rounded-end"
+          alt="Event" />
       </div>
-      <div class="service">
-        <div class="service-image"></div>
-        <p>
-          Description of the picture, what service is made / another details
-        </p>
-      </div>
-    </section>
-
-    <section class="staff">
-      <div class="staff-member">
-        <div class="staff-image"></div>
-        <p>Staff Name<br />Position</p>
-      </div>
-      <div class="staff-member">
-        <div class="staff-image"></div>
-        <p>Staff Name<br />Position</p>
-      </div>
+      <h6 class="text-end me-2 caption">
+        <strong>ELI Coffee:</strong> It's spooky szn, of course we're joining! 👻🎃
+      </h6>
     </section>
 
     <footer>
