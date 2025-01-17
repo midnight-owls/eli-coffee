@@ -1,5 +1,5 @@
 <?php
-require 'connection.php';
+require 'guest-connection.php';
 
 // Fetch events from the database
 $rows = mysqli_query($conn, "SELECT * FROM calendar_events");
