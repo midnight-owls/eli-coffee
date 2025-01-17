@@ -123,7 +123,7 @@ img.img-fluid {
   object-fit: cover; /* Ensures the image fills the space without distortion */
 }
 
-.coffee-products {
+.coffee-products, .tea-products {
   padding: 10px 20px;
   display: grid;
   gap: 20px;
@@ -143,11 +143,11 @@ img.img-fluid {
   animation: rotating 0.5s ease 0s 1 normal forwards;
 }
 
-#add-menu:hover {
+#add-menu:hover, #add-tea:hover {
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.512);
 }
 
-#add-menu {
+#add-menu, #add-tea {
   width: 120px;
   height: 120px;
   cursor: pointer;
@@ -191,7 +191,7 @@ img.img-fluid {
   text-align: center;
 }
 
-.close-button {
+.close-button, .close-btn {
   position: absolute;
   top: 10px;
   right: 20px;
@@ -272,4 +272,41 @@ img.img-fluid {
   color: black !important;
   background-color: #a1a1a1 !important;
   border-color: black !important;
+}
+
+/* Modal Styling */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0.4); /* Semi-transparent background */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less depending on screen size */
+}
+
+/* Close Button */
+.close-btn {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }

@@ -9,46 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/admin-dashboard.css">
     <link rel="stylesheet" href="../css/inventory.css">
-    <style>
-        
-.modal-add-coffee {
-    display: none; 
-    position: fixed; 
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4); 
-    z-index: 1000; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-}
-
-.modal-content {
-    background-color: #fefefe;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 50%; 
-    max-width: 600px; 
-    box-sizing: border-box; 
-}
-
-.close-button {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close-button:hover,
-.close-button:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-    </style>
+    <link rel="stylesheet" href="../admin-events/admin-inventory.css">
 
 </head>
 
@@ -169,13 +130,15 @@
         <div class="main">
             <div class="text-center">
                 <h1>Menu and Inventory</h1>
+                <h1>Coffee</h1>
                 <div class="coffee-products">
+                    
                     <!-- logic for obtaining the product/s in databse -->
                     <?php
                     require 'admin-connection.php';
 
                     // Query to fetch coffee products
-                    $query = "SELECT * FROM products";
+                    $query = "SELECT * FROM products WHERE category='Coffee'";
                     $result = mysqli_query($conn, $query);
 
                     
@@ -197,7 +160,15 @@
                                         <p class="card-text"><?php echo $productName; ?></p>
                                         <!-- View and Edit buttons -->
                                         <button class="btn btn-primary" id="view-btn-<?php echo $row['id']; ?>">View</button>
-                                        <button class="ediButton btn btn-secondary" id="edit-btn-<?php echo $row['id']; ?>">Edit</button>
+                                        <button 
+                                            class="ediButton btn btn-secondary" 
+                                            id="edit-btn-<?php echo $row['id']; ?>" 
+                                            data-id="<?php echo $row['id']; ?>" 
+                                            data-name="<?php echo $row['product_name']; ?>" 
+                                            data-image="../img/<?php echo $row['product_img']; ?>"
+                                        >
+                                            Edit
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -206,13 +177,11 @@
                     }
                     ?>
 
-
-                    
                     <!-- add button -->
                     <div class="add-menu-container">
                         <div>
-                            <img src="../assets/add-square-removebg-preview.png" alt="" class="img-fluid add-menu" id="add-menu"> 
-                            <div class="card-body"><p class="card-text">Add Coffee</p></div>
+                            <img src="../assets/add-square-removebg-preview.png" alt="" class="img-fluid add-menu" id="add-menu" style="position: absolute; right: 10px; top:60px; height: 50px; width: 50px;"> 
+                            <p class="menu-name" style="position: absolute; top: 75px; right: 70px; font-size: 12px; color: #333;">Add Product</p>
                         </div>
                        
                     </div>
@@ -222,44 +191,117 @@
                             <form enctype="multipart/form-data" action="#" method="post" class="coffee-form">
                                 <!-- Add Picture -->
                                 <div class="form-group">
-                                    <label for="coffee-image">Add Picture</label>
-                                    <input type="file" name="coffee-image" id="coffee-image" accept="image/*" class="form-control">
+                                    <label for="product-image">Add Picture</label>
+                                    <input type="file" name="product-image" id="product-image" accept="image/*" class="form-control">
                                 </div>
                                 
-                                <!-- Name of Coffee -->
+                                <!-- Name of Product -->
                                 <div class="form-group">
-                                    <label for="coffee-name">Name of Coffee</label>
-                                    <input type="text" name="coffee-name" id="coffee-name" placeholder="Enter coffee name" class="form-control" required>
+                                    <label for="product-name">Name of Product</label>
+                                    <input type="text" name="product-name" id="product-name" placeholder="Enter product name" class="form-control" required>
                                 </div>
+
+                                <div class="form-group">
+                                    <label for="product-category">Category</label>
+                                    <select name="product-category" id="product-category" class="form-control" required>
+                                        <option value="coffee">Coffee</option>
+                                        <option value="tea">Tea</option>
+                                        <option value="frappe">Frappe</option>
+                                        <option value="add-ons">Add-ons</option>
+                                        <option value="food">Food</option>
+                                    </select>
+                                </div>
+
+                                <!-- Price of Coffee -->
+                                <div class="form-group">
+                                    <label for="product-price">Price</label>
+                                    <input type="number" name="product-price" id="product-price" placeholder="Enter product price" class="form-control" required>
+                                </div>
+
 
                                 <!-- Submit Button -->
                                 <div class="form-group">
-                                    <button type="submit" name="submit" class="btn btn-primary">Add Coffee</button>
+                                    <button type="submit" name="submit" class="btn btn-primary">Add Product</button>
                                 </div>
                             </form>
 
                         </div>
                     </div>
-                    <!-- view button -->
                     <div id="popup-form" class="popup-form">
                         <div class="popup-content">
                             <span class="x-btn-view">&times;</span>
                             <div class="details">
-                                <h3>View Coffee Details</h3>
-                                <div class="picture-container"><img src="../assets/coffee1.png" alt="Mocha"></div>
+                                <div class="picture-container">
+                                    <img src="../assets/coffee1.png" alt="Mocha">
+                                </div>
                                 <p id="coffee-details"></p>
-                            </div>                       
+                            </div>
+                            <form id="delete-form" method="POST" action="delete-product.php">
+                                <input type="hidden" name="product_id" id="delete-product-id" />
+                                <input type="hidden" name="category" id="delete-category"/>
+                                <button type="submit" class="delete-btn">Delete</button>
+                            </form>
                         </div>
-                    </div>                  
+                    </div>
+                </div>
+                <br>
+                <hr>
+                <div>Tea</div>
+                <div class="tea-products">
+                <?php
+                    require 'admin-connection.php';
+
+                    // Query to fetch coffee products
+                    $query = "SELECT * FROM products WHERE category='tea'";
+                    $result = mysqli_query($conn, $query);
+
+                    
+                    // Check if any products exist
+                    if (mysqli_num_rows($result) > 0) {
+                        // Loop through each product and display it
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            $productImage = $row['product_img']; // Image filename from database
+                            $productName = $row['product_name']; // Coffee name from database
+                            ?>
+                            <div class="col">
+                                <div class="card">
+                                    <div class="placeholder">
+                                        <!-- Display the product image dynamically -->
+                                        <img src="../img/<?php echo $productImage; ?>" alt="picture of <?php echo $productName; ?>" class="img-fluid">
+                                    </div>
+                                    <div class="card-body">
+                                        <!-- Display the product name dynamically -->
+                                        <p class="card-text"><?php echo $productName; ?></p>
+                                        <!-- View and Edit buttons -->
+                                        <button class="btn btn-primary" id="view-btn-<?php echo $row['id']; ?>">View</button>
+                                        <button 
+                                            class="ediButton btn btn-secondary" 
+                                            id="edit-btn-<?php echo $row['id']; ?>" 
+                                            data-id="<?php echo $row['id']; ?>" 
+                                            data-name="<?php echo $row['product_name']; ?>" 
+                                            data-image="../img/<?php echo $row['product_img']; ?>"
+                                        >
+                                            Edit
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php
+                        }
+                    }
+                    ?>
+                </div>
+        
             </div>
-            </div>
-        </div>
+
         
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="../js/admin-dashboard.js"></script>
+
     <script>
+        /* addming a coffee */
         window.onload = function() {
         const modalAddCoffee = document.getElementById('popup-modal-add-coffee');
         const modalViewCoffee = document.getElementById('popup-form');
@@ -292,31 +334,67 @@
             }
         });
     });
+
+    /* Deleting coffee */
+    document.addEventListener('DOMContentLoaded', () => {
+    const editButtons = document.querySelectorAll('.ediButton');
+    const popupForm = document.getElementById('popup-form');
+    const closeButton = document.querySelector('.x-btn-view');
+    const coffeeImage = popupForm.querySelector('.picture-container img');
+    const coffeeDetails = document.getElementById('coffee-details');
+    const deleteProductIdInput = document.getElementById('delete-product-id');
+
+    // Handle edit button click
+    editButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const coffeeId = this.getAttribute('data-id');
+            const coffeeName = this.getAttribute('data-name');
+            const coffeeImageSrc = this.getAttribute('data-image');
+
+            // Update popup content
+            coffeeImage.src = coffeeImageSrc;
+            coffeeImage.alt = `Picture of ${coffeeName}`;
+            coffeeDetails.textContent = coffeeName;
+            deleteProductIdInput.value = coffeeId;
+
+            // Show the popup
+            popupForm.style.display = 'flex';
+        });
+    });
+
+    // Close the popup
+    closeButton.addEventListener('click', () => {
+        popupForm.style.display = 'none';
+    });
+});
     </script>
+
 
 </body>
 </html>
 
-
+<!-- adding a coffee -->
 <?php
 require 'admin-connection.php'; 
 
 if (isset($_POST["submit"])) {
     // Check if coffee name is provided
-    if (empty($_POST["coffee-name"])) {
+    if (empty($_POST["product-name"])) {
         echo "<script>alert('Please enter the coffee name');</script>";
         return; // Stop execution if no coffee name is provided
     }
 
-    $productName = $_POST["coffee-name"]; // Get the coffee name from the form input
+    $productName = $_POST["product-name"]; // Get the coffee name from the form input
+    $productPrice = $_POST["product-price"];
+    $productCategory = $_POST["product-category"];
 
     // Check if an image was uploaded
-    if ($_FILES["coffee-image"]["error"] == 4) {
+    if ($_FILES["product-image"]["error"] == 4) {
         echo "<script> alert('Image Does Not Exist'); </script>";
     } else {
-        $fileName = $_FILES["coffee-image"]["name"];
-        $fileSize = $_FILES["coffee-image"]["size"];
-        $tmpName = $_FILES["coffee-image"]["tmp_name"];
+        $fileName = $_FILES["product-image"]["name"];
+        $fileSize = $_FILES["product-image"]["size"];
+        $tmpName = $_FILES["product-image"]["tmp_name"];
 
         // Validate image extension
         $validImageExtensions = ['jpg', 'jpeg', 'png'];
@@ -334,7 +412,7 @@ if (isset($_POST["submit"])) {
             move_uploaded_file($tmpName, '../img/' . $newImageName);
 
             // Insert into the database
-            $query = "INSERT INTO products (id, product_img, product_name) VALUES ('', '$newImageName', '$productName')";
+            $query = "INSERT INTO products (id, product_img, product_name, category, price) VALUES ('', '$newImageName', '$productName', '$productCategory', '$productPrice')";
 
             if (mysqli_query($conn, $query)) {
                 echo "<script>
