@@ -27,7 +27,7 @@
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
                     <li><a class="dropdown-item" href="#">Edit profile</a></li>
-                    <li><a class="dropdown-item" href="../home.php">Sign out</a></li>
+                    <li><a class="dropdown-item" href="../admin-signup.php">Sign out</a></li>
                 </ul>
             </div>
         </div>
