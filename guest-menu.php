@@ -434,6 +434,49 @@
     </div>
   </div>
 
+  <footer class="bg-dark text-light py-4 footer">
+    <div class="container">
+      <div class="row">
+        <!-- Contact Us -->
+        <div class="col-md-4">
+          <h6>Contact Us</h6>
+          <p><strong>Eli Coffee</strong></p>
+          <p>2nd Floor Pearl Building, Binangonan, Philippines</p>
+          <p><strong>Phone:</strong> 0917 562 0306</p>
+          <p><strong>Email:</strong> <a href="mailto:elicoffeetea@gmail.com" class="text-light text-decoration-none">elicoffeetea@gmail.com</a></p>
+        </div>
+
+        <!-- About Us -->
+        <div class="col-md-4 text-center">
+          <h6>About Us</h6>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-light text-decoration-none">Our Company</a></li>
+            <li><a href="#" class="text-light text-decoration-none">Stories and News</a></li>
+            <li><a href="#" class="text-light text-decoration-none">Customer Service</a></li>
+          </ul>
+        </div>
+
+        <!-- Opening Hours -->
+        <div class="col-md-4 text-end">
+          <h6>Opening Hours</h6>
+          <ul class="list-unstyled">
+            <li><strong>Monday:</strong> 7:00 am - 5:00 pm</li>
+            <li><strong>Tuesday:</strong> 7:00 am - 5:00 pm</li>
+            <li><strong>Wednesday:</strong> 7:00 am - 5:00 pm</li>
+            <li><strong>Thursday:</strong> 7:00 am - 5:00 pm</li>
+            <li><strong>Friday:</strong> 7:00 am - 5:00 pm</li>
+            <li><strong>Saturday:</strong> 8:00 am - 2:00 pm</li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col text-center">
+          <p class="mb-0">&copy; 2025 Eli Coffee. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

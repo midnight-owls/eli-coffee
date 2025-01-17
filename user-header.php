@@ -19,16 +19,16 @@
     rel="stylesheet" />
   <link rel="stylesheet" href="css/admin-dashboard.css" />
   <link rel="stylesheet" href="css/inventory.css" />
-  <link rel="stylesheet" href="css/home.css" />
   <link rel="stylesheet" href="css/events.css" />
   <link rel="stylesheet" href="css/about-us.css" />
   <link rel="stylesheet" href="css/index.css" />
   <link rel="stylesheet" href="css/menu.css" />
   <link rel="stylesheet" href="css/cart.css" />
+  <link rel="stylesheet" href="css/home.css" />
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-md bg-white border-bottom">
+  <nav class="navbar navbar-expand-md bg-white border-bottom rara">
     <div class="container-fluid d-flex align-items-center">
       <button
         class="navbar-toggler"
