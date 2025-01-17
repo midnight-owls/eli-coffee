@@ -53,7 +53,7 @@
           <ul class="navbar-nav ms-auto me-4">
             <li class="nav-item dropdown">
               <a
-                class="nav-link link-dark"
+                class="nav-link"
                 href="menu.html"
                 role="button"
                 data-bs-toggle="dropdown"
@@ -96,10 +96,10 @@
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="events.html" role="button"> Events </a>
+              <a class="nav-link link-dark" href="events.html" role="button"> Events </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about.html">About Us</a>
+              <a class="nav-link" href="about-us.html">About Us</a>
             </li>
           </ul>
         </div>

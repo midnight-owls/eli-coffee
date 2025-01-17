@@ -42,7 +42,7 @@
             <li class="nav-item dropdown">
               <a
                 class="nav-link"
-                href="guest-menu.html"
+                href="menu.html"
                 role="button"
                 data-bs-toggle="dropdown"
               >
@@ -84,24 +84,14 @@
               </ul>
             </li>
             <li class="nav-item">
-<<<<<<< HEAD
-              <a class="nav-link" href="events.php" role="button"> Events </a>
+              <a class="nav-link" href="events.html" role="button"> Events </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about.html">About Us</a>
-=======
-              <a class="nav-link" href="guest-events.html" role="button">
-                Events
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="guest-about-us.html">About Us</a>
->>>>>>> main
+              <a class="nav-link" href="about-us.html">About Us</a>
             </li>
           </ul>
         </div>
         <div class="navbar-right d-flex align-items-center me-2">
-<<<<<<< HEAD
           <a href="#" class="nav-link" role="button" data-bs-toggle="dropdown">
             <img
               class="user-icon"
@@ -113,19 +103,90 @@
             <li><a class="dropdown-item" href="#">Order status</a></li>
             <li><hr class="dropdown-divider" /></li>
             <li><a class="dropdown-item" href="#">Edit profile</a></li>
-            <li><a class="dropdown-item" href="home.php">Sign out</a></li>
+            <li><a class="dropdown-item" href="index.html">Sign out</a></li>
           </ul>
-=======
-          <button type="button" class="btn btn-primary btn-sign-in">
-            SIGN IN
-          </button>
->>>>>>> main
         </div>
       </div>
     </nav>
 
     <!-- Home Page Content -->
-<<<<<<< HEAD
+
+    <!-- Login Form Container-->
+    <div class="form_container">
+      <i class="uil uil-times form_close"></i>
+
+      <!-- Sign In Form Customer-->
+      <div class="signin_form">
+        <form action="#">
+          <h2>Sign In</h2>
+          <div class="input_box">
+            <input type="email" placeholder="Enter your email" required />
+            <i class="uil uil-envelope"></i>
+          </div>
+          <div class="input_box">
+            <input type="password" placeholder="Enter your password" required />
+            <i class="uil uil-eye-slash pw_hide"></i>
+          </div>
+          <div class="option_field">
+            <span class="checkbox">
+              <input type="checkbox" id="check" />
+              <label for="check"> Remember me</label>
+            </span>
+          </div>
+          <a href="#" class="forgot_pw" style="text-decoration: none">
+            Forgot password</a
+          >
+          <button class="button">Login Now</button>
+          <div class="signup">
+            Don't have an account?
+            <a href="#" class="toggle-signup" style="text-decoration: none"
+              >Signup</a
+            >
+          </div>
+        </form>
+      </div>
+
+      <!-- Signup Form Customer -->
+      <div class="signup_form">
+        <form action="#" method="">
+          <h2>Signup</h2>
+          <div class="input_box">
+            <input
+              type="email"
+              name="email"
+              placeholder="Enter your email"
+              required
+            />
+            <i class="uil uil-envelope"></i>
+          </div>
+          <div class="input_box">
+            <input
+              type="password"
+              name="password"
+              placeholder="Create your password"
+              required
+            />
+            <i class="uil uil-eye-slash pw_hide"></i>
+          </div>
+          <div class="input_box">
+            <input
+              type="password"
+              name="confirm_password"
+              placeholder="Confirm password"
+              required
+            />
+            <i class="uil uil-eye-slash pw_hide"></i>
+          </div>
+          <button class="button" type="submit" name="signup">Signup Now</button>
+          <div class="signup">
+            Already have an account?
+            <a href="#" class="toggle-signup" style="text-decoration: none"
+              >Login</a
+            >
+          </div>
+        </form>
+      </div>
+    </div>
 
     <!-- Body Content -->
     <div class="front-page1 d-flex">
@@ -133,69 +194,6 @@
       <div class="content ms-5">
         <h2>“Brewed Perfection, Served with Passion.”</h2>
         <button class="ms-1">Order Now</button>
-=======
-    <div class="container-fluid d-flex flex-column vh-100">
-      <!-- Top Half -->
-      <div
-        class="row flex-fill d-flex align-items-center justify-content-center top-half"
-      >
-        <div
-          class="col-md-6 text-center d-flex flex-column justify-content-center mt-4 mt-md-5"
-        >
-          <h1 class="text-start align-self-center">
-            Ground with passion,<br />brewed with love
-          </h1>
-          <a
-            href="guest-menu.html"
-            class="btn btn-primary rounded-pill mt-4 order-now align-self-center"
-            >Order Now</a
-          >
-        </div>
-
-        <div class="col-md-6 d-flex justify-content-center align-items-center">
-          <img
-            src="assets/three-cups.jpg"
-            class="img-fluid rounded mx-auto d-block preview-1"
-            alt="Coffee"
-            id="app-app"
-          />
-        </div>
-      </div>
-
-      <!-- Bottom Half -->
-      <div
-        class="row flex-fill d-flex align-items-center justify-content-center mt-2 bottom-half"
-      >
-        <div
-          class="col-md-6 text-center d-flex flex-column justify-content-center mt-4 mt-md-5"
-        >
-          <h2 class="text-start align-self-center">
-            Order on the go, from anywhere,<br />with our mobile app
-          </h2>
-          <div class="d-flex justify-content-center mt-3">
-            <a href="#"
-              ><img
-                src="assets/google-play.png"
-                class="img-fluid me-3 btn-download"
-                alt="Google Play"
-            /></a>
-            <a href="#"
-              ><img
-                src="assets/app-store.png"
-                class="img-fluid me-3 btn-download"
-                alt="App Store"
-            /></a>
-          </div>
-        </div>
-        <div class="col-md-6 d-flex justify-content-center align-items-center">
-          <img
-            src="assets/mobile-ordering.png"
-            class="img-fluid rounded mx-auto d-block my-2 preview-2"
-            id="app-app1"
-            alt="Coffee"
-          />
-        </div>
->>>>>>> main
       </div>
     </div>
 
@@ -249,5 +247,6 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+    <script src="js/main.js"></script>
   </body>
 </html>
