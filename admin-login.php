@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['user_email'] = $log_email;
 
                 // Redirect to index.html
-                header("Location: admin-dashboard.html");
+                header("Location: admin-dashboard.php");
                 exit();
             } else {
                 echo "<script>alert('Incorrect password.'); window.location.href='admin-signup';</script>";

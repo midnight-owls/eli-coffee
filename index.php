@@ -1,8 +1,7 @@
-<?php include("guest-header.php"); ?>
 <?php
   require("signup-connection.php");
 ?>
-
+<?php include("guest-header.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,6 +13,39 @@
 </head>
 
 <body>
+  <!-- Sign In / Sign Up -->
+  <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+        <h2>Sign Up!</h2>
+        <label for="">Email:</label><br>
+        <input type="email" name="email"><br>
+        <label for="">Password:</label><br>
+        <input type="password" name="password"><br>
+        <label for="">Confirm Password:</label><br>
+        <input type="password" name="confirm_password"><br>
+        <input type="submit" name="submit" id="" value="Register">
+        <div class="signup">
+        Already have an account?
+        <a href="javascript:void(0)" onclick="toggleForm(false)" style="text-decoration: none">Login</a>
+      </div>
+    </form>
+
+    
+  <form action="login.php" method="post">
+        <h2>Welcome to Eli Coffee!</h2>
+        <label for="">Email:</label><br>
+        <input type="email" name="log_email"><br>
+        <label for="">Password:</label><br>
+        <input type="password" name="log_password"><br>
+          <a href="#" class="forgot_pw" style="text-decoration: none">
+            Forgot password</a
+          >
+        <input type="submit" name="submit" id="" value="Log In">
+        <div class="signup">
+        Don't have an account?
+        <a href="javascript:void(0)" onclick="toggleForm(true)" style="text-decoration: none">Signup</a>
+      </div>
+    </form>
+    
   <!-- Home Page Content -->
   <div class="container-fluid d-flex flex-column vh-100">
     <!-- Top Half -->
@@ -66,42 +98,6 @@
       </div>
     </div>
   </div>
-
-  <div class="form_container">
-    <i class="uil uil-times form_close"></i>
-
-    <!-- Sign In / Sign Up -->
-  <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-        <h2>Sign Up!</h2>
-        <label for="">Email:</label><br>
-        <input type="email" name="email"><br>
-        <label for="">Password:</label><br>
-        <input type="password" name="password"><br>
-        <label for="">Confirm Password:</label><br>
-        <input type="password" name="confirm_password"><br>
-        <input type="submit" name="submit" id="" value="Register">
-        <div class="signup">
-        Already have an account?
-        <a href="javascript:void(0)" onclick="toggleForm(false)" style="text-decoration: none">Login</a>
-      </div>
-    </form>
-
-    
-  <form action="login.php" method="post">
-        <h2>Welcome to Eli Coffee!</h2>
-        <label for="">Email:</label><br>
-        <input type="email" name="log_email"><br>
-        <label for="">Password:</label><br>
-        <input type="password" name="log_password"><br>
-          <a href="#" class="forgot_pw" style="text-decoration: none">
-            Forgot password</a
-          >
-        <input type="submit" name="submit" id="" value="Log In">
-        <div class="signup">
-        Don't have an account?
-        <a href="javascript:void(0)" onclick="toggleForm(true)" style="text-decoration: none">Signup</a>
-      </div>
-    </form>
 
   <footer class="bg-dark text-light py-4 footer">
     <div class="container">
@@ -186,7 +182,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // Execute the query
             if (mysqli_stmt_execute($stmt)) {
-                echo "<script>alert('You are now registered!'); window.location.href='login.php';</script>";
+                echo "<script>alert('You are now registered!'); window.location.href='index.php';</script>";
             } else {
                 echo "<script>alert('Error: Could not execute the query.');</script>";
             }

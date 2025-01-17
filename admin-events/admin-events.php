@@ -3,7 +3,7 @@
 require 'admin-connection.php';
 
 // Fetch events from the database
-$rows = mysqli_query($conn, "SELECT * FROM elicoffeedb");
+$rows = mysqli_query($conn, "SELECT * FROM calendar_events");
 $events = [];
 foreach ($rows as $row) {
     $events[] = [
