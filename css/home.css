@@ -8,7 +8,6 @@
 .navbar-brand {
   font-weight: bold;
   color: rgb(68, 32, 18);
-  padding: 8px 0 !important;
 }
 
 .navbar-icon {
@@ -43,7 +42,7 @@
 .btn-outline-secondary {
   color: rgb(68, 32, 18);
   border-color: rgb(68, 32, 18);
-  padding: 0 10px;
+  padding: 0 20px;
   height: 28px;
 }
 .btn-outline-secondary:hover {
@@ -192,117 +191,6 @@ img.img-fluid.me-3 {
   }
 }
 
-.form_container {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  width: 100%;
-  max-width: 360px;
-  z-index: 10;
-  display: none;
-}
-
-.form_container.active {
-  display: block;
-}
-
-.form_close {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  font-size: 1.2em;
-  color: #421f0c;
-  cursor: pointer;
-}
-
-.form_container h2 {
-  font-size: 1.5em;
-  color: #421f0c;
-  margin-bottom: 15px;
-  text-align: center;
-}
-
-.input_box {
-  position: relative;
-  width: 85%;
-  margin: 12px 0;
-}
-
-.input_box input {
-  width: 100%;
-  padding: 10px 40px 10px 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 1em;
-}
-
-.input_box i {
-  position: absolute;
-  top: 50%;
-  right: 10px;
-  transform: translateY(-50%);
-  color: #ccc;
-}
-
-.option_field {
-  display: flex;
-  align-items: center;
-  margin: 10px 0;
-}
-
-.option_field .checkbox input {
-  margin-right: 5px;
-}
-
-.forgot_pw {
-  color: #421f0c;
-  font-size: 0.9em;
-  text-align: right;
-  display: block;
-  margin-top: 5px;
-}
-
-.forgot_pw:hover {
-  text-decoration: underline;
-}
-
-.button {
-  width: 100%;
-  padding: 10px;
-  font-weight: 700;
-  font-size: 1em;
-  color: #fff;
-  background-color: #421f0c;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 15px;
-}
-
-.button:hover {
-  background-color: #36230a;
-}
-
-.signup {
-  text-align: center;
-  margin-top: 15px;
-}
-
-.signup a {
-  color: #421f0c;
-  font-weight: 700;
-  text-decoration: none;
-}
-
-.signup a:hover {
-  text-decoration: underline;
-}
-
 .pw_hide {
   cursor: pointer;
   color: #bbb;
@@ -311,6 +199,7 @@ img.img-fluid.me-3 {
 .pw_hide:hover {
   color: #421f0c;
 }
+
 
 /* Styling for the front-page1 section */
 
@@ -367,6 +256,25 @@ img.img-fluid.me-3 {
   transform: scale(1.1);
 }
 
+
+
+/* Styling for OUR COFFEE section */
+h1 {
+  text-align: center;
+  color: rgb(68, 32, 18);
+}
+
+p {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 75px;
+}
+
 /* Styling for the front-page2 section */
 .front-page2 {
   display: grid;
@@ -421,8 +329,140 @@ img.img-fluid.me-3 {
   }
 }
 
-.footer p,
-.footer {
-  font-size: 12px;
-  margin: 0 !important;
+/* General styling for the footer */
+footer {
+  background-color: #de9674; /* Soft neutral background */
+  color: #4d342b; /* Coffee-inspired text color */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three equal-width columns */
+  gap: 5px; /* Spacing between columns */
+  padding: 40px 50px;
+  text-align: left;
+  font-family: 'Arial', sans-serif;
 }
+
+/* Individual sections */
+footer div {
+  padding: 0 20px;
+}
+
+/* Section titles */
+footer h2 {
+  font-size: 1.9rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #4d342b; /* Subtle underline */
+  padding-bottom: 5px;
+}
+
+/* Paragraphs and links */
+footer p {
+  font-size: 1rem;
+  margin: 5px 0;
+  line-height: 1.6;
+}
+
+footer h2 + p {
+  font-weight: bold; /* Highlight labels like Phone and Email */
+}
+
+/* Styling for specific columns */
+.about-us h2 {
+  font-size: 1.2rem; /* Slightly smaller font for consistency */
+  margin-bottom: 10px;
+}
+
+.contact-us p {
+  margin-bottom: 10px; /* Add spacing between contact details */
+}
+
+.opening-hours h2 {
+  display: inline-block;
+  width: 120px; /* Fixed width for alignment with times */
+  font-size: 1.1rem;
+}
+
+.opening-hours p {
+  display: inline-block;
+  font-size: 1.1rem;
+}
+
+/* Styling for the form */
+form {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fdfaf6;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+form h2 {
+  text-align: center;
+  color: #4d342b;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+form label {
+  display: block;
+  color: #4d342b;
+  font-weight: 500;
+  margin-bottom: 5px;
+  font-size: 1rem;
+}
+
+form input[type="email"],
+form input[type="password"],
+form input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+form input[type="email"],
+form input[type="password"] {
+  background-color: #faf3eb;
+  color: #4d342b;
+}
+
+form input[type="email"]:focus,
+form input[type="password"]:focus {
+  border-color: #4d342b;
+  outline: none;
+  box-shadow: 0 0 5px rgba(77, 52, 43, 0.5);
+}
+
+form input[type="submit"] {
+  background-color: #4d342b;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+  background-color: #70422f;
+  transform: scale(1.05);
+}
+
+form input[type="submit"]:active {
+  background-color: #583529;
+  transform: scale(1);
+}
+
+form input::placeholder {
+  color: #bbb;
+  font-size: 0.9rem;
+}
+
+form input:focus::placeholder {
+  color: transparent;
+}
+
