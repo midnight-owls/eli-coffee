@@ -325,3 +325,13 @@ img.img-fluid.me-3 {
 .pw_hide:hover {
   color: rgb(135, 80, 60);
 }
+
+.footer p,
+.footer {
+  font-size: 12px;
+  margin: 0 !important;
+}
+
+.rara {
+  padding: 8px 0 !important;
+}

@@ -24,7 +24,7 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-md bg-white border-bottom">
+  <nav class="navbar navbar-expand-md bg-white border-bottom rara">
     <div class="container-fluid d-flex align-items-center">
       <button
         class="navbar-toggler"
