@@ -107,7 +107,7 @@
                   ></textarea>
                 </div>
                 <div class="col-2 d-flex align-items-end justify-content-end">
-                  <div style="margin-right: 30px">
+                  <div style="margin-right: -5px">
                     <div class="row mb-2">
                       <button
                         type="submit"
@@ -120,7 +120,7 @@
                         Confirm
                       </button>
                     </div>
-                    <div class="row mb-2">
+                    <div class="row mb-4">
                       <button
                         type="reset"
                         name="clear_event"

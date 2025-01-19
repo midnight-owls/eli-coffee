@@ -1,6 +1,35 @@
 <?php ?>
 <?php
+session_start(); 
+
+if (!isset($_SESSION['logged_in'])) {
+    header('Location: admin-login.php'); 
+    exit();
+}
+
+// Retrieve the logged-in admin's email from the session
+$email = $_SESSION['user_email']; 
+
 require 'admin-connection.php';
+
+// Prepare the SQL query to fetch the admin name
+$sql = "SELECT name FROM admin WHERE email = ? LIMIT 1";
+$stmt = $conn->prepare($sql);
+
+// Error handling for database preparation
+if ($stmt === false) {
+    die('Error preparing the SQL statement: ' . $conn->error);
+}
+
+$stmt->bind_param('s', $email);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($row = $result->fetch_assoc()) {
+    $adminName = $row['name'];
+} else {
+    $adminName = "Admin name not found";
+}
 
 // Fetch events from the database
 $rows = mysqli_query($conn, "SELECT * FROM calendar_events");
@@ -22,9 +51,10 @@ foreach ($rows as $row) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="icon" href="../assets/coffee-bean-icon.png" />
+    <title>ELI Coffee</title>
 
     <!-- CSS for FullCalendar -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css" rel="stylesheet" />
@@ -38,19 +68,25 @@ foreach ($rows as $row) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
     <!-- Load Bootstrap JS -->
 
-    <link href="https://cdn.lineicons.com/5.0/lineicons.css" rel="stylesheet" />
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <link href="https://cdn.lineicons.com/5.0/l ineicons.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/events.css">
-    <link rel="stylesheet" href="../css/admin-dashboard.css">
-    <link rel="stylesheet" href="../css/inventory.css">
 
+    <link href="https://cdn.lineicons.com/5.0/lineicons.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="../css/index.css"/>
+    <link rel="stylesheet" href="../css/admin-dashboard.css"/>
+    <style>
+        #calendar {
+        max-width: 900px;
+        margin: 0 auto;
+        background-color: white;
+        }
+
+    </style>
 
 </head>
 <body>
-      <!-- content of the page -->
-      <nav class="navbar navbar-expand-md bg-white border-bottom">
+<nav class="navbar navbar-expand-md bg-white border-bottom">
     <div class="container-fluid d-flex align-items-center">
         <a class="navbar-brand d-flex align-items-center me-auto" href="#">
             <img src="../assets/eli-coffee-icon.png" width="30" class="d-inline-block navbar-icon" />
@@ -68,15 +104,15 @@ foreach ($rows as $row) {
             </div>
         </div>
     </nav>
-    
+      <!-- content of the page -->
     <div class="wrapper">
-    <aside id="sidebar">
+        <aside id="sidebar">
             <div class="d-flex">
                 <div id="toggle-btn" type="button"><i class="lni lni-menu-cheesburger"></i></div>
             </div>
             <div class="admin-info">
                 <img class="admin-image" src="../assets/user-default-icon.png" alt="">
-                <div class="admin-name">Admin name</div>
+                <div class="admin-name"><?php echo htmlspecialchars($adminName); ?></div>
             </div>
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
@@ -94,7 +130,7 @@ foreach ($rows as $row) {
                 <li class="sidebar-item">
                     <a href="admin-events.php" class="sidebar-link">
                         <i class="lni lni-calendar-days"></i>
-                        <span>Events and orders</span>
+                        <span>Events</span>
                     </a>
                 </li>
             </ul>
@@ -150,12 +186,6 @@ foreach ($rows as $row) {
 </div>
 
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-    <script src="https://apis.google.com/js/api.js"></script>
-    <script src="../js/admin-dashboard.js"></script>
-    <!-- <script src="js/events.js"></script> -->
     <script>
         const menu = document.querySelector("#toggle-btn");
 
