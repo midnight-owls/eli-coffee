@@ -28,7 +28,7 @@ foreach ($rows as $row) {
 
     <!-- CSS for FullCalendar -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+
 
     <!-- Load jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -109,8 +109,7 @@ foreach ($rows as $row) {
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="eventModalLabel">Event Details</h5>
-                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                     </button>
                 </div>
                 <div class="modal-body">
@@ -158,6 +157,11 @@ foreach ($rows as $row) {
     <script src="../js/admin-dashboard.js"></script>
     <!-- <script src="js/events.js"></script> -->
     <script>
+        const menu = document.querySelector("#toggle-btn");
+
+        menu.addEventListener("click", function(){
+            document.querySelector("#sidebar").classList.toggle("expand");
+        });
         $(document).ready(function () {
     $('#calendar').fullCalendar({
         defaultView: 'month',

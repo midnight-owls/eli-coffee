@@ -123,7 +123,8 @@ img.img-fluid {
   object-fit: cover; /* Ensures the image fills the space without distortion */
 }
 
-.coffee-products, .tea-products {
+.coffee-products, .tea-products, .frappe-products,
+.add-ons, .food {
   padding: 10px 20px;
   display: grid;
   gap: 20px;
@@ -143,11 +144,11 @@ img.img-fluid {
   animation: rotating 0.5s ease 0s 1 normal forwards;
 }
 
-#add-menu:hover, #add-tea:hover {
+#add-menu:hover {
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.512);
 }
 
-#add-menu, #add-tea {
+#add-menu {
   width: 120px;
   height: 120px;
   cursor: pointer;

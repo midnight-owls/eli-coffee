@@ -58,6 +58,7 @@ const cartCloseButton = document.querySelector(".cart_close");
 const cartItemsContainer = document.querySelector(".cart_items");
 const cartTotal = document.getElementById("cart-total");
 const clearCartButton = document.querySelector(".clear-cart");
+const checkOutButton = document.querySelector(".checkout");
 
 const addToCartButtons = document.querySelectorAll(".btn-plus");
 const removeFromCartButtons = document.querySelectorAll(".btn-minus");
@@ -144,4 +145,95 @@ clearCartButton.addEventListener("click", () => {
   cart = {};
   localStorage.removeItem("cart");
   loadCartItems();
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const items = document.querySelectorAll('.card');
+  let cart = {}; // To store the products in the cart
+
+  // Function to update the cart and store it in localStorage
+  const updateCart = (itemId, productName, quantity, price) => {
+    if (quantity > 0) {
+      cart[itemId] = { productName, quantity, price };
+    } else {
+      delete cart[itemId];
+    }
+    localStorage.setItem("cart", JSON.stringify(cart)); // Save cart in localStorage
+  };
+
+  items.forEach((item) => {
+    const itemId = item.getAttribute("data-item-id");
+    const btnPlus = item.querySelector(".btn-plus");
+    const btnMinus = item.querySelector(".btn-minus");
+    const quantitySpan = item.querySelector(".quantity");
+    const priceSpan = item.querySelector(".price");
+
+    let quantity = 0;
+    const pricePerItem = parseFloat(priceSpan.getAttribute('data-price')); // Get the raw price from the data-price attribute
+
+    const updateDisplay = () => {
+      const totalPrice = (quantity * pricePerItem).toFixed(2);
+
+      if (quantity > 0) {
+        quantitySpan.textContent = `${quantity}x `;
+        quantitySpan.classList.remove("hidden");
+        priceSpan.textContent = `₱ ${totalPrice}`;
+      } else {
+        quantitySpan.classList.add("hidden");
+        priceSpan.textContent = `₱ ${pricePerItem.toFixed(2)}`;
+      }
+    };
+
+    btnPlus.addEventListener("click", () => {
+      quantity++;
+      updateDisplay();
+      updateCart(itemId, item.querySelector('.card-text').textContent, quantity, pricePerItem);
+    });
+
+    btnMinus.addEventListener("click", () => {
+      if (quantity > 0) {
+        quantity--;
+      }
+      updateDisplay();
+      updateCart(itemId, item.querySelector('.card-text').textContent, quantity, pricePerItem);
+    });
+
+    updateDisplay();
+  });
+
+  // Checkout button event listener
+  const checkoutButton = document.querySelector('.checkout');
+  checkoutButton.addEventListener('click', () => {
+    if (Object.keys(cart).length > 0) {
+      // Prepare the cart data to send to the server
+      const cartData = Object.values(cart).map(item => ({
+        productName: item.productName,
+        quantity: item.quantity
+      }));
+
+      // Send the data to the PHP script to update the database
+      fetch('update-sold.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ cartData }),
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          alert('Checkout successful!');
+          localStorage.removeItem('cart');
+          window.location.href = 'menu.php';
+        } else {
+          alert('Error updating database!');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+    } else {
+      alert('Your cart is empty!');
+    }
+  });
 });

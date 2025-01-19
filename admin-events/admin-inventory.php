@@ -9,11 +9,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/admin-dashboard.css">
     <link rel="stylesheet" href="../css/inventory.css">
-    <link rel="stylesheet" href="../admin-events/admin-inventory.css">
-
 </head>
 
-<body>
+<body>  
 <nav class="navbar navbar-expand-md bg-white border-bottom">
     <div class="container-fluid d-flex align-items-center">
         <a class="navbar-brand d-flex align-items-center me-auto" href="#">
@@ -32,7 +30,6 @@
             </div>
         </div>
     </nav>
-
     <div class="wrapper">
         <aside id="sidebar">
             <div class="d-flex">
@@ -42,6 +39,7 @@
                 <img class="admin-image" src="../assets/user-default-icon.png" alt="">
                 <div class="admin-name">Admin name</div>
             </div>
+            
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
                     <a href="../admin-dashboard.php" class="sidebar-link">
@@ -50,15 +48,23 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="admin-inventory.php" class="sidebar-link">
-                        <i class="lni lni-menu-hamburger-1"></i>
-                        <span>Menu and Inventory</span>
-                    </a>
+                    <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+                    data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
+                    <i class="lni lni-menu-hamburger-1"></i>
+                    <span>Menu</span>
+                </a>
+                <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                    <li class="sidebar-item"><a href="#coffee-section" class="sidebar-link">Coffee</a></li>
+                    <li class="sidebar-item"><a href="#tea-section" class="sidebar-link">Tea</a></li>
+                    <li class="sidebar-item"><a href="#frappe-section" class="sidebar-link">Frappe</a></li>
+                    <li class="sidebar-item"><a href="#add-ons-section" class="sidebar-link">Add-ons</a></li>
+                    <li class="sidebar-item"><a href="#food-section" class="sidebar-link">Food</a></li>
+                </ul>
                 </li>
                 <li class="sidebar-item">
                     <a href="admin-events.php" class="sidebar-link">
                         <i class="lni lni-calendar-days"></i>
-                        <span>Events and orders</span>
+                        <span>Events</span>
                     </a>
                 </li>
             </ul>
@@ -66,7 +72,7 @@
         <div class="main">
             <div class="text-center">
                 <h1>Menu and Inventory</h1>
-                <h1>Coffee</h1>
+                <div id="coffee-section">Coffee</div>
                 <div class="coffee-products">
                     
                     <!-- logic for obtaining the product/s in databse -->
@@ -119,6 +125,8 @@
                             <img src="../assets/add-square-removebg-preview.png" alt="" class="img-fluid add-menu" id="add-menu" style="position: absolute; right: 10px; top:30px; height: 50px; width: 50px;"> 
                             <p class="menu-name" style="position: absolute; top: 45px; right: 70px; font-size: 12px; color: #333;">Add Product</p>
                         </div>
+                    </div>
+
                        
                     </div>
                     <div id="popup-modal-add-coffee" class="modal-add-coffee">
@@ -179,16 +187,157 @@
                             </form>
                         </div>
                     </div>
-                </div>
+                
                 <br>
                 <hr>
-                <div>Tea</div>
+                <div id="tea-section">Tea</div>
                 <div class="tea-products">
                 <?php
                     require 'admin-connection.php';
 
                     // Query to fetch coffee products
                     $query = "SELECT * FROM products WHERE category='tea'";
+                    $result = mysqli_query($conn, $query);
+
+                    
+                    // Check if any products exist
+                    if (mysqli_num_rows($result) > 0) {
+                        // Loop through each product and display it
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            $productImage = $row['product_img']; // Image filename from database
+                            $productName = $row['product_name']; // Coffee name from database
+                            ?>
+                            <div class="col">
+                                <div class="card">
+                                    <div class="placeholder">
+                                        <!-- Display the product image dynamically -->
+                                        <img src="../img/<?php echo $productImage; ?>" alt="picture of <?php echo $productName; ?>" class="img-fluid">
+                                    </div>
+                                    <div class="card-body">
+                                        <!-- Display the product name dynamically -->
+                                        <p class="card-text"><?php echo $productName; ?></p>
+                                        <!-- View and Edit buttons -->
+                                        <button class="btn btn-primary" id="view-btn-<?php echo $row['id']; ?>">View</button>
+                                        <button 
+                                            class="ediButton btn btn-secondary" 
+                                            id="edit-btn-<?php echo $row['id']; ?>" 
+                                            data-id="<?php echo $row['id']; ?>" 
+                                            data-name="<?php echo $row['product_name']; ?>" 
+                                            data-image="../img/<?php echo $row['product_img']; ?>"
+                                        >
+                                            Edit
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php
+                        }
+                    }
+                    ?>
+                </div>
+                <br>
+                <hr>
+                <div id="frappe-section">Frappe</div>
+                <div class="frappe-products">
+                <?php
+                    require 'admin-connection.php';
+
+                    // Query to fetch coffee products
+                    $query = "SELECT * FROM products WHERE category='frappe'";
+                    $result = mysqli_query($conn, $query);
+
+                    
+                    // Check if any products exist
+                    if (mysqli_num_rows($result) > 0) {
+                        // Loop through each product and display it
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            $productImage = $row['product_img']; // Image filename from database
+                            $productName = $row['product_name']; // Coffee name from database
+                            ?>
+                            <div class="col">
+                                <div class="card">
+                                    <div class="placeholder">
+                                        <!-- Display the product image dynamically -->
+                                        <img src="../img/<?php echo $productImage; ?>" alt="picture of <?php echo $productName; ?>" class="img-fluid">
+                                    </div>
+                                    <div class="card-body">
+                                        <!-- Display the product name dynamically -->
+                                        <p class="card-text"><?php echo $productName; ?></p>
+                                        <!-- View and Edit buttons -->
+                                        <button class="btn btn-primary" id="view-btn-<?php echo $row['id']; ?>">View</button>
+                                        <button 
+                                            class="ediButton btn btn-secondary" 
+                                            id="edit-btn-<?php echo $row['id']; ?>" 
+                                            data-id="<?php echo $row['id']; ?>" 
+                                            data-name="<?php echo $row['product_name']; ?>" 
+                                            data-image="../img/<?php echo $row['product_img']; ?>"
+                                        >
+                                            Edit
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php
+                        }
+                    }
+                    ?>
+                </div>
+                <br>
+                <hr>
+                <div id="add-ons-section">Add-ons</div>
+                <div class="add-ons">
+                <?php
+                    require 'admin-connection.php';
+
+                    // Query to fetch coffee products
+                    $query = "SELECT * FROM products WHERE category='add-ons'";
+                    $result = mysqli_query($conn, $query);
+
+                    
+                    // Check if any products exist
+                    if (mysqli_num_rows($result) > 0) {
+                        // Loop through each product and display it
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            $productImage = $row['product_img']; // Image filename from database
+                            $productName = $row['product_name']; // Coffee name from database
+                            ?>
+                            <div class="col">
+                                <div class="card">
+                                    <div class="placeholder">
+                                        <!-- Display the product image dynamically -->
+                                        <img src="../img/<?php echo $productImage; ?>" alt="picture of <?php echo $productName; ?>" class="img-fluid">
+                                    </div>
+                                    <div class="card-body">
+                                        <!-- Display the product name dynamically -->
+                                        <p class="card-text"><?php echo $productName; ?></p>
+                                        <!-- View and Edit buttons -->
+                                        <button class="btn btn-primary" id="view-btn-<?php echo $row['id']; ?>">View</button>
+                                        <button 
+                                            class="ediButton btn btn-secondary" 
+                                            id="edit-btn-<?php echo $row['id']; ?>" 
+                                            data-id="<?php echo $row['id']; ?>" 
+                                            data-name="<?php echo $row['product_name']; ?>" 
+                                            data-image="../img/<?php echo $row['product_img']; ?>"
+                                        >
+                                            Edit
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php
+                        }
+                    }
+                    ?>
+                </div>
+                <br>
+                <hr>
+                <div id="food-section">Food</div>
+                <div class="food">
+                <?php
+                    require 'admin-connection.php';
+
+                    // Query to fetch coffee products
+                    $query = "SELECT * FROM products WHERE category='food'";
                     $result = mysqli_query($conn, $query);
 
                     
