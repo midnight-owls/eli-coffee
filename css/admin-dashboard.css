@@ -40,7 +40,7 @@ body {
     padding-top: 10px;
     transition: all 0.35s ease-in-out;
     background-color: rgb(224, 224, 224);
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
 
@@ -51,7 +51,12 @@ body {
     transition: all .25s ease-in-out;
     display: flex;
     flex-direction: column;
-    background-color: rgb(248, 248, 248);
+    background-color:white;     
+    overflow: hidden;
+}
+
+.menu-sidebar{
+    display: none;
 }
 
 .navbar{
@@ -139,6 +144,8 @@ a.sidebar-link{
     font-size: 1rem;
     white-space: nowrap;
     border-left: 3px solid transparent;
+    text-decoration: none;
+    
 }
 
 .sidebar-link i{
@@ -149,38 +156,11 @@ a.sidebar-link{
 a.sidebar-link:hover{
     background-color: rgb(168, 168, 168);
     border-left: 3px solid rgb(100, 100, 100);
+    /* display: none; */
 }
 
-.sale-event-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px; /* Adds space between items */
-    padding-top: 10px;
-}
+/* .ingredients {
+    flex-basis: 100%; /* Makes it take up the full width of the row 
+} */
 
-.ingredients {
-    flex-basis: 100%; /* Makes it take up the full width of the row */
-}
 
-.event-schedule {
-    width: 200px;
-    text-align: center;
-    border-style: solid;
-    border-width: 2px;
-    font-size: 24px;
-    box-sizing: border-box;
-}
-
-.sale-analytics {
-    flex-grow: 1; 
-    border-style: solid;
-    border-width: 2px;
-    font-size: 24px;
-    display: flex;    
-    justify-content: center;
-    box-sizing: border-box;
-}
-
-.sidebar{
-    display: none;
-}

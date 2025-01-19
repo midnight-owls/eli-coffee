@@ -48,140 +48,52 @@
         <div class="container">
           <div id="coffee-section" class="fs-6 menu-title">Coffee</div>
           <hr />
-          <div
-            class="row row-cols-1 row-cols-sm-3 row-cols-md-3 row-cols-xl-4 g-3">
-            <div class="col">
-              <div class="card shadow-sm" data-item-id="coffee-1">
-                <img
-                  src="assets/coffee/coffee-1.png"
-                  class="bd-placeholder-img card-img-top"
-                  width="100%"
-                  height="225"
-                  alt="Coffee 1" />
-                <div class="card-body">
-                  <p class="card-text">Americano</p>
-                  <div
-                    class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button
-                        type="button"
-                        class="btn btn-sm btn-outline-secondary btn-plus">
-                        &plus;
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-sm btn-outline-secondary btn-minus">
-                        &minus;
-                      </button>
-                    </div>
-                    <small class="text-muted">
-                      <span class="quantity hidden"></span>
-                      <span class="price">99.99</span>
-                    </small>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div class="row row-cols-1 row-cols-sm-3 row-cols-md-3 row-cols-xl-4 g-3">
+          <?php
+              require 'guest-connection.php'; // Database connection
 
-            <div class="col">
-              <div class="card shadow-sm" data-item-id="coffee-2">
-                <img
-                  src="assets/coffee/coffee-2.png"
-                  class="bd-placeholder-img card-img-top"
-                  width="100%"
-                  height="225"
-                  alt="Coffee 2" />
-                <div class="card-body">
-                  <p class="card-text">Mocha</p>
-                  <div
-                    class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button
-                        type="button"
-                        class="btn btn-sm btn-outline-secondary btn-plus">
-                        &plus;
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-sm btn-outline-secondary btn-minus">
-                        &minus;
-                      </button>
-                    </div>
-                    <small class="text-muted">
-                      <span class="quantity hidden"></span>
-                      <span class="price">129.99</span>
-                    </small>
-                  </div>
-                </div>
-              </div>
-            </div>
+              // Query to fetch coffee products from the database
+              $query = "SELECT product_img, product_name, price FROM products WHERE category = 'Coffee'";
+              $result = mysqli_query($conn, $query);
 
-            <div class="col">
-              <div class="card shadow-sm" data-item-id="coffee-3">
-                <img
-                  src="assets/coffee/coffee-3.png"
-                  class="bd-placeholder-img card-img-top"
-                  width="100%"
-                  height="225"
-                  alt="Coffee 3" />
-                <div class="card-body">
-                  <p class="card-text">Espresso</p>
-                  <div
-                    class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button
-                        type="button"
-                        class="btn btn-sm btn-outline-secondary btn-plus">
-                        &plus;
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-sm btn-outline-secondary btn-minus">
-                        &minus;
-                      </button>
-                    </div>
-                    <small class="text-muted">
-                      <span class="quantity hidden"></span>
-                      <span class="price">149.99</span>
-                    </small>
-                  </div>
-                </div>
-              </div>
-            </div>
+              // Check if any products exist
+              if (mysqli_num_rows($result) > 0) {
+                  // Loop through each product and display it
+                  while ($row = mysqli_fetch_assoc($result)) {
+                      $productImage = $row['product_img']; // Image filename from database
+                      $productName = $row['product_name']; // Product name from database
+                      $price = $row['price']; // Price from database
+                      ?>
+                      <div class="col">
+                          <div class="card shadow-sm" data-item-id="<?php echo $productName; ?>">
+                              <img src="img/<?php echo $productImage; ?>" class="bd-placeholder-img card-img-top" width="100%" height="225" alt="<?php echo $productName; ?>" />
+                              <div class="card-body">
+                                  <p class="card-text"><?php echo $productName; ?></p>
+                                  <div class="d-flex justify-content-between align-items-center">
+                                      <div class="btn-group">
+                                          <button type="button" class="btn btn-sm btn-outline-secondary btn-plus"> &plus; </button>
+                                          <button type="button" class="btn btn-sm btn-outline-secondary btn-minus"> &minus; </button>
+                                      </div>
+                                      <small class="text-muted">
+                                          <span class="quantity hidden"></span>
+                                          <span class="price" data-price="<?php echo $price; ?>"><?php echo number_format($price, 2); ?></span>
+                                      </small>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <?php
+                  }
 
-            <div class="col">
-              <div class="card shadow-sm" data-item-id="coffee-4">
-                <img
-                  src="assets/coffee/coffee-4.png"
-                  class="bd-placeholder-img card-img-top"
-                  width="100%"
-                  height="225"
-                  alt="Coffee 4" />
-                <div class="card-body">
-                  <p class="card-text">Cappuccino</p>
-                  <div
-                    class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button
-                        type="button"
-                        class="btn btn-sm btn-outline-secondary btn-plus">
-                        &plus;
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-sm btn-outline-secondary btn-minus">
-                        &minus;
-                      </button>
-                    </div>
-                    <small class="text-muted">
-                      <span class="quantity hidden"></span>
-                      <span class="price">199.99</span>
-                    </small>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+              } else {
+                  echo "<p>No coffee products available.</p>";
+              }
+
+              // Close the database connection
+              mysqli_close($conn);
+              ?>
+
+      </div>
 
           <br /><br />
           <div id="tea-section" class="fs-6 menu-title">Tea</div>
@@ -189,137 +101,49 @@
 
           <div
             class="row row-cols-1 row-cols-sm-3 row-cols-md-3 row-cols-xl-4 g-3">
-            <div class="col">
-              <div class="card shadow-sm" data-item-id="tea-1">
-                <img
-                  src="assets/tea/tea-1.png"
-                  class="bd-placeholder-img card-img-top"
-                  width="100%"
-                  height="225"
-                  alt="Tea 1" />
-                <div class="card-body">
-                  <p class="card-text">Iced Milk Coffee</p>
-                  <div
-                    class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button
-                        type="button"
-                        class="btn btn-sm btn-outline-secondary btn-plus">
-                        &plus;
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-sm btn-outline-secondary btn-minus">
-                        &minus;
-                      </button>
-                    </div>
-                    <small class="text-muted">
-                      <span class="quantity hidden"></span>
-                      <span class="price">99.99</span>
-                    </small>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <?php
+              require 'guest-connection.php'; // Database connection
 
-            <div class="col">
-              <div class="card shadow-sm" data-item-id="tea-2">
-                <img
-                  src="assets/tea/tea-2.png"
-                  class="bd-placeholder-img card-img-top"
-                  width="100%"
-                  height="225"
-                  alt="Tea 2" />
-                <div class="card-body">
-                  <p class="card-text">Iced Milk Boba</p>
-                  <div
-                    class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button
-                        type="button"
-                        class="btn btn-sm btn-outline-secondary btn-plus">
-                        &plus;
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-sm btn-outline-secondary btn-minus">
-                        &minus;
-                      </button>
-                    </div>
-                    <small class="text-muted">
-                      <span class="quantity hidden"></span>
-                      <span class="price">129.99</span>
-                    </small>
-                  </div>
-                </div>
-              </div>
-            </div>
+              // Query to fetch coffee products from the database
+              $query = "SELECT product_img, product_name, price FROM products WHERE category = 'tea'";
+              $result = mysqli_query($conn, $query);
 
-            <div class="col">
-              <div class="card shadow-sm" data-item-id="tea-3">
-                <img
-                  src="assets/tea/tea-3.png"
-                  class="bd-placeholder-img card-img-top"
-                  width="100%"
-                  height="225"
-                  alt="Tea 3" />
-                <div class="card-body">
-                  <p class="card-text">Iced Milk Chocolate</p>
-                  <div
-                    class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button
-                        type="button"
-                        class="btn btn-sm btn-outline-secondary btn-plus">
-                        &plus;
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-sm btn-outline-secondary btn-minus">
-                        &minus;
-                      </button>
-                    </div>
-                    <small class="text-muted">
-                      <span class="quantity hidden"></span>
-                      <span class="price">149.99</span>
-                    </small>
-                  </div>
-                </div>
-              </div>
-            </div>
+              // Check if any products exist
+              if (mysqli_num_rows($result) > 0) {
+                  // Loop through each product and display it
+                  while ($row = mysqli_fetch_assoc($result)) {
+                      $productImage = $row['product_img']; // Image filename from database
+                      $productName = $row['product_name']; // Product name from database
+                      $price = $row['price']; // Price from database
+                      ?>
+                      <div class="col">
+                          <div class="card shadow-sm" data-item-id="<?php echo $productName; ?>">
+                              <img src="img/<?php echo $productImage; ?>" class="bd-placeholder-img card-img-top" width="100%" height="225" alt="<?php echo $productName; ?>" />
+                              <div class="card-body">
+                                  <p class="card-text"><?php echo $productName; ?></p>
+                                  <div class="d-flex justify-content-between align-items-center">
+                                      <div class="btn-group">
+                                          <button type="button" class="btn btn-sm btn-outline-secondary btn-plus"> &plus; </button>
+                                          <button type="button" class="btn btn-sm btn-outline-secondary btn-minus"> &minus; </button>
+                                      </div>
+                                      <small class="text-muted">
+                                          <span class="quantity hidden"></span>
+                                          <span class="price" data-price="<?php echo $price; ?>"><?php echo number_format($price, 2); ?></span>
+                                      </small>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <?php
+                  }
 
-            <div class="col">
-              <div class="card shadow-sm" data-item-id="tea-4">
-                <img
-                  src="assets/tea/tea-4.png"
-                  class="bd-placeholder-img card-img-top"
-                  width="100%"
-                  height="225"
-                  alt="Tea 4" />
-                <div class="card-body">
-                  <p class="card-text">Iced Milk Matcha</p>
-                  <div
-                    class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button
-                        type="button"
-                        class="btn btn-sm btn-outline-secondary btn-plus">
-                        &plus;
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-sm btn-outline-secondary btn-minus">
-                        &minus;
-                      </button>
-                    </div>
-                    <small class="text-muted">
-                      <span class="quantity hidden"></span>
-                      <span class="price">199.99</span>
-                    </small>
-                  </div>
-                </div>
-              </div>
-            </div>
+              } else {
+                  echo "<p>No coffee products available.</p>";
+              }
+
+              // Close the database connection
+              mysqli_close($conn);
+              ?>
           </div>
 
           <br /><br />
@@ -328,137 +152,49 @@
 
           <div
             class="row row-cols-1 row-cols-sm-3 row-cols-md-3 row-cols-xl-4 g-3">
-            <div class="col">
-              <div class="card shadow-sm" data-item-id="frappe-1">
-                <img
-                  src="assets/frappe/frappe-1.png"
-                  class="bd-placeholder-img card-img-top"
-                  width="100%"
-                  height="225"
-                  alt="Frappe 1" />
-                <div class="card-body">
-                  <p class="card-text">Coffee Frappe</p>
-                  <div
-                    class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button
-                        type="button"
-                        class="btn btn-sm btn-outline-secondary btn-plus">
-                        &plus;
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-sm btn-outline-secondary btn-minus">
-                        &minus;
-                      </button>
-                    </div>
-                    <small class="text-muted">
-                      <span class="quantity hidden"></span>
-                      <span class="price">99.99</span>
-                    </small>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <?php
+              require 'guest-connection.php'; // Database connection
 
-            <div class="col">
-              <div class="card shadow-sm" data-item-id="frappe-2">
-                <img
-                  src="assets/frappe/frappe-2.png"
-                  class="bd-placeholder-img card-img-top"
-                  width="100%"
-                  height="225"
-                  alt="frappe 4" />
-                <div class="card-body">
-                  <p class="card-text">Caramel Frappe</p>
-                  <div
-                    class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button
-                        type="button"
-                        class="btn btn-sm btn-outline-secondary btn-plus">
-                        &plus;
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-sm btn-outline-secondary btn-minus">
-                        &minus;
-                      </button>
-                    </div>
-                    <small class="text-muted">
-                      <span class="quantity hidden"></span>
-                      <span class="price">129.99</span>
-                    </small>
-                  </div>
-                </div>
-              </div>
-            </div>
+              // Query to fetch coffee products from the database
+              $query = "SELECT product_img, product_name, price FROM products WHERE category = 'frappe'";
+              $result = mysqli_query($conn, $query);
 
-            <div class="col">
-              <div class="card shadow-sm" data-item-id="frappe-3">
-                <img
-                  src="assets/frappe/frappe-3.png"
-                  class="bd-placeholder-img card-img-top"
-                  width="100%"
-                  height="225"
-                  alt="frappe 3" />
-                <div class="card-body">
-                  <p class="card-text">Vanilla Frappe</p>
-                  <div
-                    class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button
-                        type="button"
-                        class="btn btn-sm btn-outline-secondary btn-plus">
-                        &plus;
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-sm btn-outline-secondary btn-minus">
-                        &minus;
-                      </button>
-                    </div>
-                    <small class="text-muted">
-                      <span class="quantity hidden"></span>
-                      <span class="price">149.99</span>
-                    </small>
-                  </div>
-                </div>
-              </div>
-            </div>
+              // Check if any products exist
+              if (mysqli_num_rows($result) > 0) {
+                  // Loop through each product and display it
+                  while ($row = mysqli_fetch_assoc($result)) {
+                      $productImage = $row['product_img']; // Image filename from database
+                      $productName = $row['product_name']; // Product name from database
+                      $price = $row['price']; // Price from database
+                      ?>
+                      <div class="col">
+                          <div class="card shadow-sm" data-item-id="<?php echo $productName; ?>">
+                              <img src="img/<?php echo $productImage; ?>" class="bd-placeholder-img card-img-top" width="100%" height="225" alt="<?php echo $productName; ?>" />
+                              <div class="card-body">
+                                  <p class="card-text"><?php echo $productName; ?></p>
+                                  <div class="d-flex justify-content-between align-items-center">
+                                      <div class="btn-group">
+                                          <button type="button" class="btn btn-sm btn-outline-secondary btn-plus"> &plus; </button>
+                                          <button type="button" class="btn btn-sm btn-outline-secondary btn-minus"> &minus; </button>
+                                      </div>
+                                      <small class="text-muted">
+                                          <span class="quantity hidden"></span>
+                                          <span class="price" data-price="<?php echo $price; ?>"><?php echo number_format($price, 2); ?></span>
+                                      </small>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <?php
+                  }
 
-            <div class="col">
-              <div class="card shadow-sm" data-item-id="frappe-4">
-                <img
-                  src="assets/frappe/frappe-4.png"
-                  class="bd-placeholder-img card-img-top"
-                  width="100%"
-                  height="225"
-                  alt="frappe 4" />
-                <div class="card-body">
-                  <p class="card-text">Chocolate Frappe</p>
-                  <div
-                    class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button
-                        type="button"
-                        class="btn btn-sm btn-outline-secondary btn-plus">
-                        &plus;
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-sm btn-outline-secondary btn-minus">
-                        &minus;
-                      </button>
-                    </div>
-                    <small class="text-muted">
-                      <span class="quantity hidden"></span>
-                      <span class="price">199.99</span>
-                    </small>
-                  </div>
-                </div>
-              </div>
-            </div>
+              } else {
+                  echo "<p>No coffee products available.</p>";
+              }
+
+              // Close the database connection
+              mysqli_close($conn);
+              ?>
           </div>
 
           <br /><br />
@@ -467,137 +203,49 @@
 
           <div
             class="row row-cols-1 row-cols-sm-3 row-cols-md-3 row-cols-xl-4 g-3">
-            <div class="col">
-              <div class="card shadow-sm" data-item-id="add-ons-1">
-                <img
-                  src="assets/add-ons/add-ons-1.png"
-                  class="bd-placeholder-img card-img-top"
-                  width="100%"
-                  height="225"
-                  alt="add-ons 1" />
-                <div class="card-body">
-                  <p class="card-text">Ice Cream</p>
-                  <div
-                    class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button
-                        type="button"
-                        class="btn btn-sm btn-outline-secondary btn-plus">
-                        &plus;
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-sm btn-outline-secondary btn-minus">
-                        &minus;
-                      </button>
-                    </div>
-                    <small class="text-muted">
-                      <span class="quantity hidden"></span>
-                      <span class="price">99.99</span>
-                    </small>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <?php
+              require 'guest-connection.php'; // Database connection
 
-            <div class="col">
-              <div class="card shadow-sm" data-item-id="add-ons-2">
-                <img
-                  src="assets/add-ons/add-ons-2.png"
-                  class="bd-placeholder-img card-img-top"
-                  width="100%"
-                  height="225"
-                  alt="add-ons 2" />
-                <div class="card-body">
-                  <p class="card-text">Tapioca Pearls</p>
-                  <div
-                    class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button
-                        type="button"
-                        class="btn btn-sm btn-outline-secondary btn-plus">
-                        &plus;
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-sm btn-outline-secondary btn-minus">
-                        &minus;
-                      </button>
-                    </div>
-                    <small class="text-muted">
-                      <span class="quantity hidden"></span>
-                      <span class="price">99.99</span>
-                    </small>
-                  </div>
-                </div>
-              </div>
-            </div>
+              // Query to fetch coffee products from the database
+              $query = "SELECT product_img, product_name, price FROM products WHERE category = 'add-ons'";
+              $result = mysqli_query($conn, $query);
 
-            <div class="col">
-              <div class="card shadow-sm" data-item-id="add-ons-3">
-                <img
-                  src="assets/add-ons/add-ons-3.png"
-                  class="bd-placeholder-img card-img-top"
-                  width="100%"
-                  height="225"
-                  alt="add-ons 3" />
-                <div class="card-body">
-                  <p class="card-text">Syrup</p>
-                  <div
-                    class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button
-                        type="button"
-                        class="btn btn-sm btn-outline-secondary btn-plus">
-                        &plus;
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-sm btn-outline-secondary btn-minus">
-                        &minus;
-                      </button>
-                    </div>
-                    <small class="text-muted">
-                      <span class="quantity hidden"></span>
-                      <span class="price">99.99</span>
-                    </small>
-                  </div>
-                </div>
-              </div>
-            </div>
+              // Check if any products exist
+              if (mysqli_num_rows($result) > 0) {
+                  // Loop through each product and display it
+                  while ($row = mysqli_fetch_assoc($result)) {
+                      $productImage = $row['product_img']; // Image filename from database
+                      $productName = $row['product_name']; // Product name from database
+                      $price = $row['price']; // Price from database
+                      ?>
+                      <div class="col">
+                          <div class="card shadow-sm" data-item-id="<?php echo $productName; ?>">
+                              <img src="img/<?php echo $productImage; ?>" class="bd-placeholder-img card-img-top" width="100%" height="225" alt="<?php echo $productName; ?>" />
+                              <div class="card-body">
+                                  <p class="card-text"><?php echo $productName; ?></p>
+                                  <div class="d-flex justify-content-between align-items-center">
+                                      <div class="btn-group">
+                                          <button type="button" class="btn btn-sm btn-outline-secondary btn-plus"> &plus; </button>
+                                          <button type="button" class="btn btn-sm btn-outline-secondary btn-minus"> &minus; </button>
+                                      </div>
+                                      <small class="text-muted">
+                                          <span class="quantity hidden"></span>
+                                          <span class="price" data-price="<?php echo $price; ?>"><?php echo number_format($price, 2); ?></span>
+                                      </small>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <?php
+                  }
 
-            <div class="col">
-              <div class="card shadow-sm" data-item-id="add-ons-4">
-                <img
-                  src="assets/add-ons/add-ons-4.png"
-                  class="bd-placeholder-img card-img-top"
-                  width="100%"
-                  height="225"
-                  alt="add-ons 4" />
-                <div class="card-body">
-                  <p class="card-text">Ice</p>
-                  <div
-                    class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button
-                        type="button"
-                        class="btn btn-sm btn-outline-secondary btn-plus">
-                        &plus;
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-sm btn-outline-secondary btn-minus">
-                        &minus;
-                      </button>
-                    </div>
-                    <small class="text-muted">
-                      <span class="quantity hidden"></span>
-                      <span class="price">19.99</span>
-                    </small>
-                  </div>
-                </div>
-              </div>
-            </div>
+              } else {
+                  echo "<p>No coffee products available.</p>";
+              }
+
+              // Close the database connection
+              mysqli_close($conn);
+              ?>
           </div>
 
           <br /><br />
@@ -606,137 +254,49 @@
 
           <div
             class="row row-cols-1 row-cols-sm-3 row-cols-md-3 row-cols-xl-4 g-3">
-            <div class="col">
-              <div class="card shadow-sm" data-item-id="food-1">
-                <img
-                  src="assets/food/pinagong.jpg"
-                  class="bd-placeholder-img card-img-top"
-                  width="100%"
-                  height="225"
-                  alt="food 1" />
-                <div class="card-body">
-                  <p class="card-text">Pinagong</p>
-                  <div
-                    class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button
-                        type="button"
-                        class="btn btn-sm btn-outline-secondary btn-plus">
-                        &plus;
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-sm btn-outline-secondary btn-minus">
-                        &minus;
-                      </button>
-                    </div>
-                    <small class="text-muted">
-                      <span class="quantity hidden"></span>
-                      <span class="price">99.99</span>
-                    </small>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <?php
+              require 'guest-connection.php'; // Database connection
 
-            <div class="col">
-              <div class="card shadow-sm" data-item-id="food-2">
-                <img
-                  src="assets/food/pinoy-bread-biscocho.jpg"
-                  class="bd-placeholder-img card-img-top"
-                  width="100%"
-                  height="225"
-                  alt="food 2" />
-                <div class="card-body">
-                  <p class="card-text">Biscocho</p>
-                  <div
-                    class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button
-                        type="button"
-                        class="btn btn-sm btn-outline-secondary btn-plus">
-                        &plus;
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-sm btn-outline-secondary btn-minus">
-                        &minus;
-                      </button>
-                    </div>
-                    <small class="text-muted">
-                      <span class="quantity hidden"></span>
-                      <span class="price">19.99</span>
-                    </small>
-                  </div>
-                </div>
-              </div>
-            </div>
+              // Query to fetch coffee products from the database
+              $query = "SELECT product_img, product_name, price FROM products WHERE category = 'food'";
+              $result = mysqli_query($conn, $query);
 
-            <div class="col">
-              <div class="card shadow-sm" data-item-id="food-3">
-                <img
-                  src="assets/food/pinoy-bread-ensaymada.jpg"
-                  class="bd-placeholder-img card-img-top"
-                  width="100%"
-                  height="225"
-                  alt="food 3" />
-                <div class="card-body">
-                  <p class="card-text">Ensaymada</p>
-                  <div
-                    class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button
-                        type="button"
-                        class="btn btn-sm btn-outline-secondary btn-plus">
-                        &plus;
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-sm btn-outline-secondary btn-minus">
-                        &minus;
-                      </button>
-                    </div>
-                    <small class="text-muted">
-                      <span class="quantity hidden"></span>
-                      <span class="price">99.99</span>
-                    </small>
-                  </div>
-                </div>
-              </div>
-            </div>
+              // Check if any products exist
+              if (mysqli_num_rows($result) > 0) {
+                  // Loop through each product and display it
+                  while ($row = mysqli_fetch_assoc($result)) {
+                      $productImage = $row['product_img']; // Image filename from database
+                      $productName = $row['product_name']; // Product name from database
+                      $price = $row['price']; // Price from database
+                      ?>
+                      <div class="col">
+                          <div class="card shadow-sm" data-item-id="<?php echo $productName; ?>">
+                              <img src="img/<?php echo $productImage; ?>" class="bd-placeholder-img card-img-top" width="100%" height="225" alt="<?php echo $productName; ?>" />
+                              <div class="card-body">
+                                  <p class="card-text"><?php echo $productName; ?></p>
+                                  <div class="d-flex justify-content-between align-items-center">
+                                      <div class="btn-group">
+                                          <button type="button" class="btn btn-sm btn-outline-secondary btn-plus"> &plus; </button>
+                                          <button type="button" class="btn btn-sm btn-outline-secondary btn-minus"> &minus; </button>
+                                      </div>
+                                      <small class="text-muted">
+                                          <span class="quantity hidden"></span>
+                                          <span class="price" data-price="<?php echo $price; ?>"><?php echo number_format($price, 2); ?></span>
+                                      </small>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <?php
+                  }
 
-            <div class="col">
-              <div class="card shadow-sm" data-item-id="food-4">
-                <img
-                  src="assets/food/pinoy-bread-pan-de-coco.jpg"
-                  class="bd-placeholder-img card-img-top"
-                  width="100%"
-                  height="225"
-                  alt="food 4" />
-                <div class="card-body">
-                  <p class="card-text">Pan de Coco</p>
-                  <div
-                    class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button
-                        type="button"
-                        class="btn btn-sm btn-outline-secondary btn-plus">
-                        &plus;
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-sm btn-outline-secondary btn-minus">
-                        &minus;
-                      </button>
-                    </div>
-                    <small class="text-muted">
-                      <span class="quantity hidden"></span>
-                      <span class="price">19.99</span>
-                    </small>
-                  </div>
-                </div>
-              </div>
-            </div>
+              } else {
+                  echo "<p>No coffee products available.</p>";
+              }
+
+              // Close the database connection
+              mysqli_close($conn);
+              ?>
           </div>
 
           <div class="cart-icon btn-cart">
@@ -750,7 +310,9 @@
   <div class="cart_container">
     <i class="uil uil-times cart_close"></i>
     <h2 style="text-align: center">Your Cart</h2>
-    <div class="cart_items" style="margin-left: 10px"></div>
+    <div class="cart_items" style="margin-left: 10px" id="cart_items">
+
+    </div>
     <p id="cart-total" style="margin-left: 10px">Total: ₱0.00</p>
     <div class="cart_footer">
       <button class="button btn-danger clear-cart">Clear Cart</button>
@@ -758,55 +320,14 @@
     </div>
   </div>
 
-  <footer class="bg-dark text-light py-4 footer">
-    <div class="container">
-      <div class="row">
-        <!-- Contact Us -->
-        <div class="col-md-4">
-          <h6>Contact Us</h6>
-          <p><strong>Eli Coffee</strong></p>
-          <p>2nd Floor Pearl Building, Binangonan, Philippines</p>
-          <p><strong>Phone:</strong> 0917 562 0306</p>
-          <p><strong>Email:</strong> <a href="mailto:elicoffeetea@gmail.com" class="text-light text-decoration-none">elicoffeetea@gmail.com</a></p>
-        </div>
-
-        <!-- About Us -->
-        <div class="col-md-4 text-center">
-          <h6>About Us</h6>
-          <ul class="list-unstyled">
-            <li><a href="#" class="text-light text-decoration-none">Our Company</a></li>
-            <li><a href="#" class="text-light text-decoration-none">Stories and News</a></li>
-            <li><a href="#" class="text-light text-decoration-none">Customer Service</a></li>
-          </ul>
-        </div>
-
-        <!-- Opening Hours -->
-        <div class="col-md-4 text-end">
-          <h6>Opening Hours</h6>
-          <ul class="list-unstyled">
-            <li><strong>Monday:</strong> 7:00 am - 5:00 pm</li>
-            <li><strong>Tuesday:</strong> 7:00 am - 5:00 pm</li>
-            <li><strong>Wednesday:</strong> 7:00 am - 5:00 pm</li>
-            <li><strong>Thursday:</strong> 7:00 am - 5:00 pm</li>
-            <li><strong>Friday:</strong> 7:00 am - 5:00 pm</li>
-            <li><strong>Saturday:</strong> 8:00 am - 2:00 pm</li>
-          </ul>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col text-center">
-          <p class="mb-0">&copy; 2025 Eli Coffee. All rights reserved.</p>
-        </div>
-      </div>
-    </div>
-  </footer>
-
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
   <script src="js/main.js"></script>
   <script src="js/menu.js"></script>
+
 </body>
 
 </html>
+
