@@ -28,7 +28,7 @@ foreach ($rows as $row) {
 
     <!-- CSS for FullCalendar -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+
 
     <!-- Load jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -38,20 +38,45 @@ foreach ($rows as $row) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
     <!-- Load Bootstrap JS -->
 
-    <link href="https://cdn.lineicons.com/5.0/lineicons.css" rel="stylesheet" />
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <link href="https://cdn.lineicons.com/5.0/l ineicons.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/events.css">
-    <link rel="stylesheet" href="../css/admin-dashboard.css">
-    <link rel="stylesheet" href="../css/inventory.css">
 
+    <link href="https://cdn.lineicons.com/5.0/lineicons.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="../css/index.css"/>
+    <link rel="stylesheet" href="../css/admin-dashboard.css"/>
+    <style>
+        #calendar {
+        max-width: 900px;
+        margin: 0 auto;
+        background-color: white;
+        }
+
+    </style>
 
 </head>
 <body>
+<nav class="navbar navbar-expand-md bg-white border-bottom">
+    <div class="container-fluid d-flex align-items-center">
+        <a class="navbar-brand d-flex align-items-center me-auto" href="#">
+            <img src="../assets/eli-coffee-icon.png" width="30" class="d-inline-block navbar-icon" />
+            <span class="d-none d-md-inline ms-2">ELI Coffee</span>
+        </a>
+            <div class="dashboard">Dashboard</div>
+            <div class="navbar-right d-flex align-items-center me-2">
+                <a href="#" class="nav-link" role="button" data-bs-toggle="dropdown">
+                    <img class="user-icon" src="../assets/user-default-icon.png" width="30" />
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="#">Edit profile</a></li>
+                    <li><a class="dropdown-item" href="../home.php">Sign out</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
       <!-- content of the page -->
     <div class="wrapper">
-    <aside id="sidebar">
+        <aside id="sidebar">
             <div class="d-flex">
                 <div id="toggle-btn" type="button"><i class="lni lni-menu-cheesburger"></i></div>
             </div>
@@ -75,16 +100,10 @@ foreach ($rows as $row) {
                 <li class="sidebar-item">
                     <a href="admin-events.php" class="sidebar-link">
                         <i class="lni lni-calendar-days"></i>
-                        <span>Events and orders</span>
+                        <span>Events</span>
                     </a>
                 </li>
             </ul>
-            <div class="sidebar-footer">
-                <a href="../home.php" class="sidebar-link">
-                    <i class="lni lni-exit"></i>
-                    <span>Logout</span>
-                </a>
-            </div>
         </aside>
         <div class="main p-3">
             <div id="calendar"></div>
@@ -96,8 +115,7 @@ foreach ($rows as $row) {
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="eventModalLabel">Event Details</h5>
-                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                     </button>
                 </div>
                 <div class="modal-body">
@@ -138,13 +156,12 @@ foreach ($rows as $row) {
 </div>
 
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-    <script src="https://apis.google.com/js/api.js"></script>
-    <script src="../js/admin-dashboard.js"></script>
-    <!-- <script src="js/events.js"></script> -->
     <script>
+        const menu = document.querySelector("#toggle-btn");
+
+        menu.addEventListener("click", function(){
+            document.querySelector("#sidebar").classList.toggle("expand");
+        });
         $(document).ready(function () {
     $('#calendar').fullCalendar({
         defaultView: 'month',

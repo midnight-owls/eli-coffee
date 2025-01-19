@@ -46,7 +46,7 @@
 
       <div class="col-md-10 col-lg-10 album py-5 bg-light">
         <div class="container">
-          <div id="coffee-section" class="fs-6 menu-title">Coffee</div>
+        <div id="coffee-section" class="fs-6 menu-title">Coffee</div>
           <hr />
           <div class="row row-cols-1 row-cols-sm-3 row-cols-md-3 row-cols-xl-4 g-3">
             <?php
@@ -93,7 +93,7 @@
         </div>
 
           <br /><br />
-          <div id="tea-section" class="fs-6 menu-title">Tea</div>
+        <div id="tea-section" class="fs-6 menu-title">Tea</div>
           <hr />
 
           <div class="row row-cols-1 row-cols-sm-3 row-cols-md-3 row-cols-xl-4 g-3">
@@ -141,241 +141,148 @@
         </div>
 
           <br /><br />
-          <div id="frappe-section" class="fs-6 menu-title">Frappe</div>
+        <div id="frappe-section" class="fs-6 menu-title">Frappe</div>
           <hr />
 
           <div
             class="row row-cols-1 row-cols-sm-3 row-cols-md-3 row-cols-xl-4 g-3">
-            <div class="col">
-              <div class="card shadow-sm">
-                <img
-                  src="assets/frappe/frappe-1.png"
-                  class="bd-placeholder-img card-img-top"
-                  width="100%"
-                  height="225"
-                  alt="Coffee 1" />
-                <div class="card-body">
-                  <div
-                    class="d-flex justify-content-between align-items-center">
-                    <span class="card-text">Coffee Frappe</span>
-                    <small class="text-muted">&#8369; 190.40</small>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <?php
+            require 'guest-connection.php';
 
-            <div class="col">
-              <div class="card shadow-sm">
-                <img
-                  src="assets/frappe/frappe-2.png"
-                  class="bd-placeholder-img card-img-top"
-                  width="100%"
-                  height="225"
-                  alt="Coffee 2" />
-                <div class="card-body">
-                  <div
-                    class="d-flex justify-content-between align-items-center">
-                    <span class="card-text">Caramel Frappe</span>
-                    <small class="text-muted">&#8369; 203.20</small>
-                  </div>
-                </div>
-              </div>
-            </div>
+            // Query to fetch coffee products
+            $query = "SELECT * FROM products WHERE category='frappe'";
+            $result = mysqli_query($conn, $query);
 
-            <div class="col">
-              <div class="card shadow-sm">
-                <img
-                  src="assets/frappe/frappe-3.png"
-                  class="bd-placeholder-img card-img-top"
-                  width="100%"
-                  height="225"
-                  alt="Coffee 3" />
-                <div class="card-body">
-                  <div
-                    class="d-flex justify-content-between align-items-center">
-                    <span class="card-text">Vanilla Frappe</span>
-                    <small class="text-muted">&#8369; 177.60</small>
-                  </div>
-                </div>
-              </div>
-            </div>
+            // Check if any products exist
+            if (mysqli_num_rows($result) > 0) {
+                // Loop through each product and display it
+                while ($row = mysqli_fetch_assoc($result)) {
+                    /* $productImage = $row['product_img']; // Image filename from database */
+                    $productName = $row['product_name']; // Coffee name from database
+                    $productPrice = $row['price']; // Coffee price from database
+                    ?>
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <!-- Display the product image dynamically -->
+                            <img 
+                                src="img/<?php echo $row['product_img']; ?>" 
+                                class="bd-placeholder-img card-img-top" 
+                                width="100%" 
+                                height="225" 
+                                alt="Picture of <?php echo $productName; ?>" 
+                            />
+                            <img src="" alt="">
 
-            <div class="col">
-              <div class="card shadow-sm">
-                <img
-                  src="assets/frappe/frappe-4.png"
-                  class="bd-placeholder-img card-img-top"
-                  width="100%"
-                  height="225"
-                  alt="Coffee 4" />
-                <div class="card-body">
-                  <div
-                    class="d-flex justify-content-between align-items-center">
-                    <span class="card-text">Chocolate Frappe</span>
-                    <small class="text-muted">&#8369; 142.40</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+
+                            <div class="card-body d-flex justify-content-between align-items-center">
+                                <!-- Display the product name and price dynamically -->
+                                <span class="card-text"><?php echo $productName; ?></span>
+                                <small class="text-muted">&#8369; <?php echo number_format($productPrice, 2); ?></small>
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                }
+            } else {
+                echo "<p>No products available.</p>";
+            }
+            ?>
+        </div>
 
           <br /><br />
-          <div id="add-ons-section" class="fs-6 menu-title">Add-ons</div>
+        <div id="add-ons-section" class="fs-6 menu-title">Add-ons</div>
           <hr />
+          <div class="row row-cols-1 row-cols-sm-3 row-cols-md-3 row-cols-xl-4 g-3">
+            <?php
+            require 'guest-connection.php';
 
-          <div
-            class="row row-cols-1 row-cols-sm-3 row-cols-md-3 row-cols-xl-4 g-3">
-            <div class="col">
-              <div class="card shadow-sm">
-                <img
-                  src="assets/add-ons/add-ons-1.png"
-                  class="bd-placeholder-img card-img-top"
-                  width="100%"
-                  height="225"
-                  alt="Coffee 1" />
-                <div class="card-body">
-                  <div
-                    class="d-flex justify-content-between align-items-center">
-                    <span class="card-text">Ice Cream</span>
-                    <small class="text-muted">&#8369; 99.99</small>
-                  </div>
-                </div>
-              </div>
-            </div>
+            // Query to fetch coffee products
+            $query = "SELECT * FROM products WHERE category='add-ons'";
+            $result = mysqli_query($conn, $query);
 
-            <div class="col">
-              <div class="card shadow-sm">
-                <img
-                  src="assets/add-ons/add-ons-2.png"
-                  class="bd-placeholder-img card-img-top"
-                  width="100%"
-                  height="225"
-                  alt="Coffee 2" />
-                <div class="card-body">
-                  <div
-                    class="d-flex justify-content-between align-items-center">
-                    <span class="card-text">Tapioca Pearls</span>
-                    <small class="text-muted">&#8369; 15.15</small>
-                  </div>
-                </div>
-              </div>
-            </div>
+            // Check if any products exist
+            if (mysqli_num_rows($result) > 0) {
+                // Loop through each product and display it
+                while ($row = mysqli_fetch_assoc($result)) {
+                    /* $productImage = $row['product_img']; // Image filename from database */
+                    $productName = $row['product_name']; // Coffee name from database
+                    $productPrice = $row['price']; // Coffee price from database
+                    ?>
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <!-- Display the product image dynamically -->
+                            <img 
+                                src="img/<?php echo $row['product_img']; ?>" 
+                                class="bd-placeholder-img card-img-top" 
+                                width="100%" 
+                                height="225" 
+                                alt="Picture of <?php echo $productName; ?>" 
+                            />
+                            <img src="" alt="">
 
-            <div class="col">
-              <div class="card shadow-sm">
-                <img
-                  src="assets/add-ons/add-ons-3.png"
-                  class="bd-placeholder-img card-img-top"
-                  width="100%"
-                  height="225"
-                  alt="Coffee 3" />
-                <div class="card-body">
-                  <div
-                    class="d-flex justify-content-between align-items-center">
-                    <span class="card-text">Syrup</span>
-                    <small class="text-muted">&#8369; 25.20</small>
-                  </div>
-                </div>
-              </div>
-            </div>
 
-            <div class="col">
-              <div class="card shadow-sm">
-                <img
-                  src="assets/add-ons/add-ons-4.png"
-                  class="bd-placeholder-img card-img-top"
-                  width="100%"
-                  height="225"
-                  alt="Coffee 4" />
-                <div class="card-body">
-                  <div
-                    class="d-flex justify-content-between align-items-center">
-                    <span class="card-text">Ice</span>
-                    <small class="text-muted">&#8369; 5.10</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+                            <div class="card-body d-flex justify-content-between align-items-center">
+                                <!-- Display the product name and price dynamically -->
+                                <span class="card-text"><?php echo $productName; ?></span>
+                                <small class="text-muted">&#8369; <?php echo number_format($productPrice, 2); ?></small>
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                }
+            } else {
+                echo "<p>No products available.</p>";
+            }
+            ?>
+        </div>
 
           <br /><br />
-          <div id="food-section" class="fs-6 menu-title">Food</div>
+        <div id="food-section" class="fs-6 menu-title">Food</div>
           <hr />
 
-          <div
-            class="row row-cols-1 row-cols-sm-3 row-cols-md-3 row-cols-xl-4 g-3">
-            <div class="col">
-              <div class="card shadow-sm">
-                <img
-                  src="assets/food/pinagong.jpg"
-                  class="bd-placeholder-img card-img-top"
-                  width="100%"
-                  height="225"
-                  alt="Coffee 1" />
-                <div class="card-body">
-                  <div
-                    class="d-flex justify-content-between align-items-center">
-                    <span class="card-text">Pinagong</span>
-                    <small class="text-muted">&#8369; 35.40</small>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div class="row row-cols-1 row-cols-sm-3 row-cols-md-3 row-cols-xl-4 g-3">
+            <?php
+            require 'guest-connection.php';
 
-            <div class="col">
-              <div class="card shadow-sm">
-                <img
-                  src="assets/food/pinoy-bread-biscocho.jpg"
-                  class="bd-placeholder-img card-img-top"
-                  width="100%"
-                  height="225"
-                  alt="Coffee 2" />
-                <div class="card-body">
-                  <div
-                    class="d-flex justify-content-between align-items-center">
-                    <span class="card-text">Biscocho</span>
-                    <small class="text-muted">&#8369; 20.20</small>
-                  </div>
-                </div>
-              </div>
-            </div>
+            // Query to fetch coffee products
+            $query = "SELECT * FROM products WHERE category='food'";
+            $result = mysqli_query($conn, $query);
 
-            <div class="col">
-              <div class="card shadow-sm">
-                <img
-                  src="assets/food/pinoy-bread-ensaymada.jpg"
-                  class="bd-placeholder-img card-img-top"
-                  width="100%"
-                  height="225"
-                  alt="Coffee 3" />
-                <div class="card-body">
-                  <div
-                    class="d-flex justify-content-between align-items-center">
-                    <span class="card-text">Ensaymada</span>
-                    <small class="text-muted">&#8369; 50.60</small>
-                  </div>
-                </div>
-              </div>
-            </div>
+            // Check if any products exist
+            if (mysqli_num_rows($result) > 0) {
+                // Loop through each product and display it
+                while ($row = mysqli_fetch_assoc($result)) {
+                    /* $productImage = $row['product_img']; // Image filename from database */
+                    $productName = $row['product_name']; // Coffee name from database
+                    $productPrice = $row['price']; // Coffee price from database
+                    ?>
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <!-- Display the product image dynamically -->
+                            <img 
+                                src="img/<?php echo $row['product_img']; ?>" 
+                                class="bd-placeholder-img card-img-top" 
+                                width="100%" 
+                                height="225" 
+                                alt="Picture of <?php echo $productName; ?>" 
+                            />
+                            <img src="" alt="">
 
-            <div class="col">
-              <div class="card shadow-sm">
-                <img
-                  src="assets/food/pinoy-bread-pan-de-coco.jpg"
-                  class="bd-placeholder-img card-img-top"
-                  width="100%"
-                  height="225"
-                  alt="Coffee 4" />
-                <div class="card-body">
-                  <div
-                    class="d-flex justify-content-between align-items-center">
-                    <span class="card-text">Pan de Coco</span>
-                    <small class="text-muted">&#8369; 12.40</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+
+                            <div class="card-body d-flex justify-content-between align-items-center">
+                                <!-- Display the product name and price dynamically -->
+                                <span class="card-text"><?php echo $productName; ?></span>
+                                <small class="text-muted">&#8369; <?php echo number_format($productPrice, 2); ?></small>
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                }
+            } else {
+                echo "<p>No products available.</p>";
+            }
+            ?>
+        </div>
         </div>
       </div>
     </div>
@@ -433,49 +340,6 @@
       </form>
     </div>
   </div>
-
-  <footer class="bg-dark text-light py-4 footer">
-    <div class="container">
-      <div class="row">
-        <!-- Contact Us -->
-        <div class="col-md-4">
-          <h6>Contact Us</h6>
-          <p><strong>Eli Coffee</strong></p>
-          <p>2nd Floor Pearl Building, Binangonan, Philippines</p>
-          <p><strong>Phone:</strong> 0917 562 0306</p>
-          <p><strong>Email:</strong> <a href="mailto:elicoffeetea@gmail.com" class="text-light text-decoration-none">elicoffeetea@gmail.com</a></p>
-        </div>
-
-        <!-- About Us -->
-        <div class="col-md-4 text-center">
-          <h6>About Us</h6>
-          <ul class="list-unstyled">
-            <li><a href="#" class="text-light text-decoration-none">Our Company</a></li>
-            <li><a href="#" class="text-light text-decoration-none">Stories and News</a></li>
-            <li><a href="#" class="text-light text-decoration-none">Customer Service</a></li>
-          </ul>
-        </div>
-
-        <!-- Opening Hours -->
-        <div class="col-md-4 text-end">
-          <h6>Opening Hours</h6>
-          <ul class="list-unstyled">
-            <li><strong>Monday:</strong> 7:00 am - 5:00 pm</li>
-            <li><strong>Tuesday:</strong> 7:00 am - 5:00 pm</li>
-            <li><strong>Wednesday:</strong> 7:00 am - 5:00 pm</li>
-            <li><strong>Thursday:</strong> 7:00 am - 5:00 pm</li>
-            <li><strong>Friday:</strong> 7:00 am - 5:00 pm</li>
-            <li><strong>Saturday:</strong> 8:00 am - 2:00 pm</li>
-          </ul>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col text-center">
-          <p class="mb-0">&copy; 2025 Eli Coffee. All rights reserved.</p>
-        </div>
-      </div>
-    </div>
-  </footer>
 
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
