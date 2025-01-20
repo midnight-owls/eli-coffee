@@ -89,10 +89,21 @@
           </li>
         </ul>
       </div>
-      <div class="navbar-right d-flex align-items-center me-2">
-        <button type="button" class="btn btn-primary btn-sign-in">
-          SIGN IN
-        </button>
+      <div class="navbar-right ms-auto d-flex align-items-center">
+        <a href="#">
+          <button
+            type="button"
+            class="btn btn-outline-secondary rounded-pill me-2 btn-sign-up">
+            Sign Up
+          </button>
+        </a>
+        <a href="#">
+          <button
+            type="button"
+            class="btn btn-outline-secondary rounded-pill me-2 btn-sign-in">
+            Log In
+          </button>
+        </a>
       </div>
     </div>
   </nav>

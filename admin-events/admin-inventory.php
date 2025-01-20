@@ -1,9 +1,44 @@
+<?php
+session_start(); 
+
+if (!isset($_SESSION['logged_in'])) {
+    header('Location: admin-login.php'); 
+    exit();
+}
+
+// Retrieve the logged-in admin's email from the session
+$email = $_SESSION['user_email']; 
+
+require 'admin-connection.php'; 
+
+// Prepare the SQL query to fetch the admin name
+$sql = "SELECT name FROM admin WHERE email = ? LIMIT 1";
+$stmt = $conn->prepare($sql);
+
+// Error handling for database preparation
+if ($stmt === false) {
+    die('Error preparing the SQL statement: ' . $conn->error);
+}
+
+$stmt->bind_param('s', $email);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($row = $result->fetch_assoc()) {
+    $adminName = $row['name'];
+} else {
+    $adminName = "Admin name not found";
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="icon" href="../assets/coffee-bean-icon.png" />
+    <title>ELI Coffee</title>
 
     <link href="https://cdn.lineicons.com/5.0/lineicons.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -25,7 +60,7 @@
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
                     <li><a class="dropdown-item" href="#">Edit profile</a></li>
-                    <li><a class="dropdown-item" href="../home.php">Sign out</a></li>
+                    <li><a class="dropdown-item" href="../admin-signup.php">Sign out</a></li>
                 </ul>
             </div>
         </div>
@@ -37,7 +72,7 @@
             </div>
             <div class="admin-info">
                 <img class="admin-image" src="../assets/user-default-icon.png" alt="">
-                <div class="admin-name">Admin name</div>
+                <div class="admin-name"><?php echo htmlspecialchars($adminName); ?></div>
             </div>
             
             <ul class="sidebar-nav">
@@ -122,13 +157,8 @@
                     <!-- add button -->
                     <div class="add-menu-container">
                         <div>
-                            <img src="../assets/add-square-removebg-preview.png" alt="" 
-                                class="img-fluid add-menu" id="add-menu" 
-                                style="position: fixed; right: 30px; bottom: 30px; height: 50px; width: 50px; z-index: 9999;"> 
-                            <p class="menu-name" 
-                            style="position: fixed; bottom: 30px; right: 100px; font-size: 12px; color: #333; z-index: 9999;">
-                                Add Product
-                            </p>
+                            <img src="../assets/add-square-removebg-preview.png" alt="" class="img-fluid add-menu" id="add-menu" style="position: absolute; right: 10px; top:70px; height: 50px; width: 50px;"> 
+                            <p class="menu-name" style="position: absolute; top: 90px; right: 70px; font-size: 12px; color: #333;">Add Product</p>
                         </div>
                     </div>
 

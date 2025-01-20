@@ -1,6 +1,35 @@
 <?php ?>
 <?php
+session_start(); 
+
+if (!isset($_SESSION['logged_in'])) {
+    header('Location: admin-login.php'); 
+    exit();
+}
+
+// Retrieve the logged-in admin's email from the session
+$email = $_SESSION['user_email']; 
+
 require 'admin-connection.php';
+
+// Prepare the SQL query to fetch the admin name
+$sql = "SELECT name FROM admin WHERE email = ? LIMIT 1";
+$stmt = $conn->prepare($sql);
+
+// Error handling for database preparation
+if ($stmt === false) {
+    die('Error preparing the SQL statement: ' . $conn->error);
+}
+
+$stmt->bind_param('s', $email);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($row = $result->fetch_assoc()) {
+    $adminName = $row['name'];
+} else {
+    $adminName = "Admin name not found";
+}
 
 // Fetch events from the database
 $rows = mysqli_query($conn, "SELECT * FROM calendar_events");
@@ -22,9 +51,10 @@ foreach ($rows as $row) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="icon" href="../assets/coffee-bean-icon.png" />
+    <title>ELI Coffee</title>
 
     <!-- CSS for FullCalendar -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css" rel="stylesheet" />
@@ -69,7 +99,7 @@ foreach ($rows as $row) {
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
                     <li><a class="dropdown-item" href="#">Edit profile</a></li>
-                    <li><a class="dropdown-item" href="../home.php">Sign out</a></li>
+                    <li><a class="dropdown-item" href="../admin-signup.php">Sign out</a></li>
                 </ul>
             </div>
         </div>
@@ -82,7 +112,7 @@ foreach ($rows as $row) {
             </div>
             <div class="admin-info">
                 <img class="admin-image" src="../assets/user-default-icon.png" alt="">
-                <div class="admin-name">Admin name</div>
+                <div class="admin-name"><?php echo htmlspecialchars($adminName); ?></div>
             </div>
             <ul class="sidebar-nav">
                 <li class="sidebar-item">

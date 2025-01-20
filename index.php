@@ -1,5 +1,7 @@
+<?php
+  require("signup-connection.php");
+?>
 <?php include("guest-header.php"); ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,6 +13,39 @@
 </head>
 
 <body>
+  <!-- Sign In / Sign Up -->
+  <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+        <h2>Sign Up!</h2>
+        <label for="">Email:</label><br>
+        <input type="email" name="email"><br>
+        <label for="">Password:</label><br>
+        <input type="password" name="password"><br>
+        <label for="">Confirm Password:</label><br>
+        <input type="password" name="confirm_password"><br>
+        <input type="submit" name="submit" id="" value="Register">
+        <div class="signup">
+        Already have an account?
+        <a href="javascript:void(0)" onclick="toggleForm(false)" style="text-decoration: none">Login</a>
+      </div>
+    </form>
+
+    
+  <form action="login.php" method="post">
+        <h2>Welcome to Eli Coffee!</h2>
+        <label for="">Email:</label><br>
+        <input type="email" name="log_email"><br>
+        <label for="">Password:</label><br>
+        <input type="password" name="log_password"><br>
+          <a href="#" class="forgot_pw" style="text-decoration: none">
+            Forgot password</a
+          >
+        <input type="submit" name="submit" id="" value="Log In">
+        <div class="signup">
+        Don't have an account?
+        <a href="javascript:void(0)" onclick="toggleForm(true)" style="text-decoration: none">Signup</a>
+      </div>
+    </form>
+    
   <!-- Home Page Content -->
   <div class="container-fluid d-flex flex-column vh-100">
     <!-- Top Half -->
@@ -61,59 +96,6 @@
           id="app-app1"
           alt="Coffee" />
       </div>
-    </div>
-  </div>
-
-  <div class="form_container">
-    <i class="uil uil-times form_close"></i>
-
-    <!-- Sign In Form -->
-    <div class="signin_form">
-      <form action="#">
-        <h2>Welcome Back!</h2>
-        <div class="input_box">
-          <input type="email" placeholder="Enter your email" required />
-          <i class="uil uil-envelope"></i>
-        </div>
-        <div class="input_box">
-          <input type="password" placeholder="Enter your password" required />
-          <i class="fas fa-eye-slash pw_hide me-1"></i>
-        </div>
-        <div class="option_field">
-          <span class="checkbox" style="cursor: pointer">
-            <input type="checkbox" id="check" style="cursor: pointer" />
-            <label for="check" style="cursor: pointer"> Remember me</label>
-          </span>
-        </div>
-        <div class="forgot-container">
-          <a href="#" class="forgot_pw">Forgot password</a>
-        </div>
-        <button class="button">Sign In</button>
-        <div class="signup">
-          Don't have an account?
-          <a href="#" class="toggle-signup">Sign up</a>
-        </div>
-      </form>
-    </div>
-
-    <!-- Signup Form -->
-    <div class="signup_form">
-      <form action="#">
-        <h2>Create An Account</h2>
-        <div class="input_box">
-          <input type="email" placeholder="Enter your email" required />
-          <i class="uil uil-envelope"></i>
-        </div>
-        <div class="input_box">
-          <input type="password" placeholder="Enter your password" required />
-          <i class="uil uil-eye-slash pw_hide"></i>
-        </div>
-        <button class="button">Sign Up</button>
-        <div class="signup">
-          Already have an account?
-          <a href="#" class="toggle-signup">Sign in</a>
-        </div>
-      </form>
     </div>
   </div>
 
@@ -168,3 +150,51 @@
 </body>
 
 </html>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    // Sanitize inputs
+    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+    $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_SPECIAL_CHARS);
+    $confirm_password = filter_input(INPUT_POST, 'confirm_password', FILTER_SANITIZE_SPECIAL_CHARS);
+
+    // Check if email and passwords are not empty and if passwords match
+    if (empty($email)) {
+        echo "<script>alert('Please enter an email.');</script>";
+    } elseif (empty($password)) {
+        echo "<script>alert('Please enter a password.');</script>";
+    } elseif (empty($confirm_password)) {
+        echo "<script>alert('Please confirm your password.');</script>";
+    } elseif ($password !== $confirm_password) {
+        echo "<script>alert('Passwords do not match.');</script>";
+    } else {
+        // Hash the password
+        $hashed_password = password_hash($password, PASSWORD_BCRYPT);
+
+        // Prepare SQL query with placeholders
+        $query = "INSERT INTO users (email, password) VALUES (?, ?)";
+
+        // Prepare the statement
+        if ($stmt = mysqli_prepare($conn, $query)) {
+            // Bind parameters
+            mysqli_stmt_bind_param($stmt, "ss", $email, $hashed_password);
+
+            // Execute the query
+            if (mysqli_stmt_execute($stmt)) {
+                echo "<script>alert('You are now registered!'); window.location.href='index.php';</script>";
+            } else {
+                echo "<script>alert('Error: Could not execute the query.');</script>";
+            }
+
+            // Close the statement
+            mysqli_stmt_close($stmt);
+        } else {
+            echo "<script>alert('Error: Could not prepare the SQL query.');</script>";
+        }
+    }
+
+    // Close the database connection
+    mysqli_close($conn);
+}
+?>
