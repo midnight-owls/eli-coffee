@@ -237,3 +237,32 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+document.addEventListener("DOMContentLoaded", function () {
+  const cartItemsContainer = document.getElementById("cart_items");
+  const checkoutButton = document.querySelector(".checkout");
+
+  // Function to update the checkout button state
+  function updateCheckoutButtonState() {
+    if (cartItemsContainer.children.length > 0) {
+      checkoutButton.removeAttribute("disabled");
+    } else {
+      checkoutButton.setAttribute("disabled", true);
+    }
+  }
+
+  // Monitor the cart items for changes
+  const observer = new MutationObserver(updateCheckoutButtonState);
+
+  // Observe changes in the cart items container
+  observer.observe(cartItemsContainer, { childList: true });
+
+  // Clear cart button functionality
+  document.querySelector(".clear-cart").addEventListener("click", function () {
+    cartItemsContainer.innerHTML = "";
+    updateCheckoutButtonState();
+  });
+
+  // Call update function on page load
+  updateCheckoutButtonState();
+});
+
