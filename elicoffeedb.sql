@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 17, 2025 at 10:16 AM
+-- Generation Time: Jan 17, 2025 at 11:29 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `eli_coffeedb`
+-- Database: `elicoffeedb`
 --
 
 -- --------------------------------------------------------
@@ -47,26 +47,67 @@ INSERT INTO `admin` (`id`, `name`, `email`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `schedule_booking`
+-- Table structure for table `calendar_events`
 --
 
-CREATE TABLE `schedule_booking` (
-  `sched_Id` int(25) NOT NULL COMMENT 'Auto-increment for each event',
-  `customer_Id` int(25) NOT NULL COMMENT 'Foreign key referencing Customer',
-  `date` date NOT NULL COMMENT 'Event date',
-  `start` time(6) NOT NULL COMMENT 'Time when the event starts',
-  `end` time(6) NOT NULL COMMENT 'Time when the event ends',
-  `event_Type` varchar(255) NOT NULL COMMENT 'Describes the event category',
-  `guest_Count` int(255) UNSIGNED DEFAULT NULL COMMENT 'Number of attendees',
-  `event_Location` varchar(255) NOT NULL COMMENT 'Venue or location name'
+CREATE TABLE `calendar_events` (
+  `id` int(11) NOT NULL,
+  `event_date` date NOT NULL,
+  `start_time` time NOT NULL,
+  `end_time` time NOT NULL,
+  `event_type` varchar(100) NOT NULL,
+  `guest_volume` int(11) NOT NULL,
+  `location` varchar(100) NOT NULL,
+  `comments` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `schedule_booking`
+-- Dumping data for table `calendar_events`
 --
 
-INSERT INTO `schedule_booking` (`sched_Id`, `customer_Id`, `date`, `start`, `end`, `event_Type`, `guest_Count`, `event_Location`) VALUES
-(1, 1, '2025-01-17', '12:00:00.982000', '11:30:00.551000', 'Wedding Receptions', 100, 'Binangonan, Rizal');
+INSERT INTO `calendar_events` (`id`, `event_date`, `start_time`, `end_time`, `event_type`, `guest_volume`, `location`, `comments`) VALUES
+(32, '2025-01-17', '03:44:00', '15:44:00', 'Swimming', 10, 'DAZSMA', 'asdf');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `products`
+--
+
+CREATE TABLE `products` (
+  `id` int(11) NOT NULL,
+  `product_img` varchar(255) NOT NULL,
+  `product_name` varchar(255) NOT NULL,
+  `category` varchar(255) NOT NULL,
+  `sold` int(11) DEFAULT 0,
+  `price` decimal(10,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`id`, `product_img`, `product_name`, `category`, `sold`, `price`) VALUES
+(44, '6789fb995e0cd.png', 'Americano', 'coffee', 0, 200.00),
+(45, '6789fba86077e.png', 'Mocha', 'coffee', 0, 300.00),
+(46, '6789fbb894339.png', 'Espresso', 'coffee', 0, 350.00),
+(47, '6789fbcc38a20.png', 'Latte', 'coffee', 0, 100.00),
+(48, '6789fcd5e8567.png', 'iced milk coffee', 'tea', 0, 120.00),
+(49, '6789fcef6ea0b.png', 'iced milk boba', 'tea', 0, 130.00),
+(50, '6789fd02a2ce2.png', 'iced milk choco', 'tea', 0, 150.00),
+(52, '6789fd2d84819.png', 'iced milk matcha', 'tea', 0, 365.00);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `supplies`
+--
+
+CREATE TABLE `supplies` (
+  `id` int(11) NOT NULL,
+  `supply` varchar(100) DEFAULT NULL,
+  `quantity` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -112,10 +153,22 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `schedule_booking`
+-- Indexes for table `calendar_events`
 --
-ALTER TABLE `schedule_booking`
-  ADD PRIMARY KEY (`sched_Id`);
+ALTER TABLE `calendar_events`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `products`
+--
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `supplies`
+--
+ALTER TABLE `supplies`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users`
@@ -135,10 +188,22 @@ ALTER TABLE `admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `schedule_booking`
+-- AUTO_INCREMENT for table `calendar_events`
 --
-ALTER TABLE `schedule_booking`
-  MODIFY `sched_Id` int(25) NOT NULL AUTO_INCREMENT COMMENT 'Auto-increment for each event', AUTO_INCREMENT=2;
+ALTER TABLE `calendar_events`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+
+--
+-- AUTO_INCREMENT for table `products`
+--
+ALTER TABLE `products`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+
+--
+-- AUTO_INCREMENT for table `supplies`
+--
+ALTER TABLE `supplies`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`

@@ -10,12 +10,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Validate inputs
     if (empty($log_email) || empty($log_password)) {
-        echo "<script>alert('Email and Password are required.'); window.location.href='admin-signup.php';</script>";
+        echo "<script>alert('Email and Password are required.'); window.location.href='admin-login.php';</script>";
         exit();
     }
 
     if (!filter_var($log_email, FILTER_VALIDATE_EMAIL)) {
-        echo "<script>alert('Invalid email format.'); window.location.href='admin-signup.php';</script>";
+        echo "<script>alert('Invalid email format.'); window.location.href='admin-login.php';</script>";
         exit();
     }
 
@@ -39,21 +39,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['logged_in'] = true;
                 $_SESSION['user_email'] = $log_email;
 
-                // Redirect to index.html
-                header("Location: admin-dashboard.html");
+                // Redirect to the dashboard
+                header("Location: admin-dashboard.php");
                 exit();
             } else {
-                echo "<script>alert('Incorrect password.'); window.location.href='admin-signup';</script>";
+                echo "<script>alert('Incorrect password.'); window.location.href='admin-login.php';</script>";
                 exit();
             }
         } else {
-            echo "<script>alert('No account found with that email.'); window.location.href='admin-signup.php';</script>";
+            echo "<script>alert('No account found with that email.'); window.location.href='admin-login.php';</script>";
             exit();
         }
 
         mysqli_stmt_close($stmt);
     } else {
-        echo "<script>alert('Database error.'); window.location.href='admin-signup.php';</script>";
+        echo "<script>alert('Database error.'); window.location.href='admin-login.php';</script>";
         exit();
     }
 }

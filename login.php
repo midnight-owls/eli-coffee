@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['user_email'] = $log_email;
 
                 // Redirect to index.html
-                header("Location: index.html");
+                header("Location: home.php");
                 exit();
             } else {
                 echo "<script>alert('Incorrect password.'); window.location.href='home.php';</script>";

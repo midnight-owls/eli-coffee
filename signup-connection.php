@@ -1,5 +1,5 @@
 <?php
-$conn = mysqli_connect("localhost", "root", "", "eli_coffeedb");
+$conn = mysqli_connect("localhost", "root", "", "elicoffeedb");
 
 // Check connection
 if (!$conn) {

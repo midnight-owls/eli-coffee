@@ -1,2 +1,2 @@
 <?php
-$conn = new mysqli("localhost", "root", "", "inventory");
+$conn = new mysqli("localhost", "root", "", "elicoffeedb");

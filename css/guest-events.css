@@ -97,84 +97,87 @@
 }
 
 main {
-    padding: 20px;
+  padding: 20px;
 }
 
 .event-info {
-    text-align: center;
-    margin-bottom: 40px;
+  text-align: center;
+  margin-bottom: 40px;
 }
 
 .event-image {
-    width: 100%;
-    height: 300px;
-    background-color: #eaeaea;
-    border: 1px solid #ccc;
+  /* width: 100%;
+   height: 300px;
+   background-color: #eaeaea;
+   border: 1px solid #ccc; */
+}
+.caption {
+  /* background-color: #eaeaea; */
 }
 
 .service-details {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
 }
 
 .service {
-    text-align: center;
-    flex: 1;
-    margin: 0 10px;
+  text-align: center;
+  flex: 1;
+  margin: 0 10px;
 }
 
 .service-image {
-    width: 100%;
-    height: 200px;
-    background-color: #eaeaea;
-    border: 1px solid #ccc;
-    margin-bottom: 10px;
+  width: 100%;
+  height: 200px;
+  background-color: #eaeaea;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
 }
 
 .staff {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 40px;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 40px;
 }
 
 .staff-member {
-    text-align: center;
+  text-align: center;
 }
 
 .staff-image {
-    width: 100px;
-    height: 100px;
-    background-color: #eaeaea;
-    border-radius: 50%;
-    border: 1px solid #ccc;
-    margin-bottom: 10px;
+  width: 100px;
+  height: 100px;
+  background-color: #eaeaea;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
 }
 
 footer {
-    background-color: #f8f8f8;
-    padding: 20px;
-    display: flex;
-    justify-content: space-around;
-    border-top: 1px solid #ccc;
+  background-color: #f8f8f8;
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+  border-top: 1px solid #ccc;
 }
 
 footer h3 {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 footer ul {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 footer ul li {
-    margin-bottom: 5px;
+  margin-bottom: 5px;
 }
 
 footer ul li a {
-    text-decoration: none;
-    color: #333;
+  text-decoration: none;
+  color: #333;
 }
 
 .btn-primary {
@@ -196,4 +199,135 @@ footer ul li a {
   color: black !important;
   background-color: #a1a1a1 !important;
   border-color: black !important;
+}
+
+/* Updated Form Container Styles */
+.form_container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 360px;
+  z-index: 10;
+  display: none;
+}
+
+.form_container.active {
+  display: block;
+}
+
+.form_close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 1.2em;
+  color: rgb(68, 32, 18);
+  cursor: pointer;
+}
+
+.form_container h2 {
+  font-size: 1.5em;
+  color: rgb(68, 32, 18);
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.input_box {
+  position: relative;
+  width: 100%;
+  margin: 12px 0;
+}
+
+.input_box input {
+  width: 100%;
+  padding: 10px 40px 10px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+.input_box i {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  color: #ccc;
+}
+
+.option_field {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.option_field .checkbox input {
+  margin-right: 5px;
+}
+.checkbox {
+  margin-left: 10px;
+}
+
+.forgot-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.forgot_pw {
+  color: rgb(68, 32, 18);
+  font-size: 0.9em;
+  margin-top: 5px;
+  text-decoration: none;
+}
+
+.forgot_pw:hover {
+  text-decoration: underline;
+}
+
+.button {
+  width: 100%;
+  padding: 10px;
+  font-weight: 700;
+  font-size: 1em;
+  color: #fff;
+  background-color: rgb(68, 32, 18);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background-color 0.15s ease;
+}
+.button:hover {
+  background-color: rgb(135, 80, 60);
+}
+.button:active {
+  background-color: rgb(68, 32, 18);
+}
+
+.signup {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.signup a {
+  color: rgb(68, 32, 18);
+  font-weight: 600;
+  text-decoration: none;
+  margin-left: 5px;
+}
+
+.signup a:hover {
+  text-decoration: underline;
+}
+
+.pw_hide {
+  cursor: pointer;
+}
+
+.pw_hide:hover {
+  color: rgb(135, 80, 60);
 }

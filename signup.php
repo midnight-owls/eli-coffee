@@ -12,7 +12,7 @@ if ($password !== $confirm_password) {
 $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
 // Create connection
-$conn = new mysqli('localhost', 'root', '', 'eli_coffeedb');
+$conn = new mysqli('localhost', 'root', '', 'elicoffeedb');
 
 // Check connection
 if ($conn->connect_error) {
