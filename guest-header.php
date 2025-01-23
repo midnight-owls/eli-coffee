@@ -110,21 +110,23 @@ require("signup-connection.php");
         </ul>
       </div>
       <div class="navbar-right ms-auto d-flex align-items-center">
-        <a href="#">
-          <button
-            type="button"
-            class="btn btn-primary btn-sign-in me-2">
-            Sign In
-          </button>
-        </a>
-        <a href="#">
-          <button
-            type="button"
-            class="btn btn-primary btn-sign-up me-2">
-            Sign Up
-          </button>
-        </a>
-      </div>
+  <button
+    type="button"
+    class="btn btn-primary btn-sign-in me-2"
+    data-bs-toggle="modal"
+    data-bs-target="#modal"
+    onclick="toggleForm(false)">
+    Sign In
+  </button>
+  <button
+    type="button"
+    class="btn btn-primary btn-sign-up me-2"
+    data-bs-toggle="modal"
+    data-bs-target="#modal"
+    onclick="toggleForm(true)">
+    Sign Up
+  </button>
+</div>
     </div>
   </nav>
 
@@ -150,7 +152,7 @@ require("signup-connection.php");
       <input type="email" name="log_email"><br>
       <label for="">Password:</label>
       <input type="password" name="log_password"><br>
-      <a href="#" class="forgot_pw" style="text-decoration: none">Forgot password</a>
+      <a href="forgot-password.php" class="forgot_pw" style="text-decoration: none">Forgot password</a>
       <input type="submit" name="submit" id="" value="Log In">
       <div class="signup">
         Don't have an account?
