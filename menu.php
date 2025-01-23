@@ -308,17 +308,17 @@
   </div>
 
   <div class="cart_container">
-    <i class="uil uil-times cart_close"></i>
-    <h2 style="text-align: center">Your Cart</h2>
-    <div class="cart_items" style="margin-left: 10px" id="cart_items">
-
-    </div>
-    <p id="cart-total" style="margin-left: 10px">Total: ₱0.00</p>
-    <div class="cart_footer">
-      <button class="button btn-danger clear-cart">Clear Cart</button>
-      <button class="button btn-danger checkout">Checkout</button>
-    </div>
+  <button class="cart_close" aria-label="Close Cart" style="position: absolute; top: 10px; right: 10px; background: transparent; border: none; font-size: 24px; cursor: pointer;">&times;</button>
+  <h2 style="text-align: center">Your Cart</h2>
+  <div class="cart_items" style="margin-left: 10px" id="cart_items">
   </div>
+  <p id="cart-total" style="margin-left: 10px">Total: ₱0.00</p>
+  <div class="cart_footer">
+    <button class="button btn-danger clear-cart">Clear Cart</button>
+    <button class="button btn-danger checkout">Checkout</button>
+  </div>
+</div>
+
 
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

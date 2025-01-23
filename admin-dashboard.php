@@ -144,6 +144,13 @@ if ($suppliesResult === false) {
                                 ?>
                             </tbody>
                         </table>
+                        <!-- add button -->
+                        <div class="add-menu-container" style="position: fixed; bottom: 10px; right: 10px; z-index: 1000;">
+                            <div>
+                                <img src="assets/add-square-removebg-preview.png" alt="" class="img-fluid add-menu" id="add-menu" style="height: 50px; width: 50px;"> 
+                                <p class="menu-name" style="font-size: 12px; color: #333; right: 40px;">Add Supplies</p>
+                            </div>
+                        </div>
                     </div>
                 </main>
             </div>

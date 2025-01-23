@@ -16,7 +16,9 @@
       <img src="assets/guest/guest1.jpg" alt="background-coffee" class="img" />
       <div class="content ms-5">
         <h2>“Brewed Perfection, Served with Passion.”</h2>
-        <button class="ms-1">Order Now</button>
+        <a href="menu.php">
+          <button class="ms-1">Order Now</button>
+        </a>
       </div>
     </div>
 
