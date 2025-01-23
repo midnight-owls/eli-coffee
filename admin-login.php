@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 header("Location: admin-dashboard.php");
                 exit();
             } else {
-                echo "<script>alert('Incorrect password.'); window.location.href='admin-login.php';</script>";
+                echo "<script>alert('Incorrect password.'); window.location.href='admin-signup.php';</script>";
                 exit();
             }
         } else {

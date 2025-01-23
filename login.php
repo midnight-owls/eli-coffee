@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 exit();
             }
         } else {
-            echo "<script>alert('No account found with that email.'); window.location.href='home.php';</script>";
+            echo "<script>alert('No account found with that email.'); window.location.href='index.php';</script>";
             exit();
         }
 
