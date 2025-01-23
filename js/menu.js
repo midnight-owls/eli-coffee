@@ -148,7 +148,7 @@ clearCartButton.addEventListener("click", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  const items = document.querySelectorAll('.card');
+  const items = document.querySelectorAll(".card");
   let cart = {}; // To store the products in the cart
 
   // Function to update the cart and store it in localStorage
@@ -169,7 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const priceSpan = item.querySelector(".price");
 
     let quantity = 0;
-    const pricePerItem = parseFloat(priceSpan.getAttribute('data-price')); // Get the raw price from the data-price attribute
+    const pricePerItem = parseFloat(priceSpan.getAttribute("data-price")); // Get the raw price from the data-price attribute
 
     const updateDisplay = () => {
       const totalPrice = (quantity * pricePerItem).toFixed(2);
@@ -187,7 +187,12 @@ document.addEventListener("DOMContentLoaded", () => {
     btnPlus.addEventListener("click", () => {
       quantity++;
       updateDisplay();
-      updateCart(itemId, item.querySelector('.card-text').textContent, quantity, pricePerItem);
+      updateCart(
+        itemId,
+        item.querySelector(".card-text").textContent,
+        quantity,
+        pricePerItem
+      );
     });
 
     btnMinus.addEventListener("click", () => {
@@ -195,45 +200,68 @@ document.addEventListener("DOMContentLoaded", () => {
         quantity--;
       }
       updateDisplay();
-      updateCart(itemId, item.querySelector('.card-text').textContent, quantity, pricePerItem);
+      updateCart(
+        itemId,
+        item.querySelector(".card-text").textContent,
+        quantity,
+        pricePerItem
+      );
     });
 
     updateDisplay();
   });
 
   // Checkout button event listener
-  const checkoutButton = document.querySelector('.checkout');
-  checkoutButton.addEventListener('click', () => {
+  const checkoutButton = document.querySelector(".checkout");
+  checkoutButton.addEventListener("click", () => {
     if (Object.keys(cart).length > 0) {
       // Prepare the cart data to send to the server
-      const cartData = Object.values(cart).map(item => ({
+      const cartData = Object.values(cart).map((item) => ({
         productName: item.productName,
-        quantity: item.quantity
+        quantity: item.quantity,
       }));
 
       // Send the data to the PHP script to update the database
-      fetch('update-sold.php', {
-        method: 'POST',
+      fetch("update-sold.php", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ cartData }),
       })
-      .then(response => response.json())
-      .then(data => {
-        if (data.success) {
-          alert('Checkout successful!');
-          localStorage.removeItem('cart');
-          window.location.href = 'menu.php';
-        } else {
-          alert('Error updating database!');
-        }
-      })
-      .catch(error => {
-        console.error('Error:', error);
-      });
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.success) {
+            alert("Checkout successful!");
+            localStorage.removeItem("cart");
+            window.location.href = "menu.php";
+          } else {
+            alert("Error updating database!");
+          }
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
     } else {
-      alert('Your cart is empty!');
+      alert("Your cart is empty!");
     }
+  });
+});
+
+const items = document.querySelectorAll(".card"); // Get all items again to reset quantities
+
+clearCartButton.addEventListener("click", () => {
+  cart = {};
+  localStorage.removeItem("cart");
+  loadCartItems();
+
+  // Clear quantity display for each item
+  items.forEach((item) => {
+    const quantitySpan = item.querySelector(".quantity");
+    quantitySpan.textContent = ""; // Clear the quantity display
+    quantitySpan.classList.add("hidden"); // Hide the quantity span
+    const priceSpan = item.querySelector(".price");
+    const pricePerItem = parseFloat(priceSpan.getAttribute("data-price"));
+    priceSpan.textContent = `₱ ${pricePerItem.toFixed(2)}`; // Reset price display
   });
 });
