@@ -106,6 +106,7 @@ if ($row = $result->fetch_assoc()) {
         </aside>
         <div class="main">
             <div class="text-center">
+                
                 <h1>Menu and Inventory</h1>
                 <div id="coffee-section">Coffee</div>
                 <div class="coffee-products">
@@ -164,48 +165,7 @@ if ($row = $result->fetch_assoc()) {
 
                        
                     </div>
-                    <div id="popup-modal-add-coffee" class="modal-add-coffee">
-                        <div class="modal-content">
-                            <span class="close-button">&times;</span>
-                            <form enctype="multipart/form-data" action="#" method="post" class="coffee-form">
-                                <!-- Add Picture -->
-                                <div class="form-group">
-                                    <label for="product-image">Add Picture</label>
-                                    <input type="file" name="product-image" id="product-image" accept="image/*" class="form-control">
-                                </div>
-                                
-                                <!-- Name of Product -->
-                                <div class="form-group">
-                                    <label for="product-name">Name of Product</label>
-                                    <input type="text" name="product-name" id="product-name" placeholder="Enter product name" class="form-control" required>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="product-category">Category</label>
-                                    <select name="product-category" id="product-category" class="form-control" required>
-                                        <option value="coffee">Coffee</option>
-                                        <option value="tea">Tea</option>
-                                        <option value="frappe">Frappe</option>
-                                        <option value="add-ons">Add-ons</option>
-                                        <option value="food">Food</option>
-                                    </select>
-                                </div>
-
-                                <!-- Price of Coffee -->
-                                <div class="form-group">
-                                    <label for="product-price">Price</label>
-                                    <input type="number" name="product-price" id="product-price" placeholder="Enter product price" class="form-control" required>
-                                </div>
-
-
-                                <!-- Submit Button -->
-                                <div class="form-group">
-                                    <button type="submit" name="submit" class="btn btn-primary">Add Product</button>
-                                </div>
-                            </form>
-
-                        </div>
-                    </div>
+                    
                     <div id="popup-form" class="popup-form">
                         <div class="popup-content">
                             <span class="x-btn-view">&times;</span>
@@ -411,6 +371,48 @@ if ($row = $result->fetch_assoc()) {
                     }
                     ?>
                 </div>
+                <div id="popup-modal-add-coffee" class="modal-add-coffee">
+                        <div class="modal-content">
+                            <span class="close-button">&times;</span>
+                            <form enctype="multipart/form-data" action="#" method="post" class="coffee-form">
+                                <!-- Add Picture -->
+                                <div class="form-group">
+                                    <label for="product-image">Add Picture</label>
+                                    <input type="file" name="product-image" id="product-image" accept="image/*" class="form-control">
+                                </div>
+                                
+                                <!-- Name of Product -->
+                                <div class="form-group">
+                                    <label for="product-name">Name of Product</label>
+                                    <input type="text" name="product-name" id="product-name" placeholder="Enter product name" class="form-control" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="product-category">Category</label>
+                                    <select name="product-category" id="product-category" class="form-control" required>
+                                        <option value="coffee">Coffee</option>
+                                        <option value="tea">Tea</option>
+                                        <option value="frappe">Frappe</option>
+                                        <option value="add-ons">Add-ons</option>
+                                        <option value="food">Food</option>
+                                    </select>
+                                </div>
+
+                                <!-- Price of Coffee -->
+                                <div class="form-group">
+                                    <label for="product-price">Price</label>
+                                    <input type="number" name="product-price" id="product-price" placeholder="Enter product price" class="form-control" required>
+                                </div>
+
+
+                                <!-- Submit Button -->
+                                <div class="form-group">
+                                    <button type="submit" name="submit" class="btn btn-primary">Add Product</button>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
         
             </div>
 
