@@ -53,6 +53,18 @@ if ($suppliesResult === false) {
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="css/admin-dashboard.css" />
     <link rel="stylesheet" href="css/index.css" />
+
+    <script>
+        // Function to show the modal
+        function showModal() {
+            document.getElementById('addSuppliesModal').style.display = 'block';
+        }
+
+        // Function to hide the modal
+        function hideModal() {
+            document.getElementById('addSuppliesModal').style.display = 'none';
+        }
+    </script>
 </head>
 
 <body>
@@ -117,14 +129,22 @@ if ($suppliesResult === false) {
                     </div>
                     <h2>PRODUCTS SOLD</h2>
                     <canvas id="itemsSoldChart" width="1100px" height="300px"></canvas>
+                    <br>
                     <h2>SUPPLIES</h2>
                     <div class="table-responsive small">
                         <table class="table table-striped table-sm">
+                        <colgroup>
+                        <col> <!-- No width for the ID column -->
+                        <col> <!-- No width for the Supply column -->
+                        <col> <!-- No width for the Quantity column -->
+                        <col style="width: 10%;"> <!-- Width for the Actions column -->
+                        </colgroup>
                             <thead>
                                 <tr>
-                                    <th scope="col">#</th>
+                                    <th scope="col">ID</th>
                                     <th scope="col">Supply</th>
                                     <th scope="col">Quantity</th>
+                                    <th scope="col"> </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -136,26 +156,46 @@ if ($suppliesResult === false) {
                                         echo "<td>" . $row["id"] . "</td>";
                                         echo "<td>" . $row["supply"] . "</td>";
                                         echo "<td>" . $row["quantity"] . "</td>";
+                                        echo "<td>";
+                                        echo "<a href='edit-supply.php?id=" . urlencode($row["id"]) . "' class='btn btn-warning btn-sm'>Edit</a> ";
+                                        echo "<form action='delete-supply.php' method='POST' style='display:inline;'>";
+                                        echo "<input type='hidden' name='supply_id' value='" . $row["id"] . "'>";
+                                        echo "<button type='submit' class='btn btn-danger btn-sm'>Delete</button>";
+                                        echo "</form></td>";
                                         echo "</tr>";
+                                        
                                     }
                                 } else {
-                                    echo "<tr><td colspan='3'>No data available</td></tr>";
+                                    echo "<tr><td colspan='4'>No data available</td></tr>";
                                 }
                                 ?>
                             </tbody>
                         </table>
-                        <!-- add button -->
-                        <div class="add-menu-container" style="position: fixed; bottom: 10px; right: 10px; z-index: 1000;">
-                            <div>
-                                <img src="assets/add-square-removebg-preview.png" alt="" class="img-fluid add-menu" id="add-menu" style="height: 50px; width: 50px;"> 
-                                <p class="menu-name" style="font-size: 12px; color: #333; right: 40px;">Add Supplies</p>
-                            </div>
-                        </div>
+                        <!-- Add Supplies Button -->
+                        <button onclick="showModal()" class="btn btn-primary">Add Supplies</button>
                     </div>
                 </main>
             </div>
         </div>
     </div>
+</div>
+
+<!-- Add Supplies Modal -->
+<div id="addSuppliesModal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+    <h2>Add Supplies</h2>
+    <form action="add-supplies.php" method="POST">
+        <label for="supply_id">ID:</label>
+        <input type="text" id="supply_id" name="supply_id" required><br><br>
+
+        <label for="supply_name">Name:</label>
+        <input type="text" id="supply_name" name="supply_name" required><br><br>
+
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" required><br><br>
+
+        <button type="submit" class="btn btn-success">Submit</button>
+        <button type="button" onclick="hideModal()" class="btn btn-secondary">Cancel</button>
+    </form>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
