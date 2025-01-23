@@ -21,7 +21,7 @@
           Ground with passion,<br />brewed with love
         </h1>
         <a
-          href="guest-menu.php"
+          href="menu.php"
           class="btn btn-primary rounded-pill mt-4 order-now align-self-center">Order Now</a>
       </div>
 

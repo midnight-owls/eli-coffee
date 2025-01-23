@@ -264,7 +264,8 @@ h1 {
   color: rgb(68, 32, 18);
 }
 
-p {
+/* bro, seriously? */
+/* p {
   text-align: center;
   font-size: 1.1rem;
   color: #555;
@@ -273,7 +274,7 @@ p {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 75px;
-}
+} */
 
 /* Styling for the front-page2 section */
 .front-page2 {
@@ -301,7 +302,7 @@ p {
 }
 
 .front-page2 img:hover {
-  transform: scale(1.05); /* Subtle zoom effect on hover */
+  transform: ; /* Subtle zoom effect on hover */
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25); /* More prominent shadow on hover */
 }
 
@@ -449,7 +450,7 @@ form input[type="submit"] {
 
 form input[type="submit"]:hover {
   background-color: #70422f;
-  transform: scale(1.05);
+  transform: ;
 }
 
 form input[type="submit"]:active {
