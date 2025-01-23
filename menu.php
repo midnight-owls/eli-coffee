@@ -308,7 +308,7 @@
   </div>
 
   <div class="cart_container">
-    <i class="uil uil-times cart_close"></i>
+  <i class="uil uil-times cart_close"></i>
     <h2 style="text-align: center">Your Cart</h2>
     <div class="cart_items" style="margin-left: 10px" id="cart_items">
 

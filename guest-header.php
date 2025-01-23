@@ -25,6 +25,21 @@
   <link rel="stylesheet" href="css/guest-events.css" />
   <link rel="stylesheet" href="css/menu.css" />
   <link rel="stylesheet" href="css/admin-signup.css">
+
+  <script>
+    // Toggle forms
+    function toggleForm(showSignUp) {
+      const loginForm = document.getElementById('login-form');
+      const signUpForm = document.getElementById('signup-form');
+      if (showSignUp) {
+        loginForm.style.display = 'none';
+        signUpForm.style.display = 'block';
+      } else {
+        loginForm.style.display = 'block';
+        signUpForm.style.display = 'none';
+      }
+    }
+  </script>
 </head>
 
 <body>
@@ -113,7 +128,7 @@
   </nav>
 
    <!-- Sign In / Sign Up -->
-   <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+   <form id="signup-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         <h2>Sign Up!</h2>
         <label for="">Email:</label><br>
         <input type="email" name="email"><br>
@@ -129,7 +144,7 @@
     </form>
 
     
-  <form action="login.php" method="post">
+  <form id="login-form" action="login.php" method="post">
         <h2>Welcome to Eli Coffee!</h2>
         <label for="">Email:</label><br>
         <input type="email" name="log_email"><br>
