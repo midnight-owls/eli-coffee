@@ -373,7 +373,7 @@ if ($row = $result->fetch_assoc()) {
                     }
                     ?>
                 </div>
-                <div id="popup-modal-add-coffee" class="modal-add-coffee">
+                <div id="popup-modal-add-coffee" class="modal-add-coffee" style="z-index: 1000;">
                         <div class="modal-content">
                             <span class="close-button">&times;</span>
                             <form enctype="multipart/form-data" action="#" method="post" class="coffee-form">
