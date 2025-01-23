@@ -43,17 +43,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 header("Location: admin-dashboard.php");
                 exit();
             } else {
-                echo "<script>alert('Incorrect password.'); window.location.href='admin-login.php';</script>";
+                echo "<script>alert('Incorrect password.'); window.location.href='admin-admin-signup.php';</script>";
                 exit();
             }
         } else {
-            echo "<script>alert('No account found with that email.'); window.location.href='admin-login.php';</script>";
+            echo "<script>alert('No account found with that email.'); window.location.href='admin-signup.php';</script>";
             exit();
         }
 
         mysqli_stmt_close($stmt);
     } else {
-        echo "<script>alert('Database error.'); window.location.href='admin-login.php';</script>";
+        echo "<script>alert('Database error.'); window.location.href='admin-signup.php';</script>";
         exit();
     }
 }

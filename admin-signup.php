@@ -76,7 +76,7 @@ require("signup-connection.php");
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Sanitize inputs
-    $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_EMAIL);
+    $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
     $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
     $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_SPECIAL_CHARS);
     $confirm_password = filter_input(INPUT_POST, 'confirm_password', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -91,32 +91,54 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } elseif ($password !== $confirm_password) {
         echo "<script>alert('Passwords do not match.');</script>";
     } else {
-        // Hash the password
-        $hashed_password = password_hash($password, PASSWORD_BCRYPT);
-
-        // Prepare SQL query with placeholders
-        $query = "INSERT INTO admin (name, email, password) VALUES (?, ?, ?)";
-
-        // Prepare the statement
-        if ($stmt = mysqli_prepare($conn, $query)) {
-            // Bind parameters
-            mysqli_stmt_bind_param($stmt, "sss", $name,$email, $hashed_password);
+        // Check if the email already exists in the database
+        $check_query = "SELECT id FROM admin WHERE email = ?";
+        if ($stmt = mysqli_prepare($conn, $check_query)) {
+            // Bind email parameter
+            mysqli_stmt_bind_param($stmt, "s", $email);
 
             // Execute the query
-            if (mysqli_stmt_execute($stmt)) {
-                echo "<script>alert('You are now registered!');</script>";
+            mysqli_stmt_execute($stmt);
+
+            // Store the result to check if any row was returned
+            mysqli_stmt_store_result($stmt);
+
+            if (mysqli_stmt_num_rows($stmt) > 0) {
+                // Email already exists
+                echo "<script>alert('This email is already registered. Please use a different email.');</script>";
             } else {
-                echo "<script>alert('Error: Could not execute the query.');</script>";
+                // Email is unique, proceed with registration
+                $hashed_password = password_hash($password, PASSWORD_BCRYPT);
+
+                // Insert new user into the database
+                $insert_query = "INSERT INTO admin (name, email, password) VALUES (?, ?, ?)";
+                if ($insert_stmt = mysqli_prepare($conn, $insert_query)) {
+                    // Bind parameters
+                    mysqli_stmt_bind_param($insert_stmt, "sss", $name, $email, $hashed_password);
+
+                    // Execute the query
+                    if (mysqli_stmt_execute($insert_stmt)) {
+                        echo "<script>alert('You are now registered!');</script>";
+                    } else {
+                        echo "<script>alert('Error: Could not execute the query.');</script>";
+                    }
+
+                    // Close the insert statement
+                    mysqli_stmt_close($insert_stmt);
+                } else {
+                    echo "<script>alert('Error: Could not prepare the SQL query.');</script>";
+                }
             }
 
-            // Close the statement
+            // Close the check statement
             mysqli_stmt_close($stmt);
         } else {
-            echo "<script>alert('Error: Could not prepare the SQL query.');</script>";
+            echo "<script>alert('Error: Could not prepare the SQL query to check email.');</script>";
         }
     }
-}
 
-// Close the database connection
-mysqli_close($conn);
+    // Close the database connection
+    mysqli_close($conn);
+}
 ?>
+
