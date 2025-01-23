@@ -52,38 +52,6 @@
         <strong>ELI Coffee:</strong> It's spooky szn, of course we're joining! 👻🎃
       </h6>
     </section>
-
-    <footer>
-      <div class="about">
-        <h3>About Us</h3>
-        <ul>
-          <li><a href="#">Our Company</a></li>
-          <li><a href="#">Stories and News</a></li>
-          <li><a href="#">Customer Service</a></li>
-        </ul>
-      </div>
-      <div class="contact">
-        <h3>Contact Us</h3>
-        <p>
-          ELI COFFEE<br />
-          2nd floor Pearl Building, Binangonan, Philippines<br />
-          Phone: 0917 562 0306<br />
-          Email: elicoffeetea@gmail.com
-        </p>
-      </div>
-      <div class="hours">
-        <h3>Opening Hours</h3>
-        <ul>
-          <li>Monday: 7:00 am - 5:00 pm</li>
-          <li>Tuesday: 7:00 am - 5:00 pm</li>
-          <li>Wednesday: 7:00 am - 5:00 pm</li>
-          <li>Thursday: 7:00 am - 5:00 pm</li>
-          <li>Friday: 7:00 am - 5:00 pm</li>
-          <li>Saturday: 8:00 am - 2:00 pm</li>
-          <li>Sunday: Closed</li>
-        </ul>
-      </div>
-    </footer>
   </main>
 
   <div class="form_container">
