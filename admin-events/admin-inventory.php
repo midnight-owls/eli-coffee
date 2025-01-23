@@ -137,7 +137,6 @@ if ($row = $result->fetch_assoc()) {
                                         <!-- Display the product name dynamically -->
                                         <p class="card-text"><?php echo $productName; ?></p>
                                         <!-- View and Edit buttons -->
-                                        <button class="btn btn-primary" id="view-btn-<?php echo $row['id']; ?>">View</button>
                                         <button 
                                             class="ediButton btn btn-secondary" 
                                             id="edit-btn-<?php echo $row['id']; ?>" 
@@ -161,30 +160,9 @@ if ($row = $result->fetch_assoc()) {
                             <img src="../assets/add-square-removebg-preview.png" alt="" class="img-fluid add-menu" id="add-menu" style="height: 50px; width: 50px;"> 
                             <p class="menu-name" style="font-size: 12px; color: #333; right: 40px;">Add Product</p>
                         </div>
+                    </div>   
                     </div>
 
-
-
-                       
-                    </div>
-                    
-                    <div id="popup-form" class="popup-form">
-                        <div class="popup-content">
-                            <span class="x-btn-view">&times;</span>
-                            <div class="details">
-                                <div class="picture-container">
-                                    <img src="../assets/coffee1.png" alt="Mocha">
-                                </div>
-                                <p id="coffee-details"></p>
-                            </div>
-                            <form id="delete-form" method="POST" action="delete-product.php">
-                                <input type="hidden" name="product_id" id="delete-product-id" />
-                                <input type="hidden" name="category" id="delete-category"/>
-                                <button type="submit" class="delete-btn">Delete</button>
-                            </form>
-                        </div>
-                    </div>
-                
                 <br>
                 <hr>
                 <div id="tea-section">Tea</div>
@@ -214,7 +192,6 @@ if ($row = $result->fetch_assoc()) {
                                         <!-- Display the product name dynamically -->
                                         <p class="card-text"><?php echo $productName; ?></p>
                                         <!-- View and Edit buttons -->
-                                        <button class="btn btn-primary" id="view-btn-<?php echo $row['id']; ?>">View</button>
                                         <button 
                                             class="ediButton btn btn-secondary" 
                                             id="edit-btn-<?php echo $row['id']; ?>" 
@@ -261,7 +238,6 @@ if ($row = $result->fetch_assoc()) {
                                         <!-- Display the product name dynamically -->
                                         <p class="card-text"><?php echo $productName; ?></p>
                                         <!-- View and Edit buttons -->
-                                        <button class="btn btn-primary" id="view-btn-<?php echo $row['id']; ?>">View</button>
                                         <button 
                                             class="ediButton btn btn-secondary" 
                                             id="edit-btn-<?php echo $row['id']; ?>" 
@@ -308,7 +284,6 @@ if ($row = $result->fetch_assoc()) {
                                         <!-- Display the product name dynamically -->
                                         <p class="card-text"><?php echo $productName; ?></p>
                                         <!-- View and Edit buttons -->
-                                        <button class="btn btn-primary" id="view-btn-<?php echo $row['id']; ?>">View</button>
                                         <button 
                                             class="ediButton btn btn-secondary" 
                                             id="edit-btn-<?php echo $row['id']; ?>" 
@@ -355,7 +330,6 @@ if ($row = $result->fetch_assoc()) {
                                         <!-- Display the product name dynamically -->
                                         <p class="card-text"><?php echo $productName; ?></p>
                                         <!-- View and Edit buttons -->
-                                        <button class="btn btn-primary" id="view-btn-<?php echo $row['id']; ?>">View</button>
                                         <button 
                                             class="ediButton btn btn-secondary" 
                                             id="edit-btn-<?php echo $row['id']; ?>" 
@@ -413,6 +387,22 @@ if ($row = $result->fetch_assoc()) {
                                 </div>
                             </form>
 
+                        </div>
+                    </div>
+                    <div id="popup-form" class="popup-form" style="z-index: 1000;">
+                        <div class="popup-content">
+                            <span class="x-btn-view">&times;</span>
+                            <div class="details">
+                                <div class="picture-container">
+                                    <img src="../assets/coffee1.png" alt="Mocha">
+                                </div>
+                                <p id="coffee-details"></p>
+                            </div>
+                            <form id="delete-form" method="POST" action="delete-product.php">
+                                <input type="hidden" name="product_id" id="delete-product-id" />
+                                <input type="hidden" name="category" id="delete-category"/>
+                                <button type="submit" class="delete-btn">Delete</button>
+                            </form>
                         </div>
                     </div>
         
