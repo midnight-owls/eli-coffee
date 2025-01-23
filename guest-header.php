@@ -150,9 +150,7 @@
         <input type="email" name="log_email"><br>
         <label for="">Password:</label><br>
         <input type="password" name="log_password"><br>
-          <a href="#" class="forgot_pw" style="text-decoration: none">
-            Forgot password</a
-          >
+        <div class="link forget-pass text-left"><a href="forgot-password.php">Forgot password?</a></div>
         <input type="submit" name="submit" id="" value="Log In">
         <div class="signup">
         Don't have an account?
