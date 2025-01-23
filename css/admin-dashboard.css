@@ -1,166 +1,160 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
 
 ::after,
 ::before {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 li {
-    list-style: none;
+  list-style: none;
 }
 
 h1 {
-    font-weight: 600;
-    font-size: 1.5rem;
+  font-weight: 600;
+  font-size: 1.5rem;
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
-.logo{
-    padding: 5px;
-    height: 52px;
-    width: 52px;
+.logo {
+  padding: 5px;
+  height: 52px;
+  width: 52px;
 }
 
-.wrapper{
-    display: flex;
+.wrapper {
+  display: flex;
 }
 
 .main {
-    min-height: 100vh;
-    width: 100%;
-    padding-top: 10px;
-    transition: all 0.35s ease-in-out;
-    background-color: rgb(224, 224, 224);
-    overflow: hidden;
+  min-height: 100vh;
+  width: 100%;
+  padding-top: 10px;
+  transition: all 0.35s ease-in-out;
+  background-color: rgb(224, 224, 224);
+  overflow: hidden;
 }
 
-
-#sidebar{
-    width: 70px;
-    min-width: 70px;
-    z-index: 1000;
-    transition: all .25s ease-in-out;
-    display: flex;
-    flex-direction: column;
-    background-color:white;     
-    overflow: hidden;
+#sidebar {
+  width: 70px;
+  min-width: 70px;
+  z-index: 1000;
+  transition: all 0.25s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  overflow: hidden;
 }
 
-.menu-sidebar{
-    display: none;
+.menu-sidebar {
+  display: none;
 }
 
-.navbar{
-    /* border-color: brown; */
-    padding-top: 0px;
-    padding-bottom: 0px;
-    height: 52px;
+.navbar {
+  height: 67px;
 }
 
-.logo-company-name{
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    font-weight: bold;
-    font-size: 1.5rem;
-    margin-left: 8px;
+.logo-company-name {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-left: 8px;
 }
 
-.dashboard-picture{
-    display: flex;
-    align-items: center;
-    gap: 20px;
+.dashboard-picture {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
-.dashboard{
-    font-size: 1.5rem;
-    font-weight: bold;
+.dashboard {
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
-.picture-icon{
-    width: 30px;
-    height: 30px;
-    border-radius: 50px;
-    border-width: 1px;
-    border-color: brown;
-    border-style: solid;
-    margin-right: 20px;
+.picture-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+  border-width: 1px;
+  border-color: brown;
+  border-style: solid;
+  margin-right: 20px;
 }
 
-#sidebar.expand{
-    width: 260px;
-    min-width: 260px;
+#sidebar.expand {
+  width: 260px;
+  min-width: 260px;
 }
 
-.admin-info{
-    display: flex;
-    align-items: center;
-    outline: none;
-    margin-top: 20px;
+.admin-info {
+  display: flex;
+  align-items: center;
+  outline: none;
+  margin-top: 20px;
 }
 
-.admin-image{
-    width: 70px;
-    margin-right: 10px;
-    margin-left: 10px;
-    border-style: solid;
-    border-radius: 50px;
+.admin-image {
+  width: 70px;
+  margin-right: 10px;
+  margin-left: 10px;
+  border-style: solid;
+  border-radius: 50px;
 }
 
-#toggle-btn{
-    background-color: transparent;
-    cursor: pointer;
-    border: 0;
-    padding: 1.5rem 1.4rem;
+#toggle-btn {
+  background-color: transparent;
+  cursor: pointer;
+  border: 0;
+  padding: 1.5rem 1.4rem;
 }
 
-#toggle-btn i{
-    font-size: 1.5rem;
-    color: black;
+#toggle-btn i {
+  font-size: 1.5rem;
+  color: black;
 }
 
-#sidebar:not(.expand) a.sidebar-link span, #sidebar:not(.expand) .admin-info {
-    display: none;
+#sidebar:not(.expand) a.sidebar-link span,
+#sidebar:not(.expand) .admin-info {
+  display: none;
 }
 
-.sidebar-nav{
-    padding: 2rem 0;
-    flex: 1 auto;
+.sidebar-nav {
+  padding: 2rem 0;
+  flex: 1 auto;
 }
 
-a.sidebar-link{
-    padding: 1.625em 1.625rem;
-    color: black;
-    display: block;
-    font-size: 1rem;
-    white-space: nowrap;
-    border-left: 3px solid transparent;
-    text-decoration: none;
-    
+a.sidebar-link {
+  padding: 1.625em 1.625rem;
+  color: black;
+  display: block;
+  font-size: 1rem;
+  white-space: nowrap;
+  border-left: 3px solid transparent;
+  text-decoration: none;
 }
 
-.sidebar-link i{
-    font-size: 1.1rem;
-    margin-right: .75rem;
+.sidebar-link i {
+  font-size: 1.1rem;
+  margin-right: 0.75rem;
 }
 
-a.sidebar-link:hover{
-    background-color: rgb(168, 168, 168);
-    border-left: 3px solid rgb(100, 100, 100);
-    /* display: none; */
+a.sidebar-link:hover {
+  background-color: rgb(168, 168, 168);
+  border-left: 3px solid rgb(100, 100, 100);
+  /* display: none; */
 }
 
 /* .ingredients {
     flex-basis: 100%; /* Makes it take up the full width of the row 
 } */
-
-

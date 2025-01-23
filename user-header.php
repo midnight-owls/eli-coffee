@@ -21,10 +21,10 @@
   <link rel="stylesheet" href="css/inventory.css" />
   <link rel="stylesheet" href="css/events.css" />
   <link rel="stylesheet" href="css/about-us.css" />
-  <link rel="stylesheet" href="css/index.css" />
   <link rel="stylesheet" href="css/menu.css" />
-  <link rel="stylesheet" href="css/cart.css" />
   <link rel="stylesheet" href="css/home.css" />
+  <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" href="css/cart.css" />
 </head>
 
 <body>
@@ -93,7 +93,7 @@
       <div class="navbar-right d-flex align-items-center me-2">
         <a href="index.php">
           <button type="button" class="btn btn-primary btn-sign-in">
-            SIGN OUT
+            Sign Out
           </button>
         </a>
       </div>

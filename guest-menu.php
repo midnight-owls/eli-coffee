@@ -46,7 +46,7 @@
 
       <div class="col-md-10 col-lg-10 album py-5 bg-light">
         <div class="container">
-        <div id="coffee-section" class="fs-6 menu-title">Coffee</div>
+          <div id="coffee-section" class="fs-6 menu-title">Coffee</div>
           <hr />
           <div class="row row-cols-1 row-cols-sm-3 row-cols-md-3 row-cols-xl-4 g-3">
             <?php
@@ -58,42 +58,41 @@
 
             // Check if any products exist
             if (mysqli_num_rows($result) > 0) {
-                // Loop through each product and display it
-                while ($row = mysqli_fetch_assoc($result)) {
-                    /* $productImage = $row['product_img']; // Image filename from database */
-                    $productName = $row['product_name']; // Coffee name from database
-                    $productPrice = $row['price']; // Coffee price from database
-                    ?>
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <!-- Display the product image dynamically -->
-                            <img 
-                                src="img/<?php echo $row['product_img']; ?>" 
-                                class="bd-placeholder-img card-img-top" 
-                                width="100%" 
-                                height="225" 
-                                alt="Picture of <?php echo $productName; ?>" 
-                            />
-                            <img src="" alt="">
+              // Loop through each product and display it
+              while ($row = mysqli_fetch_assoc($result)) {
+                /* $productImage = $row['product_img']; // Image filename from database */
+                $productName = $row['product_name']; // Coffee name from database
+                $productPrice = $row['price']; // Coffee price from database
+            ?>
+                <div class="col">
+                  <div class="card shadow-sm">
+                    <!-- Display the product image dynamically -->
+                    <img
+                      src="img/<?php echo $row['product_img']; ?>"
+                      class="bd-placeholder-img card-img-top"
+                      width="100%"
+                      height="225"
+                      alt="Picture of <?php echo $productName; ?>" />
+                    <img src="" alt="">
 
 
-                            <div class="card-body d-flex justify-content-between align-items-center">
-                                <!-- Display the product name and price dynamically -->
-                                <span class="card-text"><?php echo $productName; ?></span>
-                                <small class="text-muted">&#8369; <?php echo number_format($productPrice, 2); ?></small>
-                            </div>
-                        </div>
+                    <div class="card-body d-flex justify-content-between align-items-center">
+                      <!-- Display the product name and price dynamically -->
+                      <span class="card-text"><?php echo $productName; ?></span>
+                      <small class="text-muted">&#8369; <?php echo number_format($productPrice, 2); ?></small>
                     </div>
-                    <?php
-                }
+                  </div>
+                </div>
+            <?php
+              }
             } else {
-                echo "<p>No products available.</p>";
+              echo "<p>No products available.</p>";
             }
             ?>
-        </div>
+          </div>
 
           <br /><br />
-        <div id="tea-section" class="fs-6 menu-title">Tea</div>
+          <div id="tea-section" class="fs-6 menu-title">Tea</div>
           <hr />
 
           <div class="row row-cols-1 row-cols-sm-3 row-cols-md-3 row-cols-xl-4 g-3">
@@ -106,42 +105,41 @@
 
             // Check if any products exist
             if (mysqli_num_rows($result) > 0) {
-                // Loop through each product and display it
-                while ($row = mysqli_fetch_assoc($result)) {
-                    /* $productImage = $row['product_img']; // Image filename from database */
-                    $productName = $row['product_name']; // Coffee name from database
-                    $productPrice = $row['price']; // Coffee price from database
-                    ?>
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <!-- Display the product image dynamically -->
-                            <img 
-                                src="img/<?php echo $row['product_img']; ?>" 
-                                class="bd-placeholder-img card-img-top" 
-                                width="100%" 
-                                height="225" 
-                                alt="Picture of <?php echo $productName; ?>" 
-                            />
-                            <img src="" alt="">
+              // Loop through each product and display it
+              while ($row = mysqli_fetch_assoc($result)) {
+                /* $productImage = $row['product_img']; // Image filename from database */
+                $productName = $row['product_name']; // Coffee name from database
+                $productPrice = $row['price']; // Coffee price from database
+            ?>
+                <div class="col">
+                  <div class="card shadow-sm">
+                    <!-- Display the product image dynamically -->
+                    <img
+                      src="img/<?php echo $row['product_img']; ?>"
+                      class="bd-placeholder-img card-img-top"
+                      width="100%"
+                      height="225"
+                      alt="Picture of <?php echo $productName; ?>" />
+                    <img src="" alt="">
 
 
-                            <div class="card-body d-flex justify-content-between align-items-center">
-                                <!-- Display the product name and price dynamically -->
-                                <span class="card-text"><?php echo $productName; ?></span>
-                                <small class="text-muted">&#8369; <?php echo number_format($productPrice, 2); ?></small>
-                            </div>
-                        </div>
+                    <div class="card-body d-flex justify-content-between align-items-center">
+                      <!-- Display the product name and price dynamically -->
+                      <span class="card-text"><?php echo $productName; ?></span>
+                      <small class="text-muted">&#8369; <?php echo number_format($productPrice, 2); ?></small>
                     </div>
-                    <?php
-                }
+                  </div>
+                </div>
+            <?php
+              }
             } else {
-                echo "<p>No products available.</p>";
+              echo "<p>No products available.</p>";
             }
             ?>
-        </div>
+          </div>
 
           <br /><br />
-        <div id="frappe-section" class="fs-6 menu-title">Frappe</div>
+          <div id="frappe-section" class="fs-6 menu-title">Frappe</div>
           <hr />
 
           <div
@@ -155,42 +153,41 @@
 
             // Check if any products exist
             if (mysqli_num_rows($result) > 0) {
-                // Loop through each product and display it
-                while ($row = mysqli_fetch_assoc($result)) {
-                    /* $productImage = $row['product_img']; // Image filename from database */
-                    $productName = $row['product_name']; // Coffee name from database
-                    $productPrice = $row['price']; // Coffee price from database
-                    ?>
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <!-- Display the product image dynamically -->
-                            <img 
-                                src="img/<?php echo $row['product_img']; ?>" 
-                                class="bd-placeholder-img card-img-top" 
-                                width="100%" 
-                                height="225" 
-                                alt="Picture of <?php echo $productName; ?>" 
-                            />
-                            <img src="" alt="">
+              // Loop through each product and display it
+              while ($row = mysqli_fetch_assoc($result)) {
+                /* $productImage = $row['product_img']; // Image filename from database */
+                $productName = $row['product_name']; // Coffee name from database
+                $productPrice = $row['price']; // Coffee price from database
+            ?>
+                <div class="col">
+                  <div class="card shadow-sm">
+                    <!-- Display the product image dynamically -->
+                    <img
+                      src="img/<?php echo $row['product_img']; ?>"
+                      class="bd-placeholder-img card-img-top"
+                      width="100%"
+                      height="225"
+                      alt="Picture of <?php echo $productName; ?>" />
+                    <img src="" alt="">
 
 
-                            <div class="card-body d-flex justify-content-between align-items-center">
-                                <!-- Display the product name and price dynamically -->
-                                <span class="card-text"><?php echo $productName; ?></span>
-                                <small class="text-muted">&#8369; <?php echo number_format($productPrice, 2); ?></small>
-                            </div>
-                        </div>
+                    <div class="card-body d-flex justify-content-between align-items-center">
+                      <!-- Display the product name and price dynamically -->
+                      <span class="card-text"><?php echo $productName; ?></span>
+                      <small class="text-muted">&#8369; <?php echo number_format($productPrice, 2); ?></small>
                     </div>
-                    <?php
-                }
+                  </div>
+                </div>
+            <?php
+              }
             } else {
-                echo "<p>No products available.</p>";
+              echo "<p>No products available.</p>";
             }
             ?>
-        </div>
+          </div>
 
           <br /><br />
-        <div id="add-ons-section" class="fs-6 menu-title">Add-ons</div>
+          <div id="add-ons-section" class="fs-6 menu-title">Add-ons</div>
           <hr />
           <div class="row row-cols-1 row-cols-sm-3 row-cols-md-3 row-cols-xl-4 g-3">
             <?php
@@ -202,42 +199,41 @@
 
             // Check if any products exist
             if (mysqli_num_rows($result) > 0) {
-                // Loop through each product and display it
-                while ($row = mysqli_fetch_assoc($result)) {
-                    /* $productImage = $row['product_img']; // Image filename from database */
-                    $productName = $row['product_name']; // Coffee name from database
-                    $productPrice = $row['price']; // Coffee price from database
-                    ?>
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <!-- Display the product image dynamically -->
-                            <img 
-                                src="img/<?php echo $row['product_img']; ?>" 
-                                class="bd-placeholder-img card-img-top" 
-                                width="100%" 
-                                height="225" 
-                                alt="Picture of <?php echo $productName; ?>" 
-                            />
-                            <img src="" alt="">
+              // Loop through each product and display it
+              while ($row = mysqli_fetch_assoc($result)) {
+                /* $productImage = $row['product_img']; // Image filename from database */
+                $productName = $row['product_name']; // Coffee name from database
+                $productPrice = $row['price']; // Coffee price from database
+            ?>
+                <div class="col">
+                  <div class="card shadow-sm">
+                    <!-- Display the product image dynamically -->
+                    <img
+                      src="img/<?php echo $row['product_img']; ?>"
+                      class="bd-placeholder-img card-img-top"
+                      width="100%"
+                      height="225"
+                      alt="Picture of <?php echo $productName; ?>" />
+                    <img src="" alt="">
 
 
-                            <div class="card-body d-flex justify-content-between align-items-center">
-                                <!-- Display the product name and price dynamically -->
-                                <span class="card-text"><?php echo $productName; ?></span>
-                                <small class="text-muted">&#8369; <?php echo number_format($productPrice, 2); ?></small>
-                            </div>
-                        </div>
+                    <div class="card-body d-flex justify-content-between align-items-center">
+                      <!-- Display the product name and price dynamically -->
+                      <span class="card-text"><?php echo $productName; ?></span>
+                      <small class="text-muted">&#8369; <?php echo number_format($productPrice, 2); ?></small>
                     </div>
-                    <?php
-                }
+                  </div>
+                </div>
+            <?php
+              }
             } else {
-                echo "<p>No products available.</p>";
+              echo "<p>No products available.</p>";
             }
             ?>
-        </div>
+          </div>
 
           <br /><br />
-        <div id="food-section" class="fs-6 menu-title">Food</div>
+          <div id="food-section" class="fs-6 menu-title">Food</div>
           <hr />
 
           <div class="row row-cols-1 row-cols-sm-3 row-cols-md-3 row-cols-xl-4 g-3">
@@ -250,43 +246,56 @@
 
             // Check if any products exist
             if (mysqli_num_rows($result) > 0) {
-                // Loop through each product and display it
-                while ($row = mysqli_fetch_assoc($result)) {
-                    /* $productImage = $row['product_img']; // Image filename from database */
-                    $productName = $row['product_name']; // Coffee name from database
-                    $productPrice = $row['price']; // Coffee price from database
-                    ?>
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <!-- Display the product image dynamically -->
-                            <img 
-                                src="img/<?php echo $row['product_img']; ?>" 
-                                class="bd-placeholder-img card-img-top" 
-                                width="100%" 
-                                height="225" 
-                                alt="Picture of <?php echo $productName; ?>" 
-                            />
-                            <img src="" alt="">
+              // Loop through each product and display it
+              while ($row = mysqli_fetch_assoc($result)) {
+                /* $productImage = $row['product_img']; // Image filename from database */
+                $productName = $row['product_name']; // Coffee name from database
+                $productPrice = $row['price']; // Coffee price from database
+            ?>
+                <div class="col">
+                  <div class="card shadow-sm">
+                    <!-- Display the product image dynamically -->
+                    <img
+                      src="img/<?php echo $row['product_img']; ?>"
+                      class="bd-placeholder-img card-img-top"
+                      width="100%"
+                      height="225"
+                      alt="Picture of <?php echo $productName; ?>" />
+                    <img src="" alt="">
 
 
-                            <div class="card-body d-flex justify-content-between align-items-center">
-                                <!-- Display the product name and price dynamically -->
-                                <span class="card-text"><?php echo $productName; ?></span>
-                                <small class="text-muted">&#8369; <?php echo number_format($productPrice, 2); ?></small>
-                            </div>
-                        </div>
+                    <div class="card-body d-flex justify-content-between align-items-center">
+                      <!-- Display the product name and price dynamically -->
+                      <span class="card-text"><?php echo $productName; ?></span>
+                      <small class="text-muted">&#8369; <?php echo number_format($productPrice, 2); ?></small>
                     </div>
-                    <?php
-                }
+                  </div>
+                </div>
+            <?php
+              }
             } else {
-                echo "<p>No products available.</p>";
+              echo "<p>No products available.</p>";
             }
             ?>
-        </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
+
+  <footer class="bg-dark text-light py-4 footer d-flex align-items-center">
+    <div class="container">
+      <div class="text-start ps-0">
+        &copy; 2025 Eli Coffee. All rights reserved.
+      </div>
+    </div>
+    <div class="container mx-auto d-flex justify-content-end gap-2">
+      <!-- Facebook -->
+      <a class="btn btn-outline-light btn-floating" href="https://www.facebook.com/elicoffeeph" target="_blank" role="button"><i class="fab fa-facebook-f"></i></a>
+      <!-- Instagram -->
+      <a class="btn btn-outline-light btn-floating" href="https://www.instagram.com/elicoffeeph/" target="_blank" role="button"><i class="fab fa-instagram"></i></a>
+    </div>
+  </footer>
 
   <div class="form_container">
     <i class="uil uil-times form_close"></i>

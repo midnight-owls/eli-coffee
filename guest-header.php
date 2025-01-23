@@ -1,5 +1,5 @@
 <?php
-  require("signup-connection.php");
+require("signup-connection.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,10 +21,10 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/index.css" />
   <link rel="stylesheet" href="css/guest-events.css" />
   <link rel="stylesheet" href="css/menu.css" />
   <link rel="stylesheet" href="css/admin-signup.css">
+  <link rel="stylesheet" href="css/index.css" />
 
   <script>
     // Toggle forms
@@ -112,23 +112,18 @@
         <a href="#">
           <button
             type="button"
-            class="btn btn-outline-secondary rounded-pill me-2 btn-sign-up">
-            Sign Up
-          </button>
-        </a>
-        <a href="#">
-          <button
-            type="button"
-            class="btn btn-outline-secondary rounded-pill me-2 btn-sign-in">
-            Log In
+            class="btn btn-primary btn-sign-in me-2">
+            Sign In
           </button>
         </a>
       </div>
     </div>
   </nav>
 
-   <!-- Sign In / Sign Up -->
-   <form id="signup-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <form id="signup-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         <h2>Sign Up!</h2>
         <label for="">Email:</label><br>
         <input type="email" name="email"><br>
@@ -138,95 +133,94 @@
         <input type="password" name="confirm_password"><br>
         <input type="submit" name="submit" id="" value="Register">
         <div class="signup">
-        Already have an account?
-        <a href="javascript:void(0)" onclick="toggleForm(false)" style="text-decoration: none">Login</a>
-      </div>
-    </form>
+          Already have an account?
+          <a href="javascript:void(0)" onclick="toggleForm(false)" style="text-decoration: none">Login</a>
+        </div>
+      </form>
 
-    
-  <form id="login-form" action="login.php" method="post">
+      <form id="login-form" action="login.php" method="post" style="display: none;">
         <h2>Welcome to Eli Coffee!</h2>
         <label for="">Email:</label><br>
         <input type="email" name="log_email"><br>
         <label for="">Password:</label><br>
         <input type="password" name="log_password"><br>
-          <a href="#" class="forgot_pw" style="text-decoration: none">
-            Forgot password</a
-          >
+        <a href="#" class="forgot_pw" style="text-decoration: none">Forgot password</a>
         <input type="submit" name="submit" id="" value="Log In">
         <div class="signup">
-        Don't have an account?
-        <a href="javascript:void(0)" onclick="toggleForm(true)" style="text-decoration: none">Signup</a>
-      </div>
-    </form>
+          Don't have an account?
+          <a href="javascript:void(0)" onclick="toggleForm(true)" style="text-decoration: none">Signup</a>
+        </div>
+      </form>
+    </div>
+  </div>
 </body>
 
 </html>
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    // Sanitize inputs
-    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
-    $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_SPECIAL_CHARS);
-    $confirm_password = filter_input(INPUT_POST, 'confirm_password', FILTER_SANITIZE_SPECIAL_CHARS);
+  // Sanitize inputs
+  $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+  $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_SPECIAL_CHARS);
+  $confirm_password = filter_input(INPUT_POST, 'confirm_password', FILTER_SANITIZE_SPECIAL_CHARS);
 
-    // Check if email and passwords are not empty and if passwords match
-    if (empty($email)) {
-        echo "<script>alert('Please enter an email.');</script>";
-    } elseif (empty($password)) {
-        echo "<script>alert('Please enter a password.');</script>";
-    } elseif (empty($confirm_password)) {
-        echo "<script>alert('Please confirm your password.');</script>";
-    } elseif ($password !== $confirm_password) {
-        echo "<script>alert('Passwords do not match.');</script>";
-    } else {
-        // Check if the email already exists in the database
-        $check_query = "SELECT * FROM users WHERE email = ?";
-        if ($stmt = mysqli_prepare($conn, $check_query)) {
-            // Bind the email parameter
-            mysqli_stmt_bind_param($stmt, "s", $email);
+  // Check if email and passwords are not empty and if passwords match
+  if (empty($email)) {
+    echo "<script>alert('Please enter an email.');</script>";
+  } elseif (empty($password)) {
+    echo "<script>alert('Please enter a password.');</script>";
+  } elseif (empty($confirm_password)) {
+    echo "<script>alert('Please confirm your password.');</script>";
+  } elseif ($password !== $confirm_password) {
+    echo "<script>alert('Passwords do not match.');</script>";
+  } else {
+    // Check if the email already exists in the database
+    $check_query = "SELECT * FROM users WHERE email = ?";
+    if ($stmt = mysqli_prepare($conn, $check_query)) {
+      // Bind the email parameter
+      mysqli_stmt_bind_param($stmt, "s", $email);
 
-            // Execute the query
-            mysqli_stmt_execute($stmt);
+      // Execute the query
+      mysqli_stmt_execute($stmt);
 
-            // Store the result
-            mysqli_stmt_store_result($stmt);
+      // Store the result
+      mysqli_stmt_store_result($stmt);
 
-            // Check if any rows were returned
-            if (mysqli_stmt_num_rows($stmt) > 0) {
-                echo "<script>alert('This email is already registered. Please use a different email.');</script>";
-            } else {
-                // If email is unique, proceed with the registration
-                $hashed_password = password_hash($password, PASSWORD_BCRYPT);
-                $query = "INSERT INTO users (email, password) VALUES (?, ?)";
+      // Check if any rows were returned
+      if (mysqli_stmt_num_rows($stmt) > 0) {
+        echo "<script>alert('This email is already registered. Please use a different email.');</script>";
+      } else {
+        // If email is unique, proceed with the registration
+        $hashed_password = password_hash($password, PASSWORD_BCRYPT);
+        $query = "INSERT INTO users (email, password) VALUES (?, ?)";
 
-                // Prepare the statement
-                if ($insert_stmt = mysqli_prepare($conn, $query)) {
-                    // Bind parameters
-                    mysqli_stmt_bind_param($insert_stmt, "ss", $email, $hashed_password);
+        // Prepare the statement
+        if ($insert_stmt = mysqli_prepare($conn, $query)) {
+          // Bind parameters
+          mysqli_stmt_bind_param($insert_stmt, "ss", $email, $hashed_password);
 
-                    // Execute the query
-                    if (mysqli_stmt_execute($insert_stmt)) {
-                        echo "<script>alert('You are now registered!'); window.location.href='index.php';</script>";
-                    } else {
-                        echo "<script>alert('Error: Could not execute the query.');</script>";
-                    }
+          // Execute the query
+          if (mysqli_stmt_execute($insert_stmt)) {
+            echo "<script>alert('You are now registered!'); window.location.href='index.php';</script>";
+          } else {
+            echo "<script>alert('Error: Could not execute the query.');</script>";
+          }
 
-                    // Close the insert statement
-                    mysqli_stmt_close($insert_stmt);
-                } else {
-                    echo "<script>alert('Error: Could not prepare the SQL query.');</script>";
-                }
-            }
-
-            // Close the check statement
-            mysqli_stmt_close($stmt);
+          // Close the insert statement
+          mysqli_stmt_close($insert_stmt);
         } else {
-            echo "<script>alert('Error: Could not prepare the email check query.');</script>";
+          echo "<script>alert('Error: Could not prepare the SQL query.');</script>";
         }
-    }
+      }
 
-    // Close the database connection
-    mysqli_close($conn);
+      // Close the check statement
+      mysqli_stmt_close($stmt);
+    } else {
+      echo "<script>alert('Error: Could not prepare the email check query.');</script>";
+    }
+  }
+
+  // Close the database connection
+  mysqli_close($conn);
 }
 ?>

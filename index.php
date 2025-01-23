@@ -1,4 +1,3 @@
-
 <?php include("guest-header.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,8 +10,6 @@
 </head>
 
 <body>
- 
-    
   <!-- Home Page Content -->
   <div class="container-fluid d-flex flex-column vh-100">
     <!-- Top Half -->
@@ -25,7 +22,7 @@
         </h1>
         <a
           href="guest-menu.php"
-          class="btn btn-primary rounded-pill mt-4 order-now align-self-center">Order Now</a>
+          class="btn btn-primary rounded-pill mt-4 py-2 order-now align-self-center" style="width: auto;">Check our menu</a>
       </div>
 
       <div class="col-md-6 d-flex justify-content-center align-items-center">
@@ -66,46 +63,17 @@
     </div>
   </div>
 
-  <footer class="bg-dark text-light py-4 footer">
+  <footer class="bg-dark text-light py-4 footer d-flex align-items-center">
     <div class="container">
-      <div class="row">
-        <!-- Contact Us -->
-        <div class="col-md-4">
-          <h6>Contact Us</h6>
-          <p><strong>Eli Coffee</strong></p>
-          <p>2nd Floor Pearl Building, Binangonan, Philippines</p>
-          <p><strong>Phone:</strong> 0917 562 0306</p>
-          <p><strong>Email:</strong> <a href="mailto:elicoffeetea@gmail.com" class="text-light text-decoration-none">elicoffeetea@gmail.com</a></p>
-        </div>
-
-        <!-- About Us -->
-        <div class="col-md-4 text-center">
-          <h6>About Us</h6>
-          <ul class="list-unstyled">
-            <li><a href="#" class="text-light text-decoration-none">Our Company</a></li>
-            <li><a href="#" class="text-light text-decoration-none">Stories and News</a></li>
-            <li><a href="#" class="text-light text-decoration-none">Customer Service</a></li>
-          </ul>
-        </div>
-
-        <!-- Opening Hours -->
-        <div class="col-md-4 text-end">
-          <h6>Opening Hours</h6>
-          <ul class="list-unstyled">
-            <li><strong>Monday:</strong> 7:00 am - 5:00 pm</li>
-            <li><strong>Tuesday:</strong> 7:00 am - 5:00 pm</li>
-            <li><strong>Wednesday:</strong> 7:00 am - 5:00 pm</li>
-            <li><strong>Thursday:</strong> 7:00 am - 5:00 pm</li>
-            <li><strong>Friday:</strong> 7:00 am - 5:00 pm</li>
-            <li><strong>Saturday:</strong> 8:00 am - 2:00 pm</li>
-          </ul>
-        </div>
+      <div class="text-start ps-0">
+        &copy; 2025 Eli Coffee. All rights reserved.
       </div>
-      <div class="row">
-        <div class="col text-center">
-          <p class="mb-0">&copy; 2025 Eli Coffee. All rights reserved.</p>
-        </div>
-      </div>
+    </div>
+    <div class="container mx-auto d-flex justify-content-end gap-2">
+      <!-- Facebook -->
+      <a class="btn btn-outline-light btn-floating" href="https://www.facebook.com/elicoffeeph" target="_blank" role="button"><i class="fab fa-facebook-f"></i></a>
+      <!-- Instagram -->
+      <a class="btn btn-outline-light btn-floating" href="https://www.instagram.com/elicoffeeph/" target="_blank" role="button"><i class="fab fa-instagram"></i></a>
     </div>
   </footer>
 
@@ -117,4 +85,3 @@
 </body>
 
 </html>
-
