@@ -137,7 +137,6 @@ if ($row = $result->fetch_assoc()) {
                                         <!-- Display the product name dynamically -->
                                         <p class="card-text"><?php echo $productName; ?></p>
                                         <!-- View and Edit buttons -->
-                                        <button class="btn btn-primary" id="view-btn-<?php echo $row['id']; ?>">View</button>
                                         <button 
                                             class="ediButton btn btn-secondary" 
                                             id="edit-btn-<?php echo $row['id']; ?>" 
@@ -162,12 +161,8 @@ if ($row = $result->fetch_assoc()) {
                             <p class="menu-name" style="font-size: 12px; color: #333; right: 40px;">Add Product</p>
                         </div>
                     </div>
-
-
-
-                       
-                    </div>
-                    
+                </div>
+    
                     <div id="popup-form" class="popup-form">
                         <div class="popup-content">
                             <span class="x-btn-view">&times;</span>
@@ -214,7 +209,6 @@ if ($row = $result->fetch_assoc()) {
                                         <!-- Display the product name dynamically -->
                                         <p class="card-text"><?php echo $productName; ?></p>
                                         <!-- View and Edit buttons -->
-                                        <button class="btn btn-primary" id="view-btn-<?php echo $row['id']; ?>">View</button>
                                         <button 
                                             class="ediButton btn btn-secondary" 
                                             id="edit-btn-<?php echo $row['id']; ?>" 
@@ -261,7 +255,6 @@ if ($row = $result->fetch_assoc()) {
                                         <!-- Display the product name dynamically -->
                                         <p class="card-text"><?php echo $productName; ?></p>
                                         <!-- View and Edit buttons -->
-                                        <button class="btn btn-primary" id="view-btn-<?php echo $row['id']; ?>">View</button>
                                         <button 
                                             class="ediButton btn btn-secondary" 
                                             id="edit-btn-<?php echo $row['id']; ?>" 
@@ -308,7 +301,6 @@ if ($row = $result->fetch_assoc()) {
                                         <!-- Display the product name dynamically -->
                                         <p class="card-text"><?php echo $productName; ?></p>
                                         <!-- View and Edit buttons -->
-                                        <button class="btn btn-primary" id="view-btn-<?php echo $row['id']; ?>">View</button>
                                         <button 
                                             class="ediButton btn btn-secondary" 
                                             id="edit-btn-<?php echo $row['id']; ?>" 
@@ -355,7 +347,6 @@ if ($row = $result->fetch_assoc()) {
                                         <!-- Display the product name dynamically -->
                                         <p class="card-text"><?php echo $productName; ?></p>
                                         <!-- View and Edit buttons -->
-                                        <button class="btn btn-primary" id="view-btn-<?php echo $row['id']; ?>">View</button>
                                         <button 
                                             class="ediButton btn btn-secondary" 
                                             id="edit-btn-<?php echo $row['id']; ?>" 
