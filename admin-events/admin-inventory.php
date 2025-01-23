@@ -156,12 +156,14 @@ if ($row = $result->fetch_assoc()) {
                     ?>
 
                     <!-- add button -->
-                    <div class="add-menu-container">
+                    <div class="add-menu-container" style="position: fixed; bottom: 10px; right: 10px; z-index: 1000;">
                         <div>
-                            <img src="../assets/add-square-removebg-preview.png" alt="" class="img-fluid add-menu" id="add-menu" style="position: absolute; right: 10px; top:70px; height: 50px; width: 50px;"> 
-                            <p class="menu-name" style="position: absolute; top: 90px; right: 70px; font-size: 12px; color: #333;">Add Product</p>
+                            <img src="../assets/add-square-removebg-preview.png" alt="" class="img-fluid add-menu" id="add-menu" style="height: 50px; width: 50px;"> 
+                            <p class="menu-name" style="font-size: 12px; color: #333; right: 40px;">Add Product</p>
                         </div>
                     </div>
+
+
 
                        
                     </div>
