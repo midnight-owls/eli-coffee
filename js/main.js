@@ -1,34 +1,32 @@
-document.addEventListener("DOMContentLoaded", function () {
-  // Get elements
-  const btnSignUp = document.querySelector(".btn-sign-up"); // Sign Up button
-  const btnSignIn = document.querySelector(".btn-sign-in"); // Log In button
-  const loginForm = document.querySelector("form:nth-of-type(2)"); // Log In form
-  const registerForm = document.querySelector("form:nth-of-type(1)"); // Sign Up form
-
-  // Initially hide both forms
-  loginForm.style.display = "none";
-  registerForm.style.display = "none";
-
-  // Sign Up Button Click Event
-  btnSignUp.addEventListener("click", function (event) {
-    event.preventDefault(); // Prevent default link behavior
-    registerForm.style.display = "block"; // Show the Sign Up form
-    loginForm.style.display = "none"; // Hide the Log In form
-  });
-
-  // Log In Button Click Event
-  btnSignIn.addEventListener("click", function (event) {
-    event.preventDefault(); // Prevent default link behavior
-    loginForm.style.display = "block"; // Show the Log In form
-    registerForm.style.display = "none"; // Hide the Sign Up form
-  });
-
-  // Optional: Add functionality to close forms (if needed)
-  const closeButtons = document.querySelectorAll(".form_close"); // If you have close buttons
-  closeButtons.forEach((closeButton) => {
-    closeButton.addEventListener("click", function () {
-      loginForm.style.display = "none"; // Hide Log In form
-      registerForm.style.display = "none"; // Hide Sign Up form
-    });
-  });
+document.querySelector(".btn-sign-in").addEventListener("click", function () {
+  // Show the modal
+  document.getElementById("modal").style.display = "block";
+  
+  // Show the login form and hide the signup form by default
+  toggleForm(false); // false indicates to show the login form
 });
+
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
+}
+
+function toggleForm(isSignup) {
+  const signupForm = document.getElementById("signup-form");
+  const loginForm = document.getElementById("login-form");
+
+  if (isSignup) {
+    signupForm.style.display = "block";
+    loginForm.style.display = "none";
+  } else {
+    signupForm.style.display = "none";
+    loginForm.style.display = "block";
+  }
+}
+
+// Close the modal when clicking outside of the modal content
+window.onclick = function (event) {
+  const modal = document.getElementById("modal");
+  if (event.target == modal) {
+    closeModal();
+  }
+};

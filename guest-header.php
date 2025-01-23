@@ -121,37 +121,35 @@ require("signup-connection.php");
   </nav>
 
   <div id="modal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal()">&times;</span>
-      <form id="signup-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-        <h2>Sign Up!</h2>
-        <label for="">Email:</label><br>
-        <input type="email" name="email"><br>
-        <label for="">Password:</label><br>
-        <input type="password" name="password"><br>
-        <label for="">Confirm Password:</label><br>
-        <input type="password" name="confirm_password"><br>
-        <input type="submit" name="submit" id="" value="Register">
-        <div class="signup">
-          Already have an account?
-          <a href="javascript:void(0)" onclick="toggleForm(false)" style="text-decoration: none">Login</a>
-        </div>
-      </form>
+    <span class="close" onclick="closeModal()">&times;</span>
+    <form id="signup-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" style="display: none;">
+      <h2>Sign Up!</h2>
+      <label for="">Email:</label>
+      <input type="email" name="email"><br>
+      <label for="">Password:</label>
+      <input type="password" name="password"><br>
+      <label for="">Confirm Password:</label>
+      <input type="password" name="confirm_password"><br>
+      <input type="submit" name="submit" id="" value="Register">
+      <div class="signup">
+        Already have an account?
+        <a href="javascript:void(0)" onclick="toggleForm(false)" style="text-decoration: none">Login</a>
+      </div>
+    </form>
 
-      <form id="login-form" action="login.php" method="post" style="display: none;">
-        <h2>Welcome to Eli Coffee!</h2>
-        <label for="">Email:</label><br>
-        <input type="email" name="log_email"><br>
-        <label for="">Password:</label><br>
-        <input type="password" name="log_password"><br>
-        <a href="#" class="forgot_pw" style="text-decoration: none">Forgot password</a>
-        <input type="submit" name="submit" id="" value="Log In">
-        <div class="signup">
-          Don't have an account?
-          <a href="javascript:void(0)" onclick="toggleForm(true)" style="text-decoration: none">Signup</a>
-        </div>
-      </form>
-    </div>
+    <form id="login-form" action="login.php" method="post">
+      <h2>Welcome to Eli Coffee!</h2>
+      <label for="">Email:</label>
+      <input type="email" name="log_email"><br>
+      <label for="">Password:</label>
+      <input type="password" name="log_password"><br>
+      <a href="#" class="forgot_pw" style="text-decoration: none">Forgot password</a>
+      <input type="submit" name="submit" id="" value="Log In">
+      <div class="signup">
+        Don't have an account?
+        <a href="javascript:void(0)" onclick="toggleForm(true)" style="text-decoration: none">Signup</a>
+      </div>
+    </form>
   </div>
 </body>
 
