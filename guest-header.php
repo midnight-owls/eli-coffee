@@ -25,6 +25,7 @@ require("signup-connection.php");
   <link rel="stylesheet" href="css/menu.css" />
   <link rel="stylesheet" href="css/admin-signup.css">
   <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" href="css/override.css" />
 
   <script>
     // Toggle forms
@@ -109,45 +110,53 @@ require("signup-connection.php");
         </ul>
       </div>
       <div class="navbar-right ms-auto d-flex align-items-center">
-        <a href="#">
-          <button
-            type="button"
-            class="btn btn-primary btn-sign-in me-2">
-            Sign In
-          </button>
-        </a>
-      </div>
+  <button
+    type="button"
+    class="btn btn-primary btn-sign-in me-2"
+    data-bs-toggle="modal"
+    data-bs-target="#modal"
+    onclick="toggleForm(false)">
+    Sign In
+  </button>
+  <button
+    type="button"
+    class="btn btn-primary btn-sign-up me-2"
+    data-bs-toggle="modal"
+    data-bs-target="#modal"
+    onclick="toggleForm(true)">
+    Sign Up
+  </button>
+</div>
     </div>
   </nav>
 
   <div id="modal" class="modal">
-    <span class="close" onclick="closeModal()">&times;</span>
     <form id="signup-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" style="display: none;">
-      <h2>Sign Up!</h2>
+      <h2>Create an account</h2>
       <label for="">Email:</label>
       <input type="email" name="email"><br>
       <label for="">Password:</label>
       <input type="password" name="password"><br>
       <label for="">Confirm Password:</label>
       <input type="password" name="confirm_password"><br>
-      <input type="submit" name="submit" id="" value="Register">
+      <input type="submit" name="submit" id="" value="Sign Up">
       <div class="signup">
         Already have an account?
-        <a href="javascript:void(0)" onclick="toggleForm(false)" style="text-decoration: none">Login</a>
+        <a href="javascript:void(0)" onclick="toggleForm(false)" style="text-decoration: none">Sign In</a>
       </div>
     </form>
 
     <form id="login-form" action="login.php" method="post">
-      <h2>Welcome to Eli Coffee!</h2>
+      <h2>Welcome back</h2>
       <label for="">Email:</label>
       <input type="email" name="log_email"><br>
       <label for="">Password:</label>
       <input type="password" name="log_password"><br>
-      <a href="#" class="forgot_pw" style="text-decoration: none">Forgot password</a>
+      <a href="forgot-password.php" class="forgot_pw" style="text-decoration: none">Forgot password</a>
       <input type="submit" name="submit" id="" value="Log In">
       <div class="signup">
         Don't have an account?
-        <a href="javascript:void(0)" onclick="toggleForm(true)" style="text-decoration: none">Signup</a>
+        <a href="javascript:void(0)" onclick="toggleForm(true)" style="text-decoration: none">Sign Up</a>
       </div>
     </form>
   </div>

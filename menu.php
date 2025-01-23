@@ -303,14 +303,38 @@
   </div>
 
   <div class="cart_container">
-    <button class="btn btn-close cart_close"></button>
-    <h2 style="text-align: center">Your Cart</h2>
+    <div class="cart_close">
+      <button class="btn btn-close"></button>
+    </div>
+    <h2 style="text-align: center" id="cart_header">Your Cart</h2>
     <div class="cart_items" style="margin-left: 10px" id="cart_items">
 
     </div>
-    <p id="cart-total" style="margin-left: 10px">Total: ₱0.00</p>
-    <div class="cart_footer">
-      <button class="button btn-danger clear-cart">Clear Cart</button>
+    <p id="cart-total" style="margin-left: 10px" class="mb-4">Total: ₱0.00</p>
+    <div class="cart_footer d-flex justify-content-between dropdown">
+      <button class="button btn-danger" style="width: auto;" data-bs-toggle="dropdown">Payment method
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="bi bi-chevron-down"
+          viewBox="0 0 16 16">
+          <path
+            fill-rule="evenodd"
+            d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708" />
+        </svg>
+      </button>
+      <ul class="dropdown-menu">
+        <li>
+          <a class="dropdown-item" href="#">Cash on delivery</a>
+        </li>
+        <li>
+          <a class="dropdown-item" href="#">GCash</a>
+        </li>
+        <li>
+          <a class="dropdown-item" href="#">Maya</a>
+        </li>
+      </ul>
+
+      <button class="button btn-danger clear-cart">Clear cart</button>
       <button class="button btn-danger checkout">Checkout</button>
     </div>
   </div>

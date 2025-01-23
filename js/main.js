@@ -1,9 +1,15 @@
 document.querySelector(".btn-sign-in").addEventListener("click", function () {
   // Show the modal
   document.getElementById("modal").style.display = "block";
-  
+
   // Show the login form and hide the signup form by default
   toggleForm(false); // false indicates to show the login form
+});
+
+document.querySelector(".btn-sign-up").addEventListener("click", function () {
+  // Show the modal
+  document.getElementById("modal").style.display = "block";
+  toggleForm(true);
 });
 
 function closeModal() {
@@ -30,3 +36,9 @@ window.onclick = function (event) {
     closeModal();
   }
 };
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    closeModal();
+  }
+});

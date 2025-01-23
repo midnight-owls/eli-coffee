@@ -407,3 +407,25 @@ img.img-fluid.me-3 {
   display: none;
 }
 
+p {
+  margin: 0;
+}
+
+.cart-item {
+  display: flex;
+  text-align: right;
+}
+
+#cart-total {
+  display: flex;
+  justify-content: end;
+}
+
+.cart_close {
+  display: flex;
+  justify-content: end;
+}
+
+#cart_header {
+  margin-top: -26px !important;
+}
