@@ -22,8 +22,8 @@
   <link rel="stylesheet" href="css/events.css" />
   <link rel="stylesheet" href="css/about-us.css" />
   <link rel="stylesheet" href="css/menu.css" />
-  <link rel="stylesheet" href="css/home.css" />
   <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" href="css/home.css" />
   <link rel="stylesheet" href="css/cart.css" />
 </head>
 
@@ -91,14 +91,23 @@
         </ul>
       </div>
       <div class="navbar-right d-flex align-items-center me-2">
-        <a href="index.php">
+      <a href="index.php">
           <button type="button" class="btn btn-primary btn-sign-in">
             Sign Out
           </button>
         </a>
-      </div>
+      <a href="edit-profile.php">
+          <button type="button" class="btn btn-primary btn-sign-in">
+            Edit Profile
+          </button>
+        </a>
     </div>
   </nav>
+
+
+ 
+
 </body>
 
 </html>
+
