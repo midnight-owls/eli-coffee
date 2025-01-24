@@ -132,6 +132,9 @@ require("signup-connection.php");
 
   <div id="modal" class="modal">
     <form id="signup-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" style="display: none;">
+    <div class="signup_close">
+      <button class="btn btn-close" onclick="closeModal()"></button>
+    </div>
       <h2>Create an account</h2>
       <label for="">Email:</label>
       <input type="email" name="email"><br>
@@ -147,6 +150,9 @@ require("signup-connection.php");
     </form>
 
     <form id="login-form" action="login.php" method="post">
+    <div class="cart_close">
+      <button class="btn btn-close" onclick="closeModal()"></button>
+    </div>
       <h2>Welcome back</h2>
       <label for="">Email:</label>
       <input type="email" name="log_email"><br>
