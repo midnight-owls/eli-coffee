@@ -9,9 +9,33 @@ require("database.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Profile</title>
     <link rel="stylesheet" href="css/home.css" />
+    <style>
+        .gender-options {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        #address {
+            width: 300px;
+            height: 100px;
+            resize: none;
+            overflow-y: auto;
+        }
+        form {
+            max-width: 350px;
+            margin: 0 auto;
+        }
+        .form-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+    </style>
 </head>
 <body>
-<h1>Edit or Add User Information</h1>
+<br>
+<h1>Add or Update User Information</h1>
+    <br>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
         <!-- First Name -->
         <label for="fname">First Name:</label>
@@ -27,23 +51,25 @@ require("database.php");
 
         <!-- Gender -->
         <label for="gender">Gender:</label>
-        <input type="radio" id="male" name="gender" value="Male" required>
-        <label for="male">Male</label>
-        <input type="radio" id="female" name="gender" value="Female" required>
-        <label for="female">Female</label>
-        <input type="radio" id="other" name="gender" value="Other" required>
-        <label for="other">Other</label><br><br>
+        <div class="gender-options">
+            <input type="radio" id="male" name="gender" value="Male" required>
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="Female" required>
+            <label for="female">Female</label>
+            <input type="radio" id="other" name="gender" value="Other" required>
+            <label for="other">Other</label>
+        </div><br>
 
         <!-- Address -->
         <label for="address">Address:</label>
-        <textarea id="address" name="address" placeholder="Enter Address" rows="4" required></textarea><br><br>
+        <textarea id="address" name="address" placeholder="Enter Address" required></textarea><br><br>
 
-        <!-- Submit Button -->
-        <button type="submit" name="submit">Submit</button>
-
-        <!-- Edit Button -->
-        <button type="submit" name="edit">Update</button>
-    </form>
+        <!-- Buttons -->
+        <div class="form-buttons">
+            <button type="submit" name="submit">Submit</button>
+            <button type="submit" name="edit">Update</button>
+        </div>
+    </form><br><br>
 
     <footer class="bg-dark text-light py-4 footer d-flex align-items-center">
     <div class="container">
