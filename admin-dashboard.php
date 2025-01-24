@@ -80,7 +80,7 @@ if ($suppliesResult === false) {
                 <img class="user-icon" src="assets/user-default-icon.png" width="30" />
             </a>
             <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item" href="#">Edit profile</a></li>
+                <li><a class="dropdown-item" href="admin-edit-profile.php">Edit profile</a></li>
                 <li><a class="dropdown-item" href="admin-signup.php">Sign out</a></li>
             </ul>
         </div>
